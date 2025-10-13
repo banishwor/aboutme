@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Room - Banishwor's Digital Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="devices.css/dist/devices.min.css">
+    <style>
+        .music-room-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .pro-display-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            padding: 2rem;
+        }
+        
+        .music-screen {
+            background: #000;
+            color: white;
+            padding: 0;
+            border-radius: 8px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .youtube-container {
+            flex: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .youtube-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 2rem 1rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .video-info {
+            flex: 1;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .video-artist {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .video-controls-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .play-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 16px;
+            font-size: 20px;
+        }
+        
+        .playlist-sidebar {
+            position: absolute;
+            right: -300px;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+        
+        .playlist-sidebar.open {
+            right: 0;
+        }
+        
+        .playlist-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        
+        .playlist-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .playlist-item.active {
+            background: rgba(102, 126, 234, 0.3);
+        }
+        
+        .playlist-thumbnail {
+            width: 60px;
+            height: 45px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        
+        .playlist-info {
+            flex: 1;
+        }
+        
+        .playlist-title {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+        
+        .playlist-artist {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+        
+        .remote-control-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 3rem;
+            gap: 2rem;
+        }
+        
+        .iphone-remote {
+            position: relative;
+            transform: scale(0.8);
+        }
+        
+        .remote-screen {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 8px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
+        
+        .remote-header {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .remote-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .remote-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+        
+        .remote-track-info {
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .remote-track-title {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .remote-track-artist {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+        }
+        
+        .remote-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 0 0.5rem;
+        }
+        
+        .remote-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 6px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            text-align: center;
+            min-height: 55px;
+            position: relative;
+        }
+        
+        .remote-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .remote-btn.active {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        
+        .remote-btn i {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+        
+        .remote-btn span {
+            display: block;
+            line-height: 1.1;
+        }
+        
+        .remote-btn.large {
+            grid-column: span 3;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            font-size: 0.75rem;
+            min-height: 65px;
+            margin: 0.5rem 0;
+            padding: 12px 8px;
+        }
+        
+        .remote-btn.large:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+        }
+        
+        .remote-btn.large i {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .remote-progress {
+            margin: 0.8rem 0;
+            padding: 0 0.5rem;
+        }
+        
+        .remote-progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .remote-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 35%;
+            border-radius: 2px;
+        }
+        
+        .remote-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.4rem;
+        }
+        
+        .remote-volume {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+            padding: 0 0.5rem;
+        }
+        
+        .remote-volume-slider {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .remote-volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .remote-mode-controls {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+            padding: 0 0.5rem;
+        }
+        
+        .mode-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            min-width: 60px;
+            justify-content: center;
+        }
+        
+        .mode-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mode-btn.active {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+        
+        .mode-btn i {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="loader">
+        <div id="loader-text">Tuning the frequencies...</div>
+        <div class="progress-bar"><div id="progress"></div></div>
+        <p class="text-xs text-slate-400">Preparing your musical journey...</p>
+    </div>
+
+    <canvas id="constellation-canvas"></canvas>
+    
+    <div class="content-wrapper music-room-bg">
+        <header class="shadow-sm sticky top-0 z-50 border-b border-default bg-white/10 backdrop-blur-md">
+            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-white">← Back to Portfolio</a>
+                <div class="flex items-center gap-4">
+                    <h1 class="text-xl font-bold text-white">🎵 Music Room</h1>
+                    <button id="theme-toggle" class="p-2 rounded-full text-white hover:bg-white/20">
+                        <i data-feather="moon" class="block dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container mx-auto px-6 py-16 md:py-24">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-white">🎵 Digital Music Studio</h1>
+                <p class="text-lg md:text-xl text-white/80">Experience music in the ultimate Pro Display XDR setup</p>
+            </div>
+
+            <!-- Pro Display XDR with YouTube Videos -->
+            <section class="pro-display-container">
+                <div class="device device-pro-display-xdr">
+                    <div class="device-frame">
+                        <div class="music-screen">
+                            <div class="youtube-container">
+                                <iframe 
+                                    id="youtube-player"
+                                    class="youtube-iframe"
+                                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1&modestbranding=1&rel=0&showinfo=0"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                                
+                                <button class="playlist-toggle" id="playlist-toggle">
+                                    <i data-feather="list"></i>
+                                </button>
+                                
+                                <div class="video-controls">
+                                    <div class="video-info">
+                                        <div class="video-title" id="current-title">Never Gonna Give You Up</div>
+                                        <div class="video-artist" id="current-artist">Rick Astley</div>
+                                    </div>
+                                    <div class="video-controls-buttons">
+                                        <button class="control-btn" id="prev-btn">
+                                            <i data-feather="skip-back"></i>
+                                        </button>
+                                        <button class="control-btn play-btn" id="play-btn">
+                                            <i data-feather="play"></i>
+                                        </button>
+                                        <button class="control-btn" id="next-btn">
+                                            <i data-feather="skip-forward"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="playlist-sidebar" id="playlist-sidebar">
+                                    <h3 class="text-lg font-semibold mb-4 text-white">🎵 Music Playlist</h3>
+                                    <div class="playlist-item active" data-video="dQw4w9WgXcQ" data-title="Never Gonna Give You Up" data-artist="Rick Astley">
+                                        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/mqdefault.jpg" alt="Never Gonna Give You Up" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">Never Gonna Give You Up</div>
+                                            <div class="playlist-artist">Rick Astley</div>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-item" data-video="9bZkp7q19f0" data-title="PSY - GANGNAM STYLE" data-artist="PSY">
+                                        <img src="https://img.youtube.com/vi/9bZkp7q19f0/mqdefault.jpg" alt="Gangnam Style" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">GANGNAM STYLE</div>
+                                            <div class="playlist-artist">PSY</div>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-item" data-video="kJQP7kiw5Fk" data-title="Despacito" data-artist="Luis Fonsi ft. Daddy Yankee">
+                                        <img src="https://img.youtube.com/vi/kJQP7kiw5Fk/mqdefault.jpg" alt="Despacito" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">Despacito</div>
+                                            <div class="playlist-artist">Luis Fonsi ft. Daddy Yankee</div>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-item" data-video="YQHsXMglC9A" data-title="Hello" data-artist="Adele">
+                                        <img src="https://img.youtube.com/vi/YQHsXMglC9A/mqdefault.jpg" alt="Hello" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">Hello</div>
+                                            <div class="playlist-artist">Adele</div>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-item" data-video="hT_nvWreIhg" data-title="The Weeknd - Blinding Lights" data-artist="The Weeknd">
+                                        <img src="https://img.youtube.com/vi/hT_nvWreIhg/mqdefault.jpg" alt="Blinding Lights" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">Blinding Lights</div>
+                                            <div class="playlist-artist">The Weeknd</div>
+                                        </div>
+                                    </div>
+                                    <div class="playlist-item" data-video="JGwWNGJdvx8" data-title="Shape of You" data-artist="Ed Sheeran">
+                                        <img src="https://img.youtube.com/vi/JGwWNGJdvx8/mqdefault.jpg" alt="Shape of You" class="playlist-thumbnail">
+                                        <div class="playlist-info">
+                                            <div class="playlist-title">Shape of You</div>
+                                            <div class="playlist-artist">Ed Sheeran</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="device-stripe"></div>
+                    <div class="device-header"></div>
+                    <div class="device-sensors"></div>
+                    <div class="device-btns"></div>
+                    <div class="device-power"></div>
+                    <div class="device-home"></div>
+                </div>
+            </section>
+
+            <!-- iPhone 14 Pro Remote Control -->
+            <section class="remote-control-section">
+                <div class="iphone-remote">
+                    <div class="device device-iphone-14-pro">
+                        <div class="device-frame">
+                            <div class="remote-screen">
+                                <div class="remote-header">
+                                    <div class="remote-title">🎵 Music Remote</div>
+                                    <div class="remote-subtitle">Control your Pro Display XDR</div>
+                                </div>
+                                
+                                <div class="remote-track-info">
+                                    <div class="remote-track-title" id="remote-track-title">Never Gonna Give You Up</div>
+                                    <div class="remote-track-artist" id="remote-track-artist">Rick Astley</div>
+                                </div>
+                                
+                                <div class="remote-progress">
+                                    <div class="remote-progress-bar">
+                                        <div class="remote-progress-fill" id="remote-progress-fill"></div>
+                                    </div>
+                                    <div class="remote-time">
+                                        <span id="remote-current-time">1:23</span>
+                                        <span id="remote-total-time">3:45</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="remote-controls">
+                                    <button class="remote-btn" id="remote-shuffle" title="Shuffle">
+                                        <i data-feather="shuffle"></i>
+                                        <span>Shuffle</span>
+                                    </button>
+                                    <button class="remote-btn" id="remote-prev" title="Previous">
+                                        <i data-feather="skip-back"></i>
+                                        <span>Prev</span>
+                                    </button>
+                                    <button class="remote-btn" id="remote-backward" title="Backward 10s">
+                                        <i data-feather="rotate-ccw"></i>
+                                        <span>-10s</span>
+                                    </button>
+                                    
+                                    <button class="remote-btn large" id="remote-play-pause" title="Play/Pause">
+                                        <i data-feather="play"></i>
+                                        <span>Play/Pause</span>
+                                    </button>
+                                    <button class="remote-btn" id="remote-forward" title="Forward 10s">
+                                        <i data-feather="rotate-cw"></i>
+                                        <span>+10s</span>
+                                    </button>
+                                    
+                                    <button class="remote-btn" id="remote-next" title="Next">
+                                        <i data-feather="skip-forward"></i>
+                                        <span>Next</span>
+                                    </button>
+                                    <button class="remote-btn" id="remote-loop" title="Loop">
+                                        <i data-feather="repeat"></i>
+                                        <span>Loop</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="remote-volume">
+                                    <i data-feather="volume-2" class="text-white/70"></i>
+                                    <input type="range" class="remote-volume-slider" id="remote-volume" min="0" max="100" value="75">
+                                    <i data-feather="volume-x" class="text-white/70"></i>
+                                </div>
+                                
+                                <div class="remote-mode-controls">
+                                    <button class="mode-btn" id="remote-playlist-btn">
+                                        <i data-feather="list"></i>
+                                        <span>Playlist</span>
+                                    </button>
+                                    <button class="mode-btn" id="remote-fullscreen-btn">
+                                        <i data-feather="maximize"></i>
+                                        <span>Fullscreen</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="device-stripe"></div>
+                        <div class="device-header"></div>
+                        <div class="device-sensors"></div>
+                        <div class="device-btns"></div>
+                        <div class="device-power"></div>
+                        <div class="device-home"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Music Features -->
+            <section class="mt-16">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card bg-white/10 backdrop-blur-md border-white/20">
+                        <div class="p-6 text-white">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-purple-500/20 p-3 rounded-full">
+                                    <i data-feather="music" class="text-purple-300"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Music Production</h3>
+                            </div>
+                            <p class="text-white/80">Professional music production setup with high-quality audio interfaces and studio monitors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white/10 backdrop-blur-md border-white/20">
+                        <div class="p-6 text-white">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-blue-500/20 p-3 rounded-full">
+                                    <i data-feather="headphones" class="text-blue-300"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Audio Engineering</h3>
+                            </div>
+                            <p class="text-white/80">Advanced audio processing and mixing capabilities with professional-grade equipment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-white/10 backdrop-blur-md border-white/20">
+                        <div class="p-6 text-white">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-green-500/20 p-3 rounded-full">
+                                    <i data-feather="mic" class="text-green-300"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Recording Studio</h3>
+                            </div>
+                            <p class="text-white/80">State-of-the-art recording facilities with acoustic treatment and premium microphones.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-16 text-center">
+            <a href="index.html" class="inline-block bg-white/20 backdrop-blur-md text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-white/30 transition shadow-lg">
+                🌀 Return to Portfolio
+            </a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Music Room specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize feather icons
+            feather.replace();
+            
+            // YouTube player and playlist functionality
+            const youtubePlayer = document.getElementById('youtube-player');
+            const playlistItems = document.querySelectorAll('.playlist-item');
+            const playlistSidebar = document.getElementById('playlist-sidebar');
+            const playlistToggle = document.getElementById('playlist-toggle');
+            const currentTitle = document.getElementById('current-title');
+            const currentArtist = document.getElementById('current-artist');
+            const playBtn = document.getElementById('play-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            
+            // Remote control elements
+            const remoteTrackTitle = document.getElementById('remote-track-title');
+            const remoteTrackArtist = document.getElementById('remote-track-artist');
+            const remotePlayPause = document.getElementById('remote-play-pause');
+            const remotePrev = document.getElementById('remote-prev');
+            const remoteNext = document.getElementById('remote-next');
+            const remoteBackward = document.getElementById('remote-backward');
+            const remoteForward = document.getElementById('remote-forward');
+            const remoteShuffle = document.getElementById('remote-shuffle');
+            const remoteLoop = document.getElementById('remote-loop');
+            const remotePlaylistBtn = document.getElementById('remote-playlist-btn');
+            const remoteFullscreenBtn = document.getElementById('remote-fullscreen-btn');
+            const remoteVolume = document.getElementById('remote-volume');
+            const remoteProgressFill = document.getElementById('remote-progress-fill');
+            const remoteCurrentTime = document.getElementById('remote-current-time');
+            const remoteTotalTime = document.getElementById('remote-total-time');
+            
+            let currentVideoIndex = 0;
+            let isPlaying = false;
+            let isShuffled = false;
+            let isLooped = false;
+            let shuffledIndices = [];
+            
+            // Initialize shuffled indices
+            function initializeShuffle() {
+                shuffledIndices = Array.from({length: playlistItems.length}, (_, i) => i);
+                if (isShuffled) {
+                    shuffleArray(shuffledIndices);
+                }
+            }
+            
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+            
+            initializeShuffle();
+            
+            // Playlist toggle functionality
+            playlistToggle.addEventListener('click', function() {
+                playlistSidebar.classList.toggle('open');
+            });
+            
+            // Remote playlist button
+            remotePlaylistBtn.addEventListener('click', function() {
+                playlistSidebar.classList.toggle('open');
+            });
+            
+            // Load video function
+            function loadVideo(videoId, title, artist) {
+                const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&rel=0&showinfo=0`;
+                youtubePlayer.src = newSrc;
+                currentTitle.textContent = title;
+                currentArtist.textContent = artist;
+                remoteTrackTitle.textContent = title;
+                remoteTrackArtist.textContent = artist;
+            }
+            
+            // Update remote progress (simulated)
+            function updateProgress() {
+                if (isPlaying) {
+                    const currentWidth = parseInt(remoteProgressFill.style.width) || 35;
+                    const newWidth = Math.min(currentWidth + 0.5, 100);
+                    remoteProgressFill.style.width = newWidth + '%';
+                    
+                    // Update time display (simulated)
+                    const currentSeconds = Math.floor((newWidth / 100) * 225); // Assuming 3:45 total
+                    const minutes = Math.floor(currentSeconds / 60);
+                    const seconds = currentSeconds % 60;
+                    remoteCurrentTime.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }
+            
+            // Start progress simulation
+            setInterval(updateProgress, 1000);
+            
+            // Playlist item click handler
+            playlistItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    playlistItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Get video data
+                    const videoId = this.getAttribute('data-video');
+                    const title = this.getAttribute('data-title');
+                    const artist = this.getAttribute('data-artist');
+                    
+                    // Load the video
+                    loadVideo(videoId, title, artist);
+                    currentVideoIndex = index;
+                    
+                    // Reset progress
+                    remoteProgressFill.style.width = '0%';
+                    remoteCurrentTime.textContent = '0:00';
+                    
+                    // Close playlist sidebar
+                    playlistSidebar.classList.remove('open');
+                });
+            });
+            
+            // Control buttons functionality
+            function togglePlayPause() {
+                isPlaying = !isPlaying;
+                const icon = playBtn.querySelector('i');
+                const remoteIcon = remotePlayPause.querySelector('i');
+                
+                if (isPlaying) {
+                    icon.setAttribute('data-feather', 'pause');
+                    remoteIcon.setAttribute('data-feather', 'pause');
+                } else {
+                    icon.setAttribute('data-feather', 'play');
+                    remoteIcon.setAttribute('data-feather', 'play');
+                }
+                feather.replace();
+            }
+            
+            playBtn.addEventListener('click', togglePlayPause);
+            remotePlayPause.addEventListener('click', togglePlayPause);
+            
+            function goToPrevious() {
+                if (isShuffled) {
+                    const currentShuffleIndex = shuffledIndices.indexOf(currentVideoIndex);
+                    const prevShuffleIndex = currentShuffleIndex > 0 ? currentShuffleIndex - 1 : shuffledIndices.length - 1;
+                    currentVideoIndex = shuffledIndices[prevShuffleIndex];
+                } else {
+                    currentVideoIndex = currentVideoIndex > 0 ? currentVideoIndex - 1 : playlistItems.length - 1;
+                }
+                const activeItem = playlistItems[currentVideoIndex];
+                activeItem.click();
+            }
+            
+            function goToNext() {
+                if (isShuffled) {
+                    const currentShuffleIndex = shuffledIndices.indexOf(currentVideoIndex);
+                    const nextShuffleIndex = currentShuffleIndex < shuffledIndices.length - 1 ? currentShuffleIndex + 1 : 0;
+                    currentVideoIndex = shuffledIndices[nextShuffleIndex];
+                } else {
+                    currentVideoIndex = currentVideoIndex < playlistItems.length - 1 ? currentVideoIndex + 1 : 0;
+                }
+                const activeItem = playlistItems[currentVideoIndex];
+                activeItem.click();
+            }
+            
+            prevBtn.addEventListener('click', goToPrevious);
+            remotePrev.addEventListener('click', goToPrevious);
+            
+            nextBtn.addEventListener('click', goToNext);
+            remoteNext.addEventListener('click', goToNext);
+            
+            // Forward/Backward 10 seconds (simulated)
+            remoteForward.addEventListener('click', function() {
+                const currentWidth = parseInt(remoteProgressFill.style.width) || 0;
+                const newWidth = Math.min(currentWidth + 4.4, 100); // 10 seconds ≈ 4.4% of 3:45
+                remoteProgressFill.style.width = newWidth + '%';
+            });
+            
+            remoteBackward.addEventListener('click', function() {
+                const currentWidth = parseInt(remoteProgressFill.style.width) || 0;
+                const newWidth = Math.max(currentWidth - 4.4, 0); // 10 seconds ≈ 4.4% of 3:45
+                remoteProgressFill.style.width = newWidth + '%';
+            });
+            
+            // Shuffle functionality
+            remoteShuffle.addEventListener('click', function() {
+                isShuffled = !isShuffled;
+                if (isShuffled) {
+                    this.classList.add('active');
+                    shuffleArray(shuffledIndices);
+                } else {
+                    this.classList.remove('active');
+                    initializeShuffle();
+                }
+            });
+            
+            // Loop functionality
+            remoteLoop.addEventListener('click', function() {
+                isLooped = !isLooped;
+                if (isLooped) {
+                    this.classList.add('active');
+                } else {
+                    this.classList.remove('active');
+                }
+            });
+            
+            // Volume control
+            remoteVolume.addEventListener('input', function() {
+                const volume = this.value;
+                console.log('Volume:', volume + '%');
+            });
+            
+            // Fullscreen functionality
+            remoteFullscreenBtn.addEventListener('click', function() {
+                if (youtubePlayer.requestFullscreen) {
+                    youtubePlayer.requestFullscreen();
+                } else if (youtubePlayer.webkitRequestFullscreen) {
+                    youtubePlayer.webkitRequestFullscreen();
+                } else if (youtubePlayer.msRequestFullscreen) {
+                    youtubePlayer.msRequestFullscreen();
+                }
+            });
+            
+            // Keyboard controls
+            document.addEventListener('keydown', function(e) {
+                switch(e.code) {
+                    case 'Space':
+                        e.preventDefault();
+                        togglePlayPause();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        goToPrevious();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        goToNext();
+                        break;
+                    case 'KeyP':
+                        e.preventDefault();
+                        playlistToggle.click();
+                        break;
+                    case 'KeyF':
+                        e.preventDefault();
+                        remoteFullscreenBtn.click();
+                        break;
+                    case 'KeyS':
+                        e.preventDefault();
+                        remoteShuffle.click();
+                        break;
+                    case 'KeyL':
+                        e.preventDefault();
+                        remoteLoop.click();
+                        break;
+                }
+            });
+            
+            // Auto-hide controls after inactivity
+            let controlsTimeout;
+            const videoControls = document.querySelector('.video-controls');
+            
+            function showControls() {
+                videoControls.style.opacity = '1';
+                clearTimeout(controlsTimeout);
+                controlsTimeout = setTimeout(() => {
+                    videoControls.style.opacity = '0.3';
+                }, 3000);
+            }
+            
+            // Show controls on mouse move
+            document.addEventListener('mousemove', showControls);
+            showControls(); // Show initially
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+:root {
+  /* Porcelain Light Theme Tokens */
+  --bg-canvas: #F6F8FB;
+  --bg-surface: rgba(255, 255, 255, 0.84);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.92);
+  --bg-glass: rgba(255, 255, 255, 0.76);
+  --bg-subtle: rgba(241, 245, 249, 0.8);
+  --bg-accent-subtle: rgba(238, 242, 255, 0.85);
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-accent: #4F46E5;
+  
+  --border-glass: rgba(255, 255, 255, 0.85);
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.14);
+  --border-focus: #4F46E5;
+  
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-glass: 0 20px 48px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  --shadow-sheet: 0 -10px 40px rgba(15, 23, 42, 0.1);
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  
+  --spring-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-bounce: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #CBD5E1;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Viewport Container */
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient Fluid Wallpaper Background */
+.bani-os-wallpaper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.18) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(244, 114, 182, 0.14) 0px, transparent 50%),
+    radial-gradient(at 10% 90%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 75%, rgba(6, 182, 212, 0.14) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.08) 0px, transparent 65%);
+}
+
+/* Base Mobile Canvas (Natural full screen on mobile, phone frame preview on PC) */
+.bani-os-device {
+  width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  background: var(--bg-canvas);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+
+/* Frosted Glass Utility Classes */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+/* Responsive Dynamic App Grid */
+.home-app-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px 2px;
+  justify-items: center;
+  width: 100%;
+  padding: 6px 0;
+  transition: all 0.2s ease;
+}
+
+/* Wrap to 4 columns on narrow phone viewports */
+@container (max-width: 380px) {
+  .home-app-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 6px;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-app-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 6px;
+  }
+}
+
+/* Desktop Preview Mode */
+@media (min-width: 768px) {
+  .bani-os-device.desktop-preview {
+    width: 412px;
+    height: 870px;
+    max-height: 92vh;
+    border-radius: 44px;
+    box-shadow: 0 25px 65px -10px rgba(15, 23, 42, 0.22), 0 0 0 10px #CBD5E1, 0 0 0 11px rgba(15, 23, 42, 0.08);
+    background: var(--bg-canvas);
+  }
+}
+
+/* Typography Utility */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle Scrollbar for Content Layers */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.12);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.24);
+}
+
+/* Tactile Button / Pressable Base */
+.pressable {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pressable:active {
+  transform: scale(0.96);
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fluid Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes springPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= BANI ARTICLE EDITORIAL CONTENT ================= */
+.bani-article-content h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 1.75rem 0 0.75rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  font-family: Georgia, Cambria, serif;
+}
+
+.bani-article-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1E293B;
+  margin: 1.5rem 0 0.5rem;
+  line-height: 1.4;
+  font-family: Georgia, Cambria, serif;
+}
+
+.bani-article-content h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 1rem 0 0.4rem;
+}
+
+.bani-article-content p {
+  margin: 0 0 1.25rem;
+  line-height: 1.8;
+  color: #334155;
+}
+
+.bani-article-content p:first-of-type::first-letter {
+  font-size: 2.75rem;
+  float: left;
+  line-height: 1;
+  padding-right: 0.5rem;
+  padding-top: 0.15rem;
+  font-family: Georgia, serif;
+  font-weight: 900;
+  color: #0891B2;
+}
+
+.bani-article-content blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid #0891B2;
+  background: rgba(8, 145, 178, 0.05);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  color: #1E293B;
+}
+
+.bani-article-content blockquote p {
+  margin: 0;
+}
+
+.bani-article-content ul, .bani-article-content ol {
+  margin: 0 0 1.25rem 1.5rem;
+  padding: 0;
+  color: #334155;
+  line-height: 1.75;
+}
+
+.bani-article-content li {
+  margin-bottom: 0.5rem;
+}
+
+.bani-article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.bani-article-content figure {
+  margin: 1.5rem 0;
+}
+
+.bani-article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.bani-article-content th {
+  background: #F1F5F9;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 700;
+  color: #0F172A;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.bani-article-content td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F1F5F9;
+  color: #334155;
+}
+
+/* Seven Salais Flag Graphics */
+.salai-flag {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 280px;
+  height: 180px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+.flag-stripe { flex: 1; }
+.bg-mangang { background-color: #EF4444; }
+.bg-luwang { background-color: #F8FAFC; border-bottom: 1px solid #E2E8F0; }
+.bg-khuman { background-color: #1E293B; }
+.bg-angom { background-color: #EAB308; }
+.bg-moirang { background-color: #A855F7; }
+.bg-khanganba { background-color: #38BDF8; }
+.bg-sarang { background-color: #22C55E; }
+
+/* HaloBan Shorts Theater Animations */
+@keyframes reelSplashFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.65);
+  }
+  35% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  70% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+@keyframes bounceUp {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+}
+

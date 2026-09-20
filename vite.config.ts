@@ -51,6 +51,7 @@ function legacyServePlugin(): Plugin {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [react(), legacyServePlugin()],
   server: {
     port: 3000,

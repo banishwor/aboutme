@@ -124,7 +124,7 @@ export const DesktopWrapper: React.FC<DesktopWrapperProps> = ({ children }) => {
 
         {/* Temporary Classic Desktop Site Fallback */}
         <a
-          href="/legacy/"
+          href="./legacy/"
           className="pressable"
           title="Switch to Classic 2024 Desktop Portfolio"
           style={{

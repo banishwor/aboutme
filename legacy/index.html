@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banishwor Athokpam - Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+
+    <div id="loader">
+        <div id="loader-text">Compiling pixels...</div>
+        <div class="progress-bar"><div id="progress"></div></div>
+        <p class="text-xs text-slate-400">P.S. This is just for fun :)</p>
+    </div>
+
+    <canvas id="constellation-canvas"></canvas>
+    
+    <!-- BANI OS Quick Return Banner -->
+    <div style="background: linear-gradient(90deg, #0F172A, #1E1B4B); color: #FFFFFF; padding: 10px 20px; font-size: 13px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.12); font-family: system-ui, -apple-system, sans-serif; position: sticky; top: 0; z-index: 99999; box-shadow: 0 4px 20px rgba(0,0,0,0.25);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="background: #4F46E5; color: #FFFFFF; padding: 3px 9px; border-radius: 999px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.05em;">CLASSIC ARCHIVE</span>
+            <span style="color: #E2E8F0;">You are viewing the <strong>Classic 2024 Desktop Portfolio</strong>.</span>
+        </div>
+        <a href="/" style="background: #FFFFFF; color: #0F172A; padding: 5px 14px; border-radius: 999px; font-weight: 800; text-decoration: none; font-size: 12px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); transition: transform 0.2s ease;">
+            <span>📱 Return to BANI // OS</span>
+            <span>↗</span>
+        </a>
+    </div>
+
+    <div class="content-wrapper">
+        <header class="shadow-sm sticky top-12 z-50 border-b border-default">
+            <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold">Banishwor A.</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="#about" class="text-subtle hover:text-accent">About</a>
+                    <a href="#projects" class="text-subtle hover:text-accent">Projects</a>
+                    <a href="#playground" class="text-subtle hover:text-accent">Playground</a>
+                    <a href="#contact" class="bg-accent text-white px-4 py-2 rounded-full hover:bg-accent-dark transition">Contact Me</a>
+                    <button id="theme-toggle" class="p-2 rounded-full text-subtle hover:bg-gray-200 dark:hover:bg-slate-700">
+                        <i data-feather="moon" class="block dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center gap-2">
+                     <button id="theme-toggle-mobile" class="p-2 rounded-full text-subtle">
+                        <i data-feather="moon" class="block dark:hidden"></i>
+                        <i data-feather="sun" class="hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="p-2">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+                <a href="#about" class="block py-2 text-subtle hover:text-accent">About</a>
+                <a href="#projects" class="block py-2 text-subtle hover:text-accent">Projects</a>
+                <a href="#playground" class="block py-2 text-subtle hover:text-accent">Playground</a>
+                <a href="#contact" class="block mt-2 bg-accent text-white px-4 py-2 rounded-full text-center">Contact Me</a>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 py-16 md:py-24 text-center">
+            <div class="max-w-4xl mx-auto">
+                <img src="https://placehold.co/128x128/E0E7FF/4F46E5?text=BA" alt="Banishwor Athokpam" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white dark:border-slate-700 shadow-lg">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Banishwor Athokpam</h1>
+                <p class="mt-4 text-lg md:text-xl text-subtle">MCA graduate with a passion for software development, testing, and creating innovative solutions.</p>
+            </div>
+        </main>
+        
+        <section id="matrix-terminal-section" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                 <div id="matrix-canvas-container" class="card max-w-2xl mx-auto">
+                    <canvas id="matrix-canvas"></canvas>
+                    <div class="terminal-window bg-transparent border-none shadow-none">
+                        <div class="terminal-header bg-card-bg/50">
+                            <div class="terminal-dot bg-red-500"></div>
+                            <div class="terminal-dot bg-yellow-500"></div>
+                            <div class="terminal-dot bg-green-500"></div>
+                        </div>
+                        <div class="terminal-body" id="terminal-body" tabindex="0">
+                            <span id="terminal-text"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">My Projects & Publications</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Yek Salai Website -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-indigo-100 p-3 rounded-full"><i data-feather="github" class="text-indigo-600"></i></div>
+                                <h3 class="text-xl font-bold">Yek Salai Website</h3>
+                            </div>
+                            <p class="text-subtle mb-4">A web project focused on genealogical data, providing a platform for exploring common ancestors.</p>
+                            <a href="https://banishwor.github.io/yek-salai-website/" target="_blank" class="font-semibold text-accent">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Yek Salai Blog -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-green-100 p-3 rounded-full"><i data-feather="book-open" class="text-green-600"></i></div>
+                                <h3 class="text-xl font-bold">Yek Salai Blog</h3>
+                            </div>
+                            <p class="text-subtle mb-4">Blog dedicated to Manipur, exploring cultural heritage and traditions.</p>
+                            <a href="https://baniat.blogspot.com/" target="_blank" class="font-semibold text-green-600 dark:text-green-400">Read Blog &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- MCA Research -->
+                    <div class="card">
+                        <div class="p-6">
+                             <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-red-100 p-3 rounded-full"><i data-feather="file-text" class="text-red-600"></i></div>
+                                <h3 class="text-xl font-bold">MCA Research</h3>
+                            </div>
+                            <p class="text-subtle mb-4">Empirical study on clustering-based missing data imputation techniques for my MCA degree.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Manipur Calculator -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-indigo-100 p-3 rounded-full"><i data-feather="calculator" class="text-indigo-600"></i></div>
+                                <h3 class="text-xl font-bold">Manipur Calculator</h3>
+                            </div>
+                            <p class="text-subtle mb-4">A comprehensive tool combining traditional Manipuri land and gold units with modern financial calculators, built for precision and ease of use.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Yek Salai App -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-green-100 p-3 rounded-full"><i data-feather="book-open" class="text-green-600"></i></div>
+                                <h3 class="text-xl font-bold">Yek Salai</h3>
+                            </div>
+                            <p class="text-subtle mb-4">A digital guide to Meitei cultural heritage, preserving the traditional clan system and marriage customs for future generations.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Manipur Calendar 2026 -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-yellow-100 p-3 rounded-full"><i data-feather="calendar" class="text-yellow-600"></i></div>
+                                <h3 class="text-xl font-bold">Manipur Calendar 2026</h3>
+                            </div>
+                            <p class="text-subtle mb-4">Your complete Manipuri cultural companion. Discover the rich heritage of Manipur with the most comprehensive and culturally authentic calendar app for the Manipuri community.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Viral Prompts -->
+                    <div class="card">
+                        <div class="p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="bg-purple-100 p-3 rounded-full"><i data-feather="zap" class="text-purple-600"></i></div>
+                                <h3 class="text-xl font-bold">Viral Prompts</h3>
+                            </div>
+                            <p class="text-subtle mb-4">Unleash your creativity with an endless stream of viral-worthy prompts for AI art generators, content creation, and creative writing. Never run out of ideas again.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="max-w-3xl mx-auto text-center mt-12">
+                    <div class="card p-8 text-center">
+                        <div class="text-5xl mb-6">📱</div>
+                        <h3 class="text-2xl font-bold mb-4">Explore All My Applications</h3>
+                        <p class="text-subtle mb-6">
+                            Visit my GitHub Pages showcase to see these apps and more of my projects in action. 
+                            Each application demonstrates my skills in software development, user experience design, and modern web technologies.
+                        </p>
+                        <a href="https://banishwor.github.io/" target="_blank" 
+                           class="inline-block bg-accent text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent-dark transition shadow-lg transform hover:scale-105">
+                            Visit My Apps Showcase 🚀
+                        </a>
+                        <p class="text-sm text-subtle mt-4">
+                            Hosted on GitHub Pages - Updated regularly with my latest projects
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="playground" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">My Digital Playground</h2>
+                <div class="flex flex-col items-center gap-12">
+                    
+                    <!-- Wormhole to Games Dimension -->
+                    <div class="w-full max-w-md mx-auto">
+                        <div class="card p-8 text-center relative overflow-hidden">
+                            <div class="wormhole-bg absolute inset-0 opacity-20"></div>
+                            <div class="relative z-10">
+                                <div class="text-6xl mb-4">🌀</div>
+                                <h3 class="text-2xl font-bold mb-4">Enter the Game Dimension</h3>
+                                <p class="text-subtle mb-6">Discover a universe of interactive games and challenges!</p>
+                                <a href="games.html" class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                    🎮 Enter Wormhole
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Room Portal -->
+                    <div class="w-full max-w-md mx-auto">
+                        <div class="card p-8 text-center relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 opacity-30"></div>
+                            <div class="relative z-10">
+                                <div class="text-6xl mb-4">🎵</div>
+                                <h3 class="text-2xl font-bold mb-4">Music Studio</h3>
+                                <p class="text-subtle mb-6">Experience music in the ultimate Pro Display XDR setup!</p>
+                                <a href="music-room.html" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                    🎧 Enter Studio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full max-w-4xl">
+                        <h3 class="text-2xl font-bold mb-4 text-center">Interactive Desktop</h3>
+                        <div class="monitor">
+                            <div class="monitor-screen">
+                                <div class="browser-bar">
+                                    <input type="text" id="address-bar" placeholder="https://www.google.com/webhp?igu=1">
+                                    <button id="go-btn" class="bg-accent text-white px-3 rounded-md">&rarr;</button>
+                                </div>
+                                <div class="browser-content">
+                                    <iframe id="browser-frame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="keyboard" id="keyboard">
+                            <!-- Keyboard will be generated by JS -->
+                        </div>
+                        <p class="text-center text-xs text-subtle mt-2">Note: Some websites may not load due to security restrictions.</p>
+                        <div id="suggested-sites" class="flex flex-wrap justify-center gap-2 mt-4">
+                            <!-- Suggested sites buttons will be generated here -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold mb-8 text-center">About Me</h2>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-start mb-12">
+                    <!-- Left Column: Education & Technical Skills -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Education & Certifications</h3>
+                        <div class="grid grid-cols-1 gap-6 mb-10 equal-height-cols">
+                            <!-- MCA -->
+                            <div class="card equal-height p-6">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+                                    <h4 class="text-xl font-bold">Master of Computer Applications (MCA)</h4>
+                                    <span class="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">7th Position in State</span>
+                                </div>
+                                <div class="flex items-center text-subtle mb-3">
+                                    <i data-feather="award" class="mr-2 text-accent"></i>
+                                    <span>Manipur University, Chanchipur</span>
+                                </div>
+                                <p class="text-subtle mb-3">2020 - 2023</p>
+                                <p class="text-subtle flex-grow">Achieved 7th position among all colleges affiliated to Manipur University (state level ranking).</p>
+                            </div>
+                            
+                            <!-- BCA -->
+                            <div class="card equal-height p-6">
+                                <h4 class="text-xl font-bold mb-3">Bachelor of Computer Applications (BCA)</h4>
+                                <div class="flex items-center text-subtle mb-3">
+                                    <i data-feather="award" class="mr-2 text-accent"></i>
+                                    <span>NIELIT Imphal</span>
+                                </div>
+                                <p class="text-subtle mb-3">2017 - 2020</p>
+                                <p class="text-subtle flex-grow">Completed undergraduate degree in computer applications with strong academic performance.</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-6">Technical Skills</h3>
+                        <div class="space-y-5">
+                            <div class="skill" data-level="90">
+                                <div class="skill-tooltip">Manual & automated testing, debugging, and version control.</div>
+                                <div class="flex justify-between mb-1"><span class="font-medium">Software Testing & Maintenance</span><span class="text-sm text-subtle">90%</span></div>
+                                <div class="skill-bar-container"><div class="skill-bar" style="width: 0%;"></div></div>
+                            </div>
+                            <div class="skill" data-level="85">
+                                <div class="skill-tooltip">Interactive front-end experiences with HTML, CSS, and modern JS.</div>
+                                <div class="flex justify-between mb-1"><span class="font-medium">JavaScript & Web Tech</span><span class="text-sm text-subtle">85%</span></div>
+                                <div class="skill-bar-container"><div class="skill-bar" style="width: 0%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Work Experience -->
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Work Experience</h3>
+                        <div class="grid grid-cols-1 gap-6 equal-height-cols">
+                            <!-- Current Position -->
+                            <div class="card equal-height p-6">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+                                    <h4 class="text-xl font-bold">Software Developer & Instructor</h4>
+                                    <span class="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">Current</span>
+                                </div>
+                                <div class="flex items-center text-subtle mb-3">
+                                    <i data-feather="briefcase" class="mr-2 text-accent"></i>
+                                    <span>NTS Institute of Technology, Yairipok</span>
+                                </div>
+                                <p class="text-subtle mb-3">October 2023 - Present</p>
+                                <p class="text-subtle flex-grow">Working as an instructor while continuing freelance software development projects.</p>
+                            </div>
+                            
+                            <!-- Previous Position -->
+                            <div class="card equal-height p-6">
+                                <h4 class="text-xl font-bold mb-3">Instructor</h4>
+                                <div class="flex items-center text-subtle mb-3">
+                                    <i data-feather="briefcase" class="mr-2 text-accent"></i>
+                                    <span>Hi-Tech Education, Thoubal</span>
+                                </div>
+                                <p class="text-subtle mb-3">April 2022 - September 2023</p>
+                                <p class="text-subtle flex-grow">Taught computer science and programming courses to students, developed educational materials and provided technical support.</p>
+                            </div>
+                            
+                            <!-- Freelance Work -->
+                            <div class="card equal-height p-6">
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+                                    <h4 class="text-xl font-bold">Freelance Software Developer</h4>
+                                    <span class="bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full">Current</span>
+                                </div>
+                                <div class="flex items-center text-subtle mb-3">
+                                    <i data-feather="briefcase" class="mr-2 text-accent"></i>
+                                    <span>Self-employed</span>
+                                </div>
+                                <p class="text-subtle mb-3">Ongoing</p>
+                                <p class="text-subtle flex-grow">Developing custom web and mobile applications for clients, specializing in culturally relevant solutions for the Manipuri community.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Me Content at Bottom -->
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="bg-card border border-default p-8 rounded-2xl shadow-sm">
+                        <p class="text-subtle mb-6">
+                            I am a detail-oriented Master of Computer Applications graduate from Manipur University. With hands-on experience in software maintenance, testing, and education, I possess strong communication, teamwork, and technical skills.
+                        </p>
+                        <p class="text-subtle mb-6">
+                            I thrive in dynamic environments and am always eager to learn and apply new technologies to solve real-world problems. You can explore my various applications and projects on my <a href="https://banishwor.github.io/" target="_blank" class="text-accent font-semibold hover:underline">Apps Showcase</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hobbies & Interests Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Hobbies & Interests</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Cryptocurrency -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 dark:bg-yellow-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="trending-up" class="text-yellow-600 dark:text-yellow-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Cryptocurrency Enthusiast</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Invested in Bitcoin and cryptocurrency since 2019. Founder of WhatsApp Group "Crypto Enthusiastic" and teach cryptocurrency concepts to students.</p>
+                    </div>
+                    
+                    <!-- Author -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="book" class="text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Author</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Wrote ebook "Pushback: How Breakups Can Lead to Personal Growth and Development" - <a href="https://www.amazon.in/Pushback-Breakups-Personal-Growth-Development-ebook/dp/B0BTB1JVVB" target="_blank" class="text-accent hover:underline">Available on Amazon</a>.</p>
+                    </div>
+                    
+                    <!-- Sports Fan -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="users" class="text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Sports Fan</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Die-hard Lionel Messi fan. Passionate about football and follow major tournaments closely.</p>
+                    </div>
+                    
+                    <!-- Entertainment -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 dark:bg-red-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="film" class="text-red-600 dark:text-red-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Entertainment Geek</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Marvel and DC universe nerd. Enjoy exploring superhero stories, movies, and comics.</p>
+                    </div>
+                    
+                    <!-- Travelling -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="map" class="text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Traveller</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Love exploring new places, cultures, and experiences through travelling.</p>
+                    </div>
+                    
+                    <!-- Content Creator -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded-full mr-4">
+                                <i data-feather="camera" class="text-indigo-600 dark:text-indigo-400"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Content Creator & Gaming Influencer</h3>
+                        </div>
+                        <p class="text-subtle mb-3">Co-owner of "HaloBan Media" on Facebook, Instagram, and YouTube. MIL Influencer for MLBB (Mobile Legends: Bang Bang) game. Creating engaging digital content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                <p class="max-w-2xl mx-auto text-subtle mb-8">I'm currently available for freelance work and open to new opportunities. Feel free to reach out.</p>
+                <a href="mailto:banishworath@gmail.com" class="inline-block bg-accent text-white text-lg font-semibold px-8 py-4 rounded-full hover:bg-accent-dark transition shadow-lg mb-8">Say Hello</a>
+                
+                <!-- Social Profiles -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://github.com/banishwor" target="_blank" class="bg-card border border-default p-3 rounded-full hover:bg-accent hover:text-white transition">
+                        <i data-feather="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/banishwor/" target="_blank" class="bg-card border border-default p-3 rounded-full hover:bg-accent hover:text-white transition">
+                        <i data-feather="linkedin" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://x.com/banishwor" target="_blank" class="bg-card border border-default p-3 rounded-full hover:bg-accent hover:text-white transition">
+                        <i data-feather="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://banishwor.github.io/" target="_blank" class="bg-card border border-default p-3 rounded-full hover:bg-accent hover:text-white transition">
+                        <i data-feather="globe" class="w-6 h-6"></i>
+                    </a>
+                </div>
+                
+                <p class="text-sm mt-12 text-subtle">&copy; 2024 Banishwor Athokpam. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

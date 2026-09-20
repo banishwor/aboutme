@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Smartphone, Monitor, RotateCcw } from 'lucide-react';
+import { Smartphone, Monitor, RotateCcw, Globe } from 'lucide-react';
 
 interface DesktopWrapperProps {
   children: React.ReactNode;
@@ -119,6 +119,33 @@ export const DesktopWrapper: React.FC<DesktopWrapperProps> = ({ children }) => {
           {forceMobileFrame ? <Smartphone size={12} /> : <Monitor size={12} />}
           {forceMobileFrame ? 'Phone Frame' : 'Full Width'}
         </button>
+
+        <span style={{ color: '#CBD5E1' }}>|</span>
+
+        {/* Temporary Classic Desktop Site Fallback */}
+        <a
+          href="/legacy/"
+          className="pressable"
+          title="Switch to Classic 2024 Desktop Portfolio"
+          style={{
+            border: '1px solid rgba(79, 70, 229, 0.25)',
+            background: 'rgba(238, 242, 255, 0.85)',
+            borderRadius: '999px',
+            padding: '3px 10px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            fontSize: '10.5px',
+            fontWeight: 700,
+            color: '#4F46E5',
+            textDecoration: 'none',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease'
+          }}
+        >
+          <Globe size={12} />
+          <span>Classic Desktop Site</span>
+        </a>
       </header>
 
       {/* Device Viewport Canvas */}

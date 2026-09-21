@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export interface BookExcerptSection {
   id: string;
   sectionTitle: string;
@@ -37,7 +39,7 @@ export const books: BookItem[] = [
     author: 'Banishwor Athokpam',
     asin: 'B0GT48RW96',
     amazonUrl: 'https://www.amazon.in/Echoes-Silence-Book-Between-Heartbeats-ebook/dp/B0GT48RW96',
-    coverPath: '/echoes-cover.jpg',
+    coverPath: getAssetUrl('echoes-cover.jpg'),
     accentColor: '#991B1B',
     bgLight: '#FEF2F2',
     genre: 'Literary Fiction / Coming-of-Age & Quiet Romance',
@@ -115,7 +117,7 @@ export const books: BookItem[] = [
     author: 'Banishwor Athokpam',
     asin: 'B0BTB1JVVB',
     amazonUrl: 'https://www.amazon.in/Pushback-Breakups-Personal-Growth-Development-ebook/dp/B0BTB1JVVB',
-    coverPath: '/pushback-cover.jpg',
+    coverPath: getAssetUrl('pushback-cover.jpg'),
     accentColor: '#DC2626',
     bgLight: '#FEF2F2',
     genre: 'Non-Fiction / Psychology, Self-Help & Personal Growth',

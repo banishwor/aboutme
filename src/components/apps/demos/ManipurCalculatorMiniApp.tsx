@@ -13,6 +13,7 @@ import {
   Coins
 } from 'lucide-react';
 import { projects } from '../../../content/projects';
+import { getAssetUrl } from '../../../utils/assetUrl';
 
 export interface ManipurCalculatorMiniAppProps {
   onBack: () => void;
@@ -249,7 +250,7 @@ export const ManipurCalculatorMiniApp: React.FC<ManipurCalculatorMiniAppProps> =
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
                 <img 
-                  src="/projects/manipur-calculator.png" 
+                  src={getAssetUrl('projects/manipur-calculator.png')} 
                   alt="Manipur Calculator" 
                   style={{
                     width: '56px',
@@ -1101,7 +1102,7 @@ export const ManipurCalculatorMiniApp: React.FC<ManipurCalculatorMiniAppProps> =
             marginTop: '4px'
           }}>
             <img
-              src="/profile-pic.jpg"
+              src={getAssetUrl('profile-pic.jpg')}
               alt="Banishwor Athokpam"
               style={{
                 width: '64px',

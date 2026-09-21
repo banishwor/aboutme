@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export interface GamingGiveaway {
   id: string;
   title: string;
@@ -63,7 +65,7 @@ export const gamingHubData: GamingHubData = {
     role: "MIL Influencer & Gaming Streamer",
     gameTitle: "Mobile Legends: Bang Bang",
     facebookUrl: "https://www.facebook.com/banientertainment",
-    logoUrl: "/gaming/bani-entertainment-logo.png",
+    logoUrl: getAssetUrl('gaming/bani-entertainment-logo.png'),
     summary: "A thriving gaming creator page founded by Banishwor Athokpam, gathering a dedicated community of over 15,000 followers. Recognized as an official MIL (Mobile Legends Influencer League) creator, broadcasting high-tier competitive gameplay, custom community tournaments, and legendary skin giveaways.",
     stats: [
       { label: "Community Followers", value: "15,000+" },
@@ -107,7 +109,7 @@ export const gamingHubData: GamingHubData = {
         recipient: "Dhaneshwor Waikhom",
         quoteMessage: "Your friend Banishwor gifted you Susanoo skin and left a message: Enjoy your Day... Keep Supporting... 👍",
         caption: "A memorable community giveaway milestone celebrating supporter loyalty with in-game Special tier skin gifting.",
-        imageUrl: "/gaming/mlbb-giveaway-badang.png"
+        imageUrl: getAssetUrl('gaming/mlbb-giveaway-badang.png')
       }
     ],
     tactics: [
@@ -131,7 +133,7 @@ export const gamingHubData: GamingHubData = {
   halobanMedia: {
     title: "HaloBan Media",
     tagline: "Facts & Lessons // Short-Form Documentaries",
-    logoUrl: "/gaming/haloban-media-logo.png",
+    logoUrl: getAssetUrl('gaming/haloban-media-logo.png'),
     summary: "A digital documentary project co-owned by Banishwor, crafting compelling, research-backed short-form educational videos. Designed to ignite curiosity by translating complex scientific concepts, historical curiosities, and personal growth lessons into fast-paced visual stories.",
     stats: [
       { label: "Content Format", value: "Short Documentaries" },
@@ -185,7 +187,7 @@ export const gamingHubData: GamingHubData = {
         title: "Christopher Columbus: The Myth vs. The Unfiltered Truth",
         category: "Historical Deconstruction",
         badge: "88 SECONDS",
-        videoUrl: "/gaming/videos/haloban-doc-1.mp4",
+        videoUrl: getAssetUrl('gaming/videos/haloban-doc-1.mp4'),
         description: "Think you know the story of Christopher Columbus? You've been sold a myth. Here is the unfiltered truth in 88 seconds deconstructing the biggest history lie taught in school.",
         highlights: ["ColumbusMyth", "88Seconds", "UnfilteredTruth", "SchoolLies"]
       },
@@ -195,7 +197,7 @@ export const gamingHubData: GamingHubData = {
         title: "Taj Mahal: Beyond the Love Story — The Dark Secrets",
         category: "Mughal Empire & Architecture",
         badge: "DARK SECRETS",
-        videoUrl: "/gaming/videos/haloban-doc-2.mp4",
+        videoUrl: getAssetUrl('gaming/videos/haloban-doc-2.mp4'),
         description: "You think you know the story of the Taj Mahal? It wasn't just a love story — it was a saga of 14 children, a suffering empire, ruthless ambition, and dark secrets history books leave out.",
         highlights: ["TajMahal", "14Children", "MughalEmpire", "HiddenHistory"]
       },
@@ -205,7 +207,7 @@ export const gamingHubData: GamingHubData = {
         title: "The Two Churchills: Savior of the West or Tyrant of the Empire?",
         category: "Colonial History & Famine",
         badge: "TWO CHURCHILLS",
-        videoUrl: "/gaming/videos/haloban-doc-3.mp4",
+        videoUrl: getAssetUrl('gaming/videos/haloban-doc-3.mp4'),
         description: "Winston Churchill is celebrated for defying Hitler, but during the 1943 Bengal famine, his policies diverted food while 3 million starved. Was he a hero, a tyrant, or both?",
         highlights: ["BengalFamine1943", "TwoChurchills", "BritishEmpire", "SaviorOrTyrant"]
       }

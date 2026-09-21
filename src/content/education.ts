@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export interface DegreeItem {
   id: string;
   degree: string;
@@ -50,7 +52,7 @@ export const degrees: DegreeItem[] = [
     ],
     color: '#D97706',
     bgLight: '#FFFBEB',
-    officialDocumentUrl: '/mca-rank-result.png',
+    officialDocumentUrl: getAssetUrl('mca-rank-result.png'),
     officialDocumentTitle: 'MU Official Rank Gazette (June 2023)'
   },
   {

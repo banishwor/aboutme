@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export interface ProfileData {
   name: string;
   systemName: string;
@@ -50,8 +52,8 @@ export const profile: ProfileData = {
   status: "Available for Work",
   bio: "Master of Computer Applications graduate (MU 7th State Rank, 80.30%) with hands-on expertise in native Android engineering, offline-first architectures, software QA testing, and digital cultural preservation.",
   detailedBio: "I am a detail-oriented software developer and educator based in Thoubal, Manipur. Graduating 7th in state with 80.30% in MCA from Manipur University, my engineering focuses on building high-reliability native applications that solve real community needs. From offline utilities like Manipur Calculator and Khutsuman to authoring books on diaspora history and resilience, I bridge algorithmic rigor with human purpose.",
-  avatarUrl: "/profile-pic.jpg",
-  resumeUrl: "/resume.pdf",
+  avatarUrl: getAssetUrl('profile-pic.jpg'),
+  resumeUrl: getAssetUrl('resume.pdf'),
   stats: [
     { label: "MCA State Rank", value: "7th Rank", hint: "80.30% Distinction" },
     { label: "Published Books", value: "2 Titles", hint: "Pushback & Echoes" },

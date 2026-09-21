@@ -19,6 +19,7 @@ import {
   calculateWorkerStatement, 
   generateWhatsAppHisabText 
 } from '../../../content/khutsumanData';
+import { getAssetUrl } from '../../../utils/assetUrl';
 
 export interface KhutsumanMiniAppProps {
   onBack: () => void;
@@ -159,7 +160,7 @@ export const KhutsumanMiniApp: React.FC<KhutsumanMiniAppProps> = ({ onBack, onHo
             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)'
           }}>
             <img 
-              src="/projects/khutsuman.png" 
+              src={getAssetUrl('projects/khutsuman.png')} 
               alt="Khutsuman" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
             />
@@ -223,7 +224,7 @@ export const KhutsumanMiniApp: React.FC<KhutsumanMiniAppProps> = ({ onBack, onHo
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <img 
-                  src="/projects/khutsuman.png" 
+                  src={getAssetUrl('projects/khutsuman.png')} 
                   alt="Khutsuman App" 
                   style={{
                     width: '52px',

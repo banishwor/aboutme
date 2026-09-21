@@ -19,6 +19,7 @@ import {
   MonthDayData
 } from '../../../content/manipuriCalendarData';
 import { projects } from '../../../content/projects';
+import { getAssetUrl } from '../../../utils/assetUrl';
 
 export interface ManipuriCalendarMiniAppProps {
   onBack: () => void;
@@ -222,7 +223,7 @@ export const ManipuriCalendarMiniApp: React.FC<ManipuriCalendarMiniAppProps> = (
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <img 
-                  src="/projects/manipuri-calendar.png" 
+                  src={getAssetUrl('projects/manipuri-calendar.png')} 
                   alt="Manipuri Calendar" 
                   style={{
                     width: '52px',
@@ -813,7 +814,7 @@ export const ManipuriCalendarMiniApp: React.FC<ManipuriCalendarMiniAppProps> = (
               gap: '12px'
             }}>
               <img
-                src="/profile-pic.jpg"
+                src={getAssetUrl('profile-pic.jpg')}
                 alt="Banishwor Athokpam"
                 style={{
                   width: '48px',

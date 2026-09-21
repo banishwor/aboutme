@@ -22,6 +22,7 @@ import {
   checkCompatibility, 
   CompatibilityResult 
 } from '../../../content/yekSalaiData';
+import { getAssetUrl } from '../../../utils/assetUrl';
 
 export interface YekSalaiMiniAppProps {
   onBack: () => void;
@@ -148,7 +149,7 @@ export const YekSalaiMiniApp: React.FC<YekSalaiMiniAppProps> = ({ onBack, onHome
             boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)'
           }}>
             <img 
-              src="/projects/yek-salai.png" 
+              src={getAssetUrl('projects/yek-salai.png')} 
               alt="Yek Salai" 
               style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
             />
@@ -212,7 +213,7 @@ export const YekSalaiMiniApp: React.FC<YekSalaiMiniAppProps> = ({ onBack, onHome
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                 <img 
-                  src="/projects/yek-salai.png" 
+                  src={getAssetUrl('projects/yek-salai.png')} 
                   alt="Yek Salai App" 
                   style={{
                     width: '52px',

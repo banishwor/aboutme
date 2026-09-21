@@ -1,3 +1,5 @@
+import { getAssetUrl } from '../utils/assetUrl';
+
 export type ProjectStatus = 'Active' | 'Beta' | 'Prototype' | 'Archived';
 export type ProjectCategory = 'Native Android' | 'Community Tools' | 'Engineering Archives';
 
@@ -39,7 +41,7 @@ export const projects: ProjectItem[] = [
     category: 'Native Android',
     status: 'Active',
     statusLabel: 'Production Active',
-    iconPath: '/projects/manipur-calculator.png',
+    iconPath: getAssetUrl('projects/manipur-calculator.png'),
     iconFallback: 'Calculator',
     accentColor: '#D97706',
     bgLight: '#FFFBEB',
@@ -75,7 +77,7 @@ export const projects: ProjectItem[] = [
     category: 'Native Android',
     status: 'Active',
     statusLabel: 'Production Active',
-    iconPath: '/projects/manipuri-calendar.png',
+    iconPath: getAssetUrl('projects/manipuri-calendar.png'),
     iconFallback: 'Calendar',
     accentColor: '#059669',
     bgLight: '#ECFDF5',
@@ -118,7 +120,7 @@ export const projects: ProjectItem[] = [
     category: 'Native Android',
     status: 'Beta',
     statusLabel: 'Coming Soon / Beta',
-    iconPath: '/projects/khutsuman.png',
+    iconPath: getAssetUrl('projects/khutsuman.png'),
     iconFallback: 'Users',
     accentColor: '#2563EB',
     bgLight: '#EFF6FF',
@@ -154,7 +156,7 @@ export const projects: ProjectItem[] = [
     category: 'Community Tools',
     status: 'Active',
     statusLabel: 'Production Active',
-    iconPath: '/projects/yek-salai.png',
+    iconPath: getAssetUrl('projects/yek-salai.png'),
     iconFallback: 'GitBranch',
     accentColor: '#4F46E5',
     bgLight: '#EEF2FF',

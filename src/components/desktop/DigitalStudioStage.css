@@ -1,0 +1,594 @@
+/* ========================================================
+   ACT 07: DIGITAL MUSIC STUDIO (EASTER EGG JUKEBOX)
+   PRO STUDIO CINEMA MONITOR + FROSTED GLASS IPHONE REMOTE
+   ======================================================== */
+
+.vos-studio-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.vos-studio-stage.embedded {
+  position: relative;
+  width: auto;
+  height: auto;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========================================================
+   DUAL-PANEL DESK CONTAINER (1220px Wide × 570px High)
+   Matches the 570px height standard of Acts 02 to 06!
+   ======================================================== */
+.vos-studio-desk-container {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 20px;
+  width: 1220px;
+  max-width: 94vw;
+  height: 570px;
+  max-height: calc(100vh - 120px);
+  box-sizing: border-box;
+}
+
+/* ========================================================
+   PANEL 1: APPLE PRO STUDIO CINEMA MONITOR (LEFT)
+   ======================================================== */
+.vos-cinema-monitor-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Soft Ambient LED Audio Halo Backlight */
+.vos-cinema-ambient-halo {
+  position: absolute;
+  inset: -15px -20px 20px -20px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(236, 72, 153, 0.18) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 75%);
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Physical Monitor Chassis */
+.vos-cinema-chassis {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: #0B0F19;
+  border-radius: 22px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 24px 60px rgba(15, 23, 42, 0.18),
+    0 4px 16px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+/* Top Bezel: iSight Camera Dot */
+.vos-cinema-top-bezel {
+  height: 16px;
+  background: #0B0F19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vos-cinema-camera-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1E293B;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Glare Sheen Overlay */
+.vos-cinema-glare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Video Viewport Area */
+.vos-cinema-screen {
+  flex: 1;
+  min-height: 0;
+  background: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.vos-cinema-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Monitor Bottom Aluminum Bar & Meta */
+.vos-cinema-bottom-bar {
+  height: 44px;
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.vos-cinema-on-air-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+
+.on-air-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 10px #EF4444;
+  animation: pulse-red 1.6s infinite ease-in-out;
+}
+
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.on-air-label {
+  font-weight: 850;
+  color: #EF4444;
+  letter-spacing: 0.06em;
+}
+
+.on-air-sep {
+  color: #475569;
+}
+
+.on-air-track-title {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.on-air-artist {
+  color: #94A3B8;
+  font-size: 10.5px;
+}
+
+.vos-cinema-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-cinema-tag-chip {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 750;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.vos-cinema-btn-icon {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.vos-cinema-btn-icon:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Metallic Aluminum Stand Base */
+.vos-cinema-stand-neck {
+  align-self: center;
+  width: 54px;
+  height: 16px;
+  background: linear-gradient(180deg, #94A3B8 0%, #64748B 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.vos-cinema-stand-foot {
+  align-self: center;
+  width: 140px;
+  height: 6px;
+  background: linear-gradient(180deg, #CBD5E1 0%, #94A3B8 100%);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  flex-shrink: 0;
+}
+
+/* ========================================================
+   PANEL 2: VISIONOS FROSTED GLASS IPHONE REMOTE (RIGHT)
+   ======================================================== */
+.vos-studio-remote-panel {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(32px) saturate(1.25);
+  -webkit-backdrop-filter: blur(32px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 20px 50px rgba(15, 23, 42, 0.08);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Dynamic Island: Audio Equalizer */
+.vos-remote-dynamic-island {
+  align-self: center;
+  width: 110px;
+  height: 22px;
+  background: #000000;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.vos-remote-island-camera {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1E293B;
+}
+
+.vos-remote-island-waves {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 10px;
+}
+
+.wave-bar {
+  width: 2.5px;
+  background: #EC4899;
+  border-radius: 2px;
+  animation: equalizer 1.2s infinite ease-in-out alternate;
+}
+
+.bar-1 { height: 4px; animation-delay: 0.1s; }
+.bar-2 { height: 9px; animation-delay: 0.3s; }
+.bar-3 { height: 6px; animation-delay: 0.5s; }
+.bar-4 { height: 8px; animation-delay: 0.2s; }
+
+@keyframes equalizer {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.3); }
+}
+
+/* Remote Header */
+.vos-remote-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.vos-remote-header-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.vos-remote-title {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  color: #1E293B;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vos-remote-shuffle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(236, 72, 153, 0.08);
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  color: #DB2777;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-remote-shuffle-badge:hover {
+  background: #FDF2F8;
+  border-color: #DB2777;
+  transform: scale(1.03);
+}
+
+/* Active Track Card */
+.vos-remote-track-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.vos-remote-album-art {
+  width: 56px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.vos-remote-track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-remote-track-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.vos-remote-track-artist {
+  font-size: 11px;
+  color: #64748B;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.vos-remote-track-meta {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  color: #94A3B8;
+  display: flex;
+  gap: 4px;
+}
+
+/* Playback Transport Controls */
+.vos-remote-transport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.vos-remote-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  background: #FFFFFF;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.vos-remote-btn:hover {
+  background: #F8FAFC;
+  color: #0F172A;
+  transform: scale(1.06);
+}
+
+.vos-remote-btn-play {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #EC4899 0%, #8B5CF6 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+}
+
+.vos-remote-btn-play:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.45);
+}
+
+/* Playlist Section Header */
+.vos-remote-playlist-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  flex-shrink: 0;
+}
+
+.playlist-count {
+  font-size: 9px;
+  color: #DB2777;
+}
+
+/* Scrollable Playlist Drawer */
+.vos-remote-playlist-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-right: 4px;
+}
+
+.vos-remote-playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.vos-remote-playlist-item:hover {
+  background: #FFFFFF;
+  border-color: rgba(236, 72, 153, 0.4);
+  transform: translateX(2px);
+}
+
+.vos-remote-playlist-item.active {
+  background: #FDF2F8;
+  border-color: #EC4899;
+  box-shadow: 0 2px 10px rgba(236, 72, 153, 0.12);
+}
+
+.playlist-track-idx {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 750;
+  color: #94A3B8;
+  min-width: 16px;
+}
+
+.vos-remote-playlist-item.active .playlist-track-idx {
+  color: #EC4899;
+}
+
+.playlist-item-thumb {
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.playlist-item-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-item-title {
+  font-size: 11px;
+  font-weight: 750;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vos-remote-playlist-item.active .playlist-item-title {
+  color: #BE185D;
+}
+
+.playlist-item-artist {
+  font-size: 9.5px;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-item-duration {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  color: #94A3B8;
+}
+
+/* Easter Egg Rickroll Footer */
+.vos-remote-easter-egg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #64748B;
+  flex-shrink: 0;
+}

@@ -26,6 +26,8 @@ export interface BookItem {
   readTimeEstimate: string;
   synopsis: string;
   coreThemes: string[];
+  status: 'published' | 'in-progress' | 'planned';
+  statusLabel?: string;
   sections: BookExcerptSection[];
 }
 
@@ -54,6 +56,8 @@ export const books: BookItem[] = [
       'The Loudest Silence',
       'Identity & Self-Worth'
     ],
+    status: 'published',
+    statusLabel: 'PUBLISHED · KINDLE',
     sections: [
       {
         id: 'echoes-sec-1',
@@ -132,6 +136,8 @@ export const books: BookItem[] = [
       'Root Causes of Relationship Endings',
       'Emotional Resilience'
     ],
+    status: 'published',
+    statusLabel: 'PUBLISHED · KINDLE',
     sections: [
       {
         id: 'pushback-sec-1',
@@ -167,5 +173,61 @@ export const books: BookItem[] = [
         keyHighlight: 'Ending a relationship that is not healthy or fulfilling can open up new opportunities for growth and self-discovery.'
       }
     ]
+  },
+
+  // ================= 3. THE ECHOES OF SILENCE: BOOK II (IN PROGRESS) =================
+  {
+    id: 'echoes-of-silence-2',
+    title: 'The Echoes of Silence: Book II',
+    subtitle: 'The Architecture of Memory',
+    series: 'Between Heartbeats Series',
+    author: 'Banishwor Athokpam',
+    asin: 'PENDING',
+    amazonUrl: '#',
+    coverPath: getAssetUrl('echoes-cover.jpg'),
+    accentColor: '#475569',
+    bgLight: '#F1F5F9',
+    genre: 'Literary Fiction / Coming-of-Age Psychological Novel',
+    format: 'Unfinished Manuscript',
+    publicationYear: 'IN WRITING',
+    readTimeEstimate: 'Upcoming Manuscript',
+    synopsis: 'The continuation of Bren Atherton’s journey into higher academia and distant cities. Words once calculated in silence now demand a voice as distance strains fragile bonds and past memories shape the present.',
+    coreThemes: [
+      'The Architecture of Memory',
+      'Distant Cities',
+      'Unspoken Grief',
+      'Intellectual Solitude'
+    ],
+    status: 'in-progress',
+    statusLabel: 'MANUSCRIPT IN WRITING',
+    sections: []
+  },
+
+  // ================= 4. THE ECHOES OF SILENCE: BOOK III (PLANNED) =================
+  {
+    id: 'echoes-of-silence-3',
+    title: 'The Echoes of Silence: Book III',
+    subtitle: 'Where Shadows Speak',
+    series: 'Between Heartbeats Series',
+    author: 'Banishwor Athokpam',
+    asin: 'PENDING',
+    amazonUrl: '#',
+    coverPath: getAssetUrl('echoes-cover.jpg'),
+    accentColor: '#334155',
+    bgLight: '#E2E8F0',
+    genre: 'Literary Fiction / Trilogy Finale',
+    format: 'Planned Volume',
+    publicationYear: 'PLANNED',
+    readTimeEstimate: 'Planned Volume',
+    synopsis: 'The concluding chapter of the trilogy exploring reconciliation, creative maturity, and the resolution of the silence between heartbeats.',
+    coreThemes: [
+      'Reconciliation',
+      'Creative Resolution',
+      'The Final Equation',
+      'Returning Home'
+    ],
+    status: 'planned',
+    statusLabel: 'PLANNED TRILOGY FINALE',
+    sections: []
   }
 ];

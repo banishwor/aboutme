@@ -1,0 +1,121 @@
+/* ==========================================================================
+   AUTHENTIC MEITEI MAYEK WALL CLOCK (LIVE CHRONOMETER)
+   Transparent dial, continuous 60fps sweep second hand
+   ========================================================================== */
+
+.meitei-clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  pointer-events: auto;
+  position: relative;
+}
+
+.meitei-clock-svg {
+  width: 100%;
+  height: auto;
+  max-width: 230px;
+  max-height: 230px;
+  filter: drop-shadow(0 14px 35px rgba(0, 0, 0, 0.65));
+}
+
+@media (min-width: 1024px) {
+  .meitei-clock-svg {
+    max-width: calc(var(--u) * 230);
+    max-height: calc(var(--u) * 230);
+  }
+}
+
+/* Numerals Styling */
+.meitei-numeral {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  fill: #FFFFFF;
+  letter-spacing: -0.02em;
+  transition: fill 0.2s ease;
+}
+
+.meitei-numeral.cardinal {
+  font-size: 15px;
+  font-weight: 800;
+  fill: #FBBF24;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.4));
+}
+
+/* Brand Inscriptions */
+.meitei-clock-brand {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 6.5px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.meitei-clock-coords {
+  font-family: monospace;
+  font-size: 5.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  fill: #818CF8;
+}
+
+/* Digital Sub-Badge */
+.meitei-clock-digital-pill {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding: 3px 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 1024px) {
+  .meitei-clock-digital-pill {
+    margin-top: calc(var(--u) * 8);
+    padding: calc(var(--u) * 3) calc(var(--u) * 10);
+  }
+}
+
+.meitei-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: live-pulse 2s infinite ease-in-out;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.meitei-digital-val {
+  font-family: var(--font-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #F8FAFC;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 1024px) {
+  .meitei-digital-val {
+    font-size: calc(var(--u) * 11);
+  }
+}
+
+.meitei-digital-tz {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #FBBF24;
+  letter-spacing: 0.12em;
+}

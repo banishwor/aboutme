@@ -47,23 +47,21 @@
 
 html, body {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #CBD5E1;
+  min-height: 100%;
+  background-color: #070B14;
   font-family: var(--font-sans);
   color: var(--text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 /* App Viewport Container */
 #root {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100%;
+  display: block;
 }
 
 /* Ambient Fluid Wallpaper Background */
@@ -376,6 +374,107 @@ html, body {
   }
   50% {
     transform: translate(-50%, -8px);
+  }
+}
+
+/* ========================================================
+   F1-INSPIRED EDITORIAL HERO ANIMATIONS & SIZING SYSTEM
+   ======================================================== */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes speedReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) skewX(-8deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(4%) skewX(-2deg);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) skewX(0);
+    filter: blur(0);
+  }
+}
+
+.animate-fade-slide-down {
+  animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-slide-left {
+  animation: fadeSlideLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out both;
+}
+
+.animate-speed-reveal {
+  animation: speedReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.f1-photo-blur {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 56%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 56%);
+}
+
+.num-fade {
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.45) 50%, transparent 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.f1-hero-stage {
+  --u: 1px;
+  font-family: 'Albert Sans', var(--font-sans);
+}
+
+@media (min-width: 1024px) {
+  .f1-hero-stage {
+    --u: min(calc(100vw / 1470), calc(100vh / 1080));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .f1-hero-stage * {
+    animation: none !important;
   }
 }
 

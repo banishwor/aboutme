@@ -1,0 +1,5 @@
+Contact: mailto:banishwor@outlook.com
+Contact: https://www.linkedin.com/in/banishwor/
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://banishwor.github.io/aboutme/.well-known/security.txt

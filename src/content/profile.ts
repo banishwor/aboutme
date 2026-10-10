@@ -7,6 +7,9 @@ export interface ProfileData {
   subtitles: string[];
   location: string;
   email: string;
+  whatsapp?: string;
+  facebookProfile?: string;
+  facebookPage?: string;
   linkedIn: string;
   github: string;
   twitter: string;
@@ -43,7 +46,10 @@ export const profile: ProfileData = {
     "Open Source Builder"
   ],
   location: "Thoubal, Manipur, India",
-  email: "banishworath@gmail.com",
+  email: "banishwor@outlook.com",
+  whatsapp: "+91 9615989800",
+  facebookProfile: "https://www.facebook.com/banishwor.athokpam",
+  facebookPage: "https://www.facebook.com/banishwor",
   linkedIn: "https://www.linkedin.com/in/banishwor/",
   github: "https://github.com/banishwor",
   twitter: "https://x.com/banishwor",
@@ -52,7 +58,7 @@ export const profile: ProfileData = {
   status: "Available for Work",
   bio: "Master of Computer Applications graduate (MU 7th State Rank, 80.30%) with hands-on expertise in native Android engineering, offline-first architectures, software QA testing, and digital cultural preservation.",
   detailedBio: "I am a detail-oriented software developer and educator based in Thoubal, Manipur. Graduating 7th in state with 80.30% in MCA from Manipur University, my engineering focuses on building high-reliability native applications that solve real community needs. From offline utilities like Manipur Calculator and Khutsuman to authoring books on diaspora history and resilience, I bridge algorithmic rigor with human purpose.",
-  avatarUrl: getAssetUrl('profile-pic.jpg'),
+  avatarUrl: getAssetUrl('my-photo.png'),
   resumeUrl: getAssetUrl('resume.pdf'),
   stats: [
     { label: "MCA State Rank", value: "7th Rank", hint: "80.30% Distinction" },

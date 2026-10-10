@@ -33,3 +33,7 @@ ehthumbs.db
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Agent configs & root scratch assets
+.agents/
+my photo.png

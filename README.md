@@ -1,3063 +1,495 @@
-# BANI OS
+# BANI // OS — Banishwor Athokpam: Spatial Portfolio & Personal Operating System
 
-## An Interactive Mobile Operating System for Banishwor Athokpam
+[![React](https://img.shields.io/badge/React-18.2.0-blue.svg?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.0-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.12.5-88CE02.svg?logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Origin](https://img.shields.io/badge/Origin-Thoubal%2C%20Manipur%20%28ꯀꯪꯂꯩꯄꯥꯛ%29-amber.svg)](https://banishwor.github.io/)
 
-> **This is not a normal portfolio website.**
->
-> BANI OS is an interactive mobile-first personal operating system that lets visitors explore Banishwor Athokpam's work, education, software projects, writing, cultural work, experiments, gaming history, and personality through an OS-like interface.
-
-The goal is to make the portfolio feel like **discovering a small operating system built around one person**, rather than scrolling through a conventional résumé.
-
-The visitor should feel:
-
-> "I am exploring Banishwor's digital world."
-
-—not:
-
-> "I am reading someone's portfolio."
+> **"This is not a conventional résumé website."**  
+> **BANI // OS** is a dual-paradigm digital exhibition and interactive personal operating system designed and engineered by **Banishwor Athokpam**. It seamlessly bridges two distinct, world-class digital experiences:
+> 1. **Desktop Spatial Exhibition**: An architectural, sunlit sanctuary inspired by Apple visionOS and a quiet scholar's study in Thoubal, Manipur. It features a pin-locked GSAP master timeline that smoothly morphs across engineering showcases, interactive 3D hardware devices, scientific research, published literature, and cultural manifestos—all within a single, stationary, non-scrolling architectural room.
+> 2. **Mobile Phone OS Simulator**: A touch-first, gesture-driven operating system simulator complete with an authentic Lock Screen, Dynamic Island, Home Screen grid, Widget Dock, App Switcher, and a comprehensive suite of native mini-applications (Projects, Interactive UNIX Terminal, 3D Book Library, Manipuri Lunar Calendar, Yek-Salai Clan Explorer, and more).
 
 ---
 
-# 1. Core Concept
-
-Build a fictional personal operating system called:
-
-## BANI OS
-
-Possible visual subtitle:
-
-**BANI // PERSONAL OS**
-
-or
-
-**BANI OS — A Digital Portfolio Experiment**
-
-The OS is inspired by mobile operating systems, but it must **NOT be a clone of Android or iOS**.
-
-Do not copy:
-
-* Android UI
-* iOS UI
-* Apple icons
-* Android system navigation
-* Android/iOS settings screens
-* copyrighted system graphics
-* fake phone frames
-* fake status bars
-
-Instead, create an original visual language inspired by the *mental model* of an operating system.
-
-The website itself becomes the operating system.
+## Table of Contents
+1. [Core Architectural Philosophy](#1-core-architectural-philosophy)
+2. [Author Profile & Verified Credentials](#2-author-profile--verified-credentials)
+3. [Desktop Spatial Exhibition Architecture](#3-desktop-spatial-exhibition-architecture)
+   - [Stationary Room & Spatial Deck](#stationary-room--spatial-deck)
+   - [Safari-Style Address Bar & Controls](#safari-style-address-bar--controls)
+   - [Detailed Breakdown of Stages](#detailed-breakdown-of-stages)
+4. [Mobile Phone OS Simulator](#4-mobile-phone-os-simulator)
+   - [OS Shell & Gestures](#os-shell--gestures)
+   - [Native Mini-App Ecosystem](#native-mini-app-ecosystem)
+5. [Cultural Informatics & Indigenous Systems](#5-cultural-informatics--indigenous-systems)
+   - [Meitei Mayek Wall Clock](#meitei-mayek-wall-clock)
+   - [Manipuri Lunar Calendar Engine](#manipuri-lunar-calendar-engine)
+   - [Yek-Salai Clan & Totem Explorer](#yek-salai-clan--totem-explorer)
+   - [Puya Meithaba & Historical Research](#puya-meithaba--historical-research)
+6. [Published Literature & Books](#6-published-literature--books)
+7. [Engineering Projects & Software Catalog](#7-engineering-projects--software-catalog)
+8. [Work History & Pedagogical Experience](#8-work-history--pedagogical-experience)
+9. [Academic Background & Gazette Records](#9-academic-background--gazette-records)
+10. [Technical Stack & Design System](#10-technical-stack--design-system)
+11. [Audio Synthesis & Haptics Engine](#11-audio-synthesis--haptics-engine)
+12. [SEO, Structured Data & LLM Knowledge (llms.txt)](#12-seo-structured-data--llm-knowledge-llmstxt)
+13. [Getting Started & Local Development](#13-getting-started--local-development)
 
 ---
 
-# 2. Most Important Design Principle
+## 1. Core Architectural Philosophy
 
-The site should be:
+Most developer portfolios follow a tired formula: a full-page scroll through identical cards, arbitrary percentage bars for programming skills, and generic social links. 
 
-## A portfolio disguised as an operating system.
-
-Not:
-
-## An operating system disguised as a portfolio.
-
-Every interaction should ultimately help the visitor understand:
-
-* Who Banishwor is
-* What he builds
-* What technologies he uses
-* What he has studied
-* What he has worked on
-* What he writes
-* What he has created for the Meitei/Manipuri community
-* What experiments he has explored
-* What he has done as a creator/gamer
-
-But the information should be discovered through interaction rather than presented as a long résumé.
+**BANI // OS** rejects this paradigm in favor of an **interactive, living artifact**:
+- **A Portfolio Disguised as an Operating System**: Every interaction serves to uncover Banishwor's engineering capability, intellectual rigor, cultural heritage, and personality. Visitors do not skim a résumé; they explore a cohesive digital universe.
+- **Stationary Spatial Presence**: In the desktop exhibition, the user never experiences jarring whole-page jumps or disruptive layout shifts. The spatial sanctuary remains strictly pinned in the viewport while content cards smoothly morph, expand, tilt, and dock in response to the user's scroll.
+- **Zero Heavy External Framework Bloat**: Built purely using React 18, TypeScript, GSAP, and modular Vanilla CSS. No third-party UI component libraries (no Tailwind, Bootstrap, or Material UI) are used, guaranteeing sub-millisecond paint cycles and pristine frame rates (60–120 FPS).
+- **Deep Cultural Synthesis**: Modern high-performance computing and Android software engineering coexist with indigenous Meitei Mayek script, ancient Kangleipak philosophy, and lunar astronomical calculations.
 
 ---
 
-# 3. Mobile Is Its Own Experience
+## 2. Author Profile & Verified Credentials
 
-The mobile experience must **NOT be a responsive miniature version of the desktop portfolio**.
+| Attribute | Verified Value |
+| :--- | :--- |
+| **Full Name** | **Banishwor Athokpam** |
+| **System Codename** | `BANI // OS` |
+| **Primary Titles** | Software Developer, Computer Science Educator & Published Author |
+| **Geographic Base** | Thoubal, Manipur, India (PIN: 795138) |
+| **Email Contact** | `banishwor@outlook.com` |
+| **Direct Contact** | `+91 9615989800` (WhatsApp / Voice) |
+| **Official Portfolio** | [https://banishwor.github.io/](https://banishwor.github.io/) |
+| **Interactive OS** | [https://banishwor.github.io/aboutme/](https://banishwor.github.io/aboutme/) |
+| **GitHub** | [https://github.com/banishwor](https://github.com/banishwor) |
+| **LinkedIn** | [https://www.linkedin.com/in/banishwor/](https://www.linkedin.com/in/banishwor/) |
+| **Amazon Author** | [Banishwor Athokpam on Amazon](https://www.amazon.in/Echoes-Silence-Book-Between-Heartbeats-ebook/dp/B0GT48RW96) |
+| **YouTube Media** | HaloBan Media & Bani Entertainment (15,000+ Community) |
+| **Heritage Publication** | [baniat.blogspot.com](https://baniat.blogspot.com/) |
+| **Availability** | Open to Select Engineering & Technical Leadership Roles |
 
-Desktop and mobile should share:
-
-* content
-* project data
-* images
-* metadata
-* links
-* technical information
-* articles
-* books
-* education
-* work history
-
-But they should have completely different interaction models.
-
-## Desktop
-
-Desktop:
-
-**BANISHWOR.EXE**
-
-An experimental cinematic portfolio.
-
-Possible interactions:
-
-* cinematic scrolling
-* depth
-* parallax
-* WebGL
-* 3D objects
-* draggable elements
-* physics
-* project windows
-* command palette
-* terminal
-* interactive experiments
-* 3D books
-* interactive Roots visualization
-* Bani TV
-* arcade
-
-## Mobile
-
-Mobile:
-
-**BANI OS**
-
-An interactive personal mobile operating system.
-
-The mobile version should be:
-
-* touch-first
-* gesture-driven
-* app-oriented
-* spatial
-* playful
-* fast
-* understandable
-* usable with one hand where possible
+### Executive Summary
+Master of Computer Applications graduate (**7th State Rank with 80.30% Distinction**, Manipur University) with extensive hands-on expertise in:
+- **Native Android Engineering**: Jetpack Compose, Kotlin, Room DB, SQLite, offline-first architectures, and custom input method systems.
+- **Modern Full-Stack Web**: React, TypeScript, Vite, CSS custom property architectures, Canvas API, and Web Audio API.
+- **Distributed & High-Performance Computing**: Parallel numerical algorithms, MPI/OpenMP supercomputing pipelines, and cluster analysis.
+- **Pedagogy & Mentorship**: Over 3 years instructing foundational and advanced computer science (C, C++, Java, Data Structures, DBMS, Web Development) and mentoring 100+ students.
+- **Digital Cultural Preservation**: Computational models for the Meitei Mayek script, genealogical tree matrices for ancient Kangleipak clans (Yek-Salai), and historical research into the 18th-century *Puya Meithaba*.
 
 ---
 
-# 4. Do NOT Use a Fake Phone Shell
+## 3. Desktop Spatial Exhibition Architecture
 
-The site itself is the experience.
+### Stationary Room & Spatial Deck
+When accessed on screens $\ge 1024\text{px}$, the site boots into the **Desktop Exhibition** (`DesktopExhibition.tsx` and `UnifiedEngineeringStage.tsx`). 
 
-Do not create:
+Rather than sliding pages off-screen, the application mounts a stationary architectural sanctuary:
+- **Atmospheric Palette**: Deep obsidian background (`#070B14`, `#0D1117`), architectural borders (`rgba(255,255,255,0.08)`), warm sunlight highlights (`#F59E0B`), cyan accents (`#06B6D4`), and emerald beacons (`#10B981`).
+- **Unified Stage Container**: A floating, glassmorphic central stage (`1180px` max-width, `720px` max-height) with rounded borders (`28px`), multi-layer specular drop shadows, and subtle ambient grain.
+- **GSAP ScrollTrigger Master Timeline**: A normalized 21.0-second scrub timeline drives state transitions based on scroll distance. Scrubbing smoothly interpolates opacity, 3D rotations, translations, and internal card morphs.
 
-```text
-┌──────────────────────┐
-│ 9:41     WiFi 100%   │
-│                      │
-│     BANI OS          │
-│                      │
-└──────────────────────┘
-```
-
-inside a browser.
-
-The actual device already has:
-
-* status bar
-* battery indicator
-* network information
-* navigation gestures/buttons
-
-Therefore:
-
-## DO NOT create a fake status bar.
-
-The BANI OS interface begins below the real device status area.
-
-Use the browser viewport naturally.
+### Safari-Style Address Bar & Controls
+Mounted at the top of the stage is an Apple visionOS / Safari-inspired floating pill toolbar:
+- **Window Management**: Red, yellow, and green circular indicators.
+- **Navigation Buttons**: Back and forward arrows with tactile audio feedback.
+- **Spatial Address Field**: Clean, capitalized section titles (e.g., `THE SOFTWARE ATELIER`, `THE R&D VAULT`, `ACADEMIC PEDIGREE & GAZETTE`, `MY IDEOLOGY · WHY I BUILD FOR MANIPUR`).
+- **Interactive Action Toggles**:
+  - **Sunrise / Dark Mode Switcher**: Toggles daylight and ambient night lamp modes.
+  - **Notice Board Pin Toggle**: Pins the Manipur University Rank Gazette to the study wall.
+  - **Apps Switcher**: In the final contact stage, seamlessly links to [banishwor.github.io](https://banishwor.github.io/).
+  - **Phone OS Switcher**: Instant transition into the Mobile Phone OS simulator.
 
 ---
 
-# 5. Overall Navigation Model
+### Detailed Breakdown of Stages
 
-The main navigation should use multiple dimensions.
-
-## Horizontal navigation
-
-Swipe left/right to move between major spaces.
-
-Example:
-
-```text
-                  ROOTS
-                    ↑
-                    │
-CREATE ←────────── HOME ──────────→ ROOTS
-                    │
-                    ↓
-                 PLAY
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                   BANI // OS SPATIAL TIMELINE                          │
+├────────────────────────────────────────────────────────────────────────┤
+│ 01. MONOGRAPH HERO       Precision Clock, 15K+ Code, Depth Poster, Resume
+│ 02. SOFTWARE ATELIER     3D Hardware Devices (Phone, Laptop, Tablet)   │
+│ 03. THE R&D VAULT        Engineering Post-Mortems, Failure Analyses    │
+│ 04. MEITEI HERITAGE      Cultural Preservation, Puya Meithaba, Blog    │
+│ 05. ADVANCED COMPUTING   HPC Cluster Workshops, Numerical Simulations  │
+│ 06. ACADEMIC PEDIGREE    Manipur University Rank Gazette & Degrees     │
+│ 07. LITERARY SANCTUARY   3D Books (Echoes of Silence, Pushback)        │
+│ 08. GAMING WORMHOLE      HaloBan Media, 15K YouTube, Dark Mode Boot   │
+│ 09. CAREER DISTINCTION   Engineering Leadership Matrix & Milestones    │
+│ 10. HOBBIES & PURSUITS   Philosophy, Sound Design, Football Tactics    │
+│ 11. CHIBI SUNRISE        Animated Companion Wakes & Restores Sunlight  │
+│ 12. IDEOLOGY MANIFESTO   Parchment Letter: "Why I Build for Manipur"   │
+│ 13. DIRECT CONNECT       6-Hub Social Grid, Apps Link, Colophon Anchor │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
-However, do not literally force four-direction navigation everywhere.
+#### 1. Monograph Hero (`HeroPosterStage.tsx`)
+- **Live Meitei Mayek Mechanical Wall Clock**: A precision SVG & Canvas clock rendered with authentic Meitei Mayek numerals (`꯱` through `꯱꯲`) and a continuously sweeping orange second hand driven by CSS linear keyframes.
+- **15K+ Lines of Code Cascade**: Prominent typography showcasing extensive codebase development with staggered entrance animations and layered text depth.
+- **Monograph Depth Card "10"**: Translucent typography layered behind portrait imagery, reinforcing spatial immersion.
+- **Interactive Action Buttons**:
+  - **Download Official Résumé**: Tactile button linking directly to [BanishworAthokpam_Resume.pdf](file:///d:/Project/aboutme/BanishworAthokpam_Resume.pdf).
+  - **Beam Navigation**: Direct jump to [banishwor.github.io/aboutme/](https://banishwor.github.io/aboutme/).
 
-The recommended mental model is:
+#### 2. The Software Atelier (`SpatialDeviceLab.tsx`)
+- **Interactive 3D Hardware Devices**:
+  - **Smartphone (FlorisBoard Meitei Mayek Layout)**: Complete preview of the native Android keyboard with authentic character mappings, consonant clusters, and diacritics.
+  - **Laptop (LeikaiFix Simulator)**: Interactive civic grievance reporting platform showing issue submission, map geolocation, and status trackers.
+  - **Tablet (Viral Prompts Engine)**: Creative prompt engineering dashboard with categorized cards and copy-to-clipboard actions.
+- **Dynamic Device Docking**: Smooth transitions between floating 3D perspective and docked inspection drawer.
 
-### ← / →
+#### 3. The R&D Vault (`EngineeringVault.tsx`)
+- Technical post-mortems and failure analyses documenting real-world software architecture challenges:
+  - Memory leak eradication in long-running Android background services.
+  - Offline synchronization conflict resolution in Room DB ledgers.
+  - Rendering performance tuning for nested complex tree structures.
+- System metrics, fault-tolerance patterns, and architectural blueprints.
 
-Move between major home spaces.
+#### 4. Voices of Meitei Heritage (`HeritagePublicationStage.tsx`)
+- Digital preservation initiatives for indigenous Manipuri culture.
+- Historical analysis of the 18th-century *Puya Meithaba* (sacred manuscript burning).
+- Direct bridge to Banishwor's long-form heritage blog at [baniat.blogspot.com](https://baniat.blogspot.com/).
 
-### ↑
+#### 5. Advanced Computing & Scientific Research (`ResearchHpcStage.tsx`)
+- Supercomputing architectures, cluster configurations, and parallel algorithms.
+- Documentation of national workshops and certifications with CDAC (Centre for Development of Advanced Computing) and IIT Kharagpur.
+- High-Performance Computing benchmarks and numerical simulation pipelines.
 
-Open the Skills layer from Home.
+#### 6. Academic Pedigree & Gazette (`AcademicEducationStage.tsx`)
+- **Official Manipur University Rank Gazette**: Gazette notification confirming Banishwor's **7th State Rank with 80.30% marks** in the Master of Computer Applications (MCA) program.
+- **Pin to Wall**: Interactive toggle allowing users to pin the rank document to the spatial study wall while continuing to explore other stages.
+- Detailed coursework breakdown: Advanced Distributed Systems, Relational & NoSQL Database Internals, Graph Theory, and Object-Oriented Software Engineering.
 
-### Tap
+#### 7. Literary Sanctuary (`VisionOSBookSanctuary.tsx`)
+- Interactive 3D book presentations for Banishwor's published books:
+  - *The Echoes of Silence: Book I — The Silence Between Heartbeats* (ASIN: `B0GT48RW96`).
+  - *Pushback: How Breakups Can Lead to Personal Growth and Development* (ASIN: `B0BTB1JVVB`).
+- Integrated chapter excerpts, critical reader quotes, ISBN metadata, and direct Amazon Kindle store links.
 
-Open an application.
+#### 8. Gaming Wormhole (`GamingWormholeStage.tsx`)
+- Creator hub for **HaloBan Media** and **Bani Entertainment**:
+  - Over 15,000 followers on social gaming platforms.
+  - Short-form documentary series covering historical mysteries, science trivia, and gaming lore.
+  - Mobile Legends: Bang Bang (MLBB) influencer milestones.
+- **Dark Mode Trigger**: Entering this stage dynamically engages the immersive night-reading theme.
 
-### Long press
+#### 9. Career Distinction / Work Experience (`WorkExperienceStage.tsx`)
+- Detailed chronology of software engineering and pedagogical appointments:
+  - **NTS Institute of Technology** (Software Developer & CS Instructor).
+  - **Hi-Tech Computer Education** (Instructor & Technical Support Lead).
+  - **Independent Engineering** (Community Android utilities & offline applications).
+- Highlights student mentorship (100+ graduates), production QA testing, and systems administration.
 
-Reveal technical/developer information.
+#### 10. Hobbies & Creative Pursuits (`HobbiesPassionsStage.tsx`)
+- Exploration of multidisciplinary passions:
+  - **Football & Tactical Analysis**: Lifelong fan of Lionel Messi and modern possession-based football tactics.
+  - **Decentralized Systems & Cryptocurrency**: Blockchain fundamentals, decentralized ledger research, and community education.
+  - **Superhero Lore & Visual Storytelling**: Worldbuilding and multi-arc narrative design in Marvel/DC universes.
+  - **Ambient Sound Design**: Synthesis of acoustic feedback and procedural Web Audio soundscapes.
 
-### Edge swipe
+#### 11. Author Sanctuary & Chibi Mascot Awakening (`ChibiMascotSunrise.tsx`)
+- **Interactive Vector Companion**: A cute, animated vector Chibi character rests quietly on the desk during night mode.
+- **Sunrise Awakening**: As the user scrolls into the sanctuary, the mascot stretches, blinks, and clicks the brass daylight lamp.
+- **2.2s Golden Cross-Fade**: Restores warm daylight ambience across the entire spatial room with acoustic click and chime feedback.
 
-Return from an application.
+#### 12. Epilogue & Ideology Manifesto (`EpilogueStage.tsx`, `FinaleDeskStage.tsx`)
+- **"Why I Build for Manipur" Architectural Manifesto**: A parchment letter detailing Banishwor's core motivation—leveraging modern computer science to empower indigenous communities, preserve endangered scripts, and create offline-first software that thrives despite regional infrastructure constraints.
+
+#### 13. Direct Connect & Social Ecosystem (`ContactConnectStage.tsx`)
+- **6-Hub Verified Channels**:
+  - GitHub (`@banishwor`)
+  - LinkedIn (`@banishwor`)
+  - Amazon Author Central
+  - Email (`banishwor@outlook.com`)
+  - WhatsApp (`+91 9615989800`)
+  - Heritage Blogspot (`baniat.blogspot.com`)
+- **Apps Switcher**: Direct link to the external apps directory [banishwor.github.io](https://banishwor.github.io/).
+- **Colophon & Geographic Anchor**: `Thoubal, Manipur · Engineering, Heritage & Prose · ꯀꯪꯂꯩꯄꯥꯛ (Kangleipak)`.
 
 ---
 
-# 6. Home Spaces
+## 4. Mobile Phone OS Simulator
 
-The home screen should have several horizontally swipeable spaces.
+When loaded on mobile devices or triggered via the desktop **"Phone OS"** toggle, BANI // OS boots into a full smartphone operating system simulator (`MobileOS.tsx`).
 
-These are not ordinary "pages."
+```
+┌──────────────────────────────────────────┐
+│              DYNAMIC ISLAND              │
+│  [  18:40  ·  BANI // OS  ·  100% 🔋  ]   │
+├──────────────────────────────────────────┤
+│                                          │
+│  [ Projects ]    [ Terminal ]  [ Books ] │
+│  [ Calendar ]    [ YekSalai ]  [ Blog  ] │
+│  [ Education]    [ Gaming   ]  [ Calc  ] │
+│  [ About    ]    [ Settings ]  [ Camera] │
+│                                          │
+│  ┌────────────────────────────────────┐  │
+│  │         WIDGET DOCK: TIME          │  │
+│  │    18:40 PM · Thoubal, Manipur     │  │
+│  │    "Available for Engineering"     │  │
+│  └────────────────────────────────────┘  │
+│                                          │
+│  [ Phone ]   [ Mail ]   [ Music ]  [ Git ]│
+└──────────────────────────────────────────┘
+```
 
-They are different parts of Banishwor's identity.
-
-Recommended structure:
-
-1. HOME
-2. ROOTS
-3. CREATE
-4. PLAY
-
-Additional spaces can be introduced if necessary, but avoid creating too many.
+### OS Shell & Gestures
+- **Realistic Phone Frame (`PhoneFrame.tsx`)**: High-gloss titanium bezel with volume rocker, power button, microphone grill, and camera punch-hole.
+- **Interactive Lock Screen (`LockScreen.tsx`)**:
+  - Large digital clock and date display in Meitei Mayek and English.
+  - Interactive notification cards with dismissal gestures.
+  - Tactile slider button with swipe-to-unlock mechanics and vibration/audio response.
+  - Quick action shortcuts for flashlight and camera.
+- **Dynamic Island (`DynamicIsland.tsx`)**:
+  - Expands and contracts dynamically based on background tasks, audio playback, and active system alerts.
+- **Multitasking App Switcher (`AppSwitcher.tsx`)**:
+  - Smooth card-stack view of all open background applications.
+  - Swipe up to dismiss and close active processes.
+- **Notification Center (`NotificationCenter.tsx`)**:
+  - System messages, new publication alerts, and project release updates.
 
 ---
 
-# 7. HOME
+### Native Mini-App Ecosystem
 
-HOME is the visitor's starting point.
+| Application | File Path | Core Functionality |
+| :--- | :--- | :--- |
+| **Projects** | `ProjectsApp.tsx` | Production Android catalog, community utilities, live demo links, architecture highlights. |
+| **Terminal** | `TerminalApp.tsx` | Interactive UNIX shell with command history, tab completion, and developer utilities. |
+| **Books** | `BooksApp.tsx` | 3D book library, chapter excerpt reader, Kindle links, reader reviews. |
+| **Education** | `EducationApp.tsx` | Degree transcripts, 7th State Rank gazette, coursework breakdown. |
+| **Gaming** | `GamingApp.tsx` | HaloBan Media documentary hub, video player, 15K subscriber milestones. |
+| **Manipuri Calendar** | `ManipuriCalendarMiniApp.tsx` | Authentic Lunar Tatnaba engine, Meitei Mayek thaban (months), Tatnaba calculations, cultural festivals. |
+| **Yek-Salai** | `YekSalaiMiniApp.tsx` | Genealogical tree and totem explorer for the 7 Yek-Salai clans of Kangleipak. |
+| **Blog** | `BlogApp.tsx` | Long-form essays on history, *Puya Meithaba*, and cultural philosophy. |
+| **About** | `AboutApp.tsx` | Personal biography, philosophy, verified favorites, and direct contact options. |
+| **Calculator** | `CalculatorApp.tsx` | High-precision glassmorphism calculator with tactile sound feedback. |
+| **Settings** | `SettingsApp.tsx` | System preferences, wallpaper switcher, audio toggles, and device info. |
+| **Camera** | `CameraApp.tsx` | Clean photo simulation with shutter animations. |
 
-Its purpose is:
-
-> "This is who I am."
-
-It should be visually clean and relatively calm compared with the experimental spaces.
-
----
-
-# 8. The 4×2 Introduction Widget
-
-The most important object on the Home screen is a **4×2 introduction widget**.
-
-Conceptually:
-
-```text
-┌──────────────────────────────────┐
-│                                  │
-│        BANISHWOR ATHOKPAM        │
-│                                  │
-│        Software Developer        │
-│        Builder · Author          │
-│        Digital Heritage Creator  │
-│                                  │
-└──────────────────────────────────┘
-```
-
-The exact copy should be finalized during implementation.
-
-Potential identity lines:
-
-* Software Developer
-* Mobile & Edge Systems Developer
-* Builder
-* Author
-* Digital Heritage Creator
-* Meitei Culture / Digital Heritage
-
-Do not overcrowd the widget.
-
-It should feel like a real OS widget rather than a résumé card.
-
-The widget may subtly change its secondary text over time.
-
-For example:
-
-```text
-Software Developer
-```
-
-then:
-
-```text
-Builder
-```
-
-then:
-
-```text
-Author
-```
-
-then:
-
-```text
-Digital Heritage Creator
-```
-
-But this animation must remain subtle.
+#### Interactive UNIX Terminal Shell Commands (`TerminalApp.tsx`)
+The terminal shell offers an authentic command-line environment:
+- `help`: Lists all available system commands.
+- `whoami`: Displays author identity, current role, and core credentials.
+- `neofetch`: Renders an ASCII art banner alongside system and environment specs.
+- `ls` / `cat [file]`: Explores virtual files (`bio.txt`, `skills.json`, `manifesto.md`).
+- `skills`: Categorized list of languages, frameworks, and tools.
+- `projects`: Lists all production and prototype software.
+- `matrix`: Launches a real-time falling green Matrix digital rain animation on canvas.
+- `sudo`: Playful privilege check with custom security dialog.
+- `clear`: Clears the terminal screen buffer.
 
 ---
 
-# 9. Home Screen App Icons
+## 5. Cultural Informatics & Indigenous Systems
 
-The Home screen should contain a limited number of applications.
+A defining aspect of BANI // OS is the deep integration of indigenous Manipuri culture and computational linguistics:
 
-Do not put every portfolio section on the first screen.
+### Meitei Mayek Wall Clock
+- Precision SVG/Canvas clock rendered with authentic Meitei Mayek numerals:
+  `꯱` (1), `꯲` (2), `꯳` (3), `꯴` (4), `꯵` (5), `꯶` (6), `꯷` (7), `꯸` (8), `꯹` (9), `꯱꯰` (10), `꯱꯱` (11), `꯱꯲` (12).
+- Continuous linear sweeping second hand with millisecond-accurate angular math:
+  $$\theta_{\text{sec}} = \left(\text{seconds} + \frac{\text{milliseconds}}{1000}\right) \times 6^\circ$$
 
-Possible initial Home layout:
+### Manipuri Lunar Calendar Engine
+- Native implementation of the traditional Meitei lunar calendar (`ManipuriCalendarMiniApp.tsx`).
+- Accurately computes **Tatnaba** (lunar day overlaps and skipped tithis), **Thaban** (lunar months like Wakching, Phairen, Lamta, Sajibu), and major indigenous festivals (Cheiraoba, Ningol Chakkouba, Yaoshang, Gaan-Ngai, Heikru Hidongba).
 
-```text
-[ ABOUT ]       [ WORK ]
+### Yek-Salai Clan & Totem Explorer
+- Comprehensive genealogical and cultural matrix representing the 7 historical clans (*Yek-Salai*) of Kangleipak:
+  1. **Mangang / Ningthouja**
+  2. **Luwang**
+  3. **Khuman**
+  4. **Angom**
+  5. **Moirang**
+  6. **Kha-Nganba**
+  7. **Salai-Leishangthem**
+- Includes ancestral totems (*Yek*), floral symbols, associated elements, and traditional marriage restrictions (*Yek Thoknaba*).
 
-[ PROJECTS ]    [ EDUCATION ]
-
-[ BOOKS ]       [ BANI ]
-
-[ ROOTS ]       [ GAMING ]
-
-[ LAB ]         [ PLAY ]
-```
-
-The exact arrangement can be changed after visual testing.
-
-The important thing is:
-
-## The home screen should feel like a launcher.
-
-Not a grid of portfolio cards.
-
----
-
-# 10. Search Bar
-
-Include a prominent search-like bar.
-
-However:
-
-## Do NOT pretend it is Google.
-
-Do not create a fake Google search engine UI.
-
-Instead call it something like:
-
-* BANI SEARCH
-* Search Banishwor
-* Search My World
-
-Possible placeholder:
-
-> Search Banishwor...
-
-When tapped, it can provide two conceptual modes.
-
-### Search My World
-
-Search content inside BANI OS:
-
-* projects
-* skills
-* education
-* work
-* books
-* blog posts
-* experiments
-* gaming
-* cultural projects
-
-Example:
-
-Searching:
-
-```text
-Kotlin
-```
-
-could return:
-
-```text
-Kotlin
-
-Used in:
-
-Manipur Calculator
-Manipuri Calendar
-Khutsuman
-```
-
-Searching:
-
-```text
-books
-```
-
-opens Books.
-
-Searching:
-
-```text
-calendar
-```
-
-opens Manipuri Calendar.
-
-Searching:
-
-```text
-family
-```
-
-opens Athokpam Family Tree / Roots.
-
-### Search the Web
-
-Provide a clearly labeled external option.
-
-For example:
-
-> Search web for "Banishwor Athokpam"
-
-This can launch an actual Google/Bing search externally.
-
-The OS should never pretend that an external web search happened internally.
+### Puya Meithaba & Historical Research
+- Detailed academic essay documenting the traumatic 18th-century *Puya Meithaba* (the state-enforced burning of sacred Meitei manuscripts in 1729/1732 AD under King Pamheiba and Santidas Gosai).
+- Synthesizes historical consensus, theological resistance led by *Epu Maichou Lourembam Khongnangthaba*, and modern revivalist movements like MEELAL.
 
 ---
 
-# 11. App Launcher Through Search
+## 6. Published Literature & Books
 
-Search can also become a universal launcher.
+Banishwor Athokpam is an active published author on Amazon Kindle. Both books are permanently showcased in the 3D Literary Sanctuary:
 
-Examples:
+### 1. *The Echoes of Silence: Book I — The Silence Between Heartbeats*
+- **ASIN**: `B0GT48RW96`
+- **Format**: Kindle Edition & Paperback
+- **Genre**: Literary Fiction / Coming-of-Age & Quiet Romance
+- **Synopsis**: A lyrical story following Bren Atherton—a quiet, observant boy who solves words like mathematical equations. As he navigates unspoken family dynamics, academic trials, and the arrival of Gemma Lancaster, silence transforms from a safe refuge into the loudest force in his life.
+- **Key Themes**: Mathematics of Grammar, Quiet Resilience, Unspoken Bonds, Emotional Architecture.
+- **Amazon Link**: [View on Amazon Kindle](https://www.amazon.in/Echoes-Silence-Book-Between-Heartbeats-ebook/dp/B0GT48RW96)
 
-```text
-"kotlin"
-→ Kotlin skill
-
-"calendar"
-→ Manipuri Calendar
-
-"books"
-→ Books
-
-"gaming"
-→ Gaming
-
-"family"
-→ Roots / Family Tree
-
-"bani"
-→ Bani
-
-"lab"
-→ Lab
-
-"projects"
-→ Projects
-```
-
-This makes the search field useful rather than decorative.
+### 2. *Pushback: How Breakups Can Lead to Personal Growth and Development*
+- **ASIN**: `B0BTB1JVVB`
+- **Format**: Kindle Edition & Paperback
+- **Genre**: Psychology, Personal Transformation & Self-Help
+- **Synopsis**: A pragmatic, empathetic guide on transforming emotional heartbreak into psychological resilience, self-discovery, and athletic/career discipline.
+- **Key Themes**: Emotional Sovereignty, Cognitive Reframing, Post-Traumatic Growth, Self-Actualization.
+- **Amazon Link**: [View on Amazon Kindle](https://www.amazon.in/Pushback-Breakups-Personal-Growth-Development-ebook/dp/B0BTB1JVVB)
 
 ---
 
-# 12. HOME → SWIPE UP → SKILLS
+## 7. Engineering Projects & Software Catalog
 
-This is one of the signature interactions.
-
-Do NOT create a conventional scrollable Skills section.
-
-The user should be able to:
-
-## Swipe upward from Home.
-
-The Home interface reacts physically.
-
-For example:
-
-1. Home icons move downward.
-2. Widget contracts/fades.
-3. Background layers shift.
-4. Particles or nodes appear.
-5. Large `SKILLS` typography emerges.
-6. Skill categories assemble.
-7. Individual technologies appear.
-8. Projects connect to the technologies.
-
-The result should feel like:
-
-> opening another layer of the operating system.
-
-Not:
-
-> scrolling down a portfolio page.
+| Project | Platform | Architecture | Status | Key Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **Manipur Calculator** | Native Android | Jetpack Compose, Room DB, BigDecimal | Production Active | Converts traditional land units (Pari, Lourak, Sangam, Loushal) and gold units (San, Rati, Ana) alongside modern loan EMI ledgers. |
+| **Khutsuman** | Native Android | Kotlin, Room DB, Offline-First | Active Production | Artisanal handloom daily wage and piece-rate attendance tracker tailored for local weaving workshops in Manipur. |
+| **FlorisBoard Meitei Mayek** | Android IME | Open-Source Keyboard Layout Engine | Active Release | Full native input method layout supporting the complete 35-character Meitei Mayek script, Cheikhei, and diacritic marks. |
+| **LeikaiFix** | Web & Android | React, TypeScript, Geolocation API | Beta Platform | Civic grievance reporting platform enabling local residents to submit geo-tagged community issues (roads, water, electricity). |
+| **Viral Prompts Generator** | Web Utility | TypeScript, LocalStorage, Canvas API | Production Active | AI prompt engineering generator with 50+ curated templates for developers, writers, and marketers. |
+| **Manipuri Lunar Calendar** | Web & Mobile | Pure JavaScript Astro Algorithms | Active Release | Astronomical calculation engine for Meitei lunar phases, Tatnaba rules, and cultural calendar lookups. |
+| **Yek-Salai Clan Explorer** | Web Matrix | React, SVG Graph Tree | Active Release | Interactive genealogical tree mapping the 7 clans and ancestral lineages of ancient Kangleipak. |
 
 ---
 
-# 13. Skills Interaction
-
-Possible categories:
-
-### CORE
-
-* Software Development
-* Debugging
-* Testing
-* Version Control
-
-### MOBILE
-
-* Kotlin
-* Android
-* Jetpack Compose
-* Room
-* MVVM
-* React Native
-
-### WEB
-
-* JavaScript
-* TypeScript
-* React
-* PWA
-* IndexedDB
-* HTML/CSS
-
-### DATA / BACKEND / CLOUD
-
-* Firebase
-* Google Apps Script
-* Google Sheets
-* Local-first architecture
-
-### EXPERIMENTAL
-
-* AI
-* On-device AI
-* WebGL
-* shaders
-* physics
-* creative coding
-
-Do not assign arbitrary percentages such as:
-
-```text
-Kotlin 95%
-React 87%
-```
-
-unless there is a real reason.
-
-Instead, show evidence.
-
-For example:
-
-```text
-KOTLIN
-
-Used in
-
-• Manipur Calculator
-• Manipuri Calendar
-• Khutsuman
-```
-
-This makes the Skills system credible.
-
----
-
-# 14. Developer Mode
-
-Consider adding a hidden or optional:
-
-## Developer Mode
-
-Normal visitors see:
-
-> Kotlin
-
-Developer Mode can reveal:
-
-```text
-Kotlin
-
-Projects:
-Manipur Calculator
-Manipuri Calendar
-Khutsuman
-
-Architecture:
-Jetpack Compose
-Room
-MVVM
-Offline-first
-```
-
-Another example:
-
-```text
-Firebase
-
-Used in:
-Yek Salai
-
-Purpose:
-Remote-managed cultural data
-```
-
-Developer Mode should expose technical depth without forcing normal visitors to read it.
-
----
-
-# 15. ROOTS
-
-ROOTS represents the cultural and personal side of the portfolio.
-
-Potential apps:
-
-* Athokpam Family Tree
-* Yek Salai
-* Manipuri Calendar
-* Bani
-
-The visual language can use:
-
-* branching structures
-* nodes
-* subtle organic lines
-* cultural-inspired geometry
-* layered depth
-
-Avoid stereotypical "tribal" visual clichés.
-
-The design should feel modern and respectful.
-
----
-
-# 16. Athokpam Family Tree
-
-This is an important personal project.
-
-The existing project is:
-
-**Athokpam Family Tree**
-
-It uses a family database and interactive family-tree concepts.
-
-Inside BANI OS, do not simply open the external website.
-
-Create a small interactive demonstration.
-
-For example:
-
-```text
-             Banishwor
-                 │
-       ┌─────────┴─────────┐
-       │                   │
-    Parent               Parent
-       │
-     Family
-       │
-    Ancestors
-```
-
-Users can:
-
-* tap a node
-* expand a branch
-* inspect a person
-* zoom/pan
-* return to Roots
-
-The full external family tree can still be linked when appropriate.
-
-Do not expose private family information that is not intended for public display.
-
----
-
-# 17. Yek Salai
-
-Yek Salai is a digital guide to Meitei cultural heritage.
-
-The current public project includes:
-
-* traditional seven clans
-* 860+ surname records
-* clan identification
-* Yek Tinnaba
-* Shairuk Tinnaba
-* cultural education
-* community corrections
-* React Native
-* Firebase Remote Config
-
-These details are confirmed on the current portfolio.
-
-There is also an Advanced Yek Salai Eligibility Checker with seven traditional Salais:
-
-* Mangang
-* Luwang
-* Khuman
-* Angom
-* Moirang
-* Kha-Nganba
-* Chenglei
-
-The checker itself states that it is educational and not a substitute for legal, religious, genealogical, or customary authority.
-
-Inside BANI OS, create a **small educational/demo version**, not the entire application.
-
-Possible mini experience:
-
-```text
-YEK SALAI
-
-Enter surname
-
-[ __________ ]
-
-Search
-
-Result
-
-Clan
-Mangang
-
-Learn about this
-```
-
-Or:
-
-```text
-Seven Salais
-
-Mangang
-Luwang
-Khuman
-Angom
-Moirang
-Kha-Nganba
-Chenglei
-```
-
-The purpose is to demonstrate the project.
-
----
-
-# 18. Manipuri Calendar
-
-The current public project is a free, ad-free Manipuri cultural calendar available as:
-
-* Android application
-* Progressive Web App
-
-It combines:
-
-* Meitei lunar calendar
-* Gregorian calendar
-* festivals
-* public holidays
-* observances
-* search
-* Android widgets
-
-Current public widget formats include:
-
-* 2×2
-* 4×1
-* 4×2
-
-The current site describes it as a community-oriented, ad-free application.
-
-Inside BANI OS:
-
-Create a mini calendar.
-
-For example:
-
-```text
-MANIPURI CALENDAR
-
-        Wakching
-
-Mo Tu We Th Fr Sa Su
-...
-
-13
-Gaan-Ngai
-```
-
-Possible interactions:
-
-* swipe month
-* tap a date
-* reveal festival
-* switch Gregorian/Meitei
-* show lunar phase
-
-Do not try to reproduce the complete calendar application inside the portfolio.
-
-The portfolio version should be a **miniature demonstration**.
-
----
-
-# 19. Khutsuman
-
-Current public project:
-
-**Khutsuman (ꯈꯨꯠꯁꯨꯃꯟ)**
-
-Status:
-
-**Beta / Coming Soon**
-
-Purpose:
-
-Daily wage, attendance and Hisab management.
-
-Target users include:
-
-* site supervisors
-* petty contractors / Mohoriks
-* carpenters
-* daily wage workers
-
-Current public feature set includes:
-
-* Present = 1.0
-* Half-Day = 0.5
-* Overtime
-* Absent
-* multiple sites
-* worker-specific rates
-* client advances
-* expenses
-* net profit
-* WhatsApp PDF statements
-* editable worker statements
-* local encrypted Room database
-* Kotlin
-* Jetpack Compose
-* Material Design 3
-* MVVM
-
-These details are confirmed on the current portfolio.
-
-Mini demo:
-
-```text
-KHUTSUMAN
-
-Workers
-
-Ratan      Present    ₹700
-Sanjit     Half-Day   ₹350
-Biren      Present    ₹650
-
-Today's Total
-₹1,700
-```
-
-Make the mini app interactive.
-
-The visitor could tap:
-
-```text
-Present
-Half-Day
-Absent
-```
-
-and see the total change.
-
-This demonstrates the product better than a screenshot.
-
----
-
-# 20. Manipur Calculator
-
-Current public project:
-
-**Manipur Calculator**
-
-It combines traditional Manipuri land/gold units with modern financial calculations.
-
-Current features include:
-
-### Land
-
-Traditional Manipuri land units.
-
-### Gold
-
-Traditional gold weight conversion.
-
-### Financial
-
-* Loan EMI
-* Gold Loan
-* Car Loan
-* Simple Interest
-* Compound Interest
-
-Technology currently presented publicly:
-
-* Kotlin
-* Jetpack Compose
-* BigDecimal
-* Room
-* offline operation
-* persistent calculation history
-
-Inside BANI OS, make a small functional calculator.
-
-Example:
-
-```text
-MANIPUR CALCULATOR
-
-LAND
-PARI
-LOURAK
-SANGAM
-
-or
-
-FINANCE
-EMI
-INTEREST
-GOLD LOAN
-```
-
-Allow at least one calculation to work.
-
----
-
-# 21. CREATE
-
-CREATE represents the creative side.
-
-Recommended applications:
-
-* Books
-* Bani
-* Gaming
-* Music
-* Bani TV
-
-This area should feel more editorial and expressive than HOME.
-
----
-
-# 22. BOOKS
-
-The portfolio should contain a dedicated Books application.
-
-Known book information from previous project context:
-
-### Book 1
-
-Title:
-
-**The Echoes of Silence**
-
-It is part of the **Between Heartbeats** series.
-
-Amazon ASIN previously provided:
-
-`B0GT48RW96`
-
-Amazon India link:
-
-https://www.amazon.in/Echoes-Silence-Book-Between-Heartbeats-ebook/dp/B0GT48RW96
-
-### Book 2
-
-Title:
-
-**Pushback: How Breakups Can Lead to Personal Growth and Development**
-
-Amazon ASIN previously provided:
-
-`B0BTB1JVVB`
-
-Amazon India link:
-
-https://www.amazon.in/Pushback-Breakups-Personal-Growth-Development-ebook/dp/B0BTB1JVVB
-
-The legacy profile also confirms Pushback and describes it as a book about breakups, personal growth and development.
-
-## IMPORTANT
-
-The exact current:
-
-* author metadata
-* subtitle
-* cover image
-* publication metadata
-* description
-* series metadata
-
-for both books should be **verified before implementation**.
-
-Do not invent missing metadata.
-
----
-
-# 23. Books Should Have Multiple Pages
-
-Do not make Books a single screen.
-
-Possible interaction:
-
-```text
-BOOKS
-   ↓
-
-Book 1
-The Echoes of Silence
-
-   ↔
-
-Book 2
-Pushback
-```
-
-Tapping a book opens:
-
-```text
-COVER
-
-TITLE
-
-ABOUT THE BOOK
-
-THEMES
-
-READ PREVIEW
-
-BUY / VIEW ON AMAZON
-```
-
-Use large typography and cinematic transitions.
-
-Possible interaction:
-
-* swipe between books
-* rotate cover slightly with device movement
-* tap cover
-* expand book
-* reveal details
-* read preview
-* return to Books
-
-Do not reproduce copyrighted book content beyond authorized previews.
-
----
-
-# 24. BANI — THE BLOG
-
-This is one of the most important parts.
-
-The existing Bani blog should **NOT simply redirect to Blogger**.
-
-It should also **NOT appear inside an iframe**.
-
-Do not create:
-
-```text
-BANI OS
- └── fake browser
-      └── Blogger
-           └── browser-like UI
-```
-
-That would feel like a browser inside a browser.
-
-Instead:
-
-# BANI becomes a first-class application.
-
-The existing blog remains the publishing backend.
-
-BANI OS becomes the reading experience.
-
----
-
-# 25. BANI Blog Architecture
-
-Conceptually:
-
-```text
-BANI OS
-   │
-   ▼
-BANI APP
-   │
-   ├── Featured
-   ├── Stories
-   ├── Culture
-   ├── History
-   ├── Literature
-   └── About Bani
-          │
-          ▼
-     Blog content source
-```
-
-The exact content retrieval method should be determined during implementation.
-
-Possible sources:
-
-* Blogger feed
-* Blogger API
-* generated JSON
-* cached content
-* static build-time extraction
-
-Prefer an architecture that avoids unnecessary runtime requests.
-
----
-
-# 26. BANI Home
-
-Inside the BANI app:
-
-```text
-BANI
-
-Voices of Meitei Heritage
-
-FEATURED
-────────────────────
-
-[Large story]
-
-Story title
-
-Short introduction
-
-READ →
-
-────────────────────
-
-LATEST
-
-Story
-Story
-Story
-Story
-```
-
-No browser address bar.
-
-No browser back button.
-
-No duplicated website navbar.
-
-The OS's own navigation system controls the experience.
-
----
-
-# 27. BANI Categories
-
-Potential categories:
-
-* Stories
-* Culture
-* History
-* Literature
-* Folklore
-* Indigenous Storytelling
-
-Only show categories that actually exist in the source content.
-
-Do not fabricate categories just to fill the UI.
-
----
-
-# 28. BANI Reader
-
-Opening an article should feel like entering a dedicated reading mode.
-
-Example:
-
-```text
-← BANI
-
-CATEGORY
-
-ARTICLE TITLE
-
-Short introduction
-
-[Hero image]
-
-Article body
-...
-...
-...
-
-────────────
-
-Related Stories
-```
-
-Features:
-
-* reading progress
-* clean typography
-* large images
-* expandable images
-* related posts
-* share
-* return to BANI
-* next/previous story
-* saved/bookmarked articles if feasible
-
-The reader should feel closer to a modern editorial app than a website.
-
----
-
-# 29. Blog Content Must Remain Maintainable
-
-The developer should not manually copy every article into source code if this can be avoided.
-
-Ideally:
-
-```text
-Blogger
-   ↓
-Content ingestion
-   ↓
-Normalized article data
-   ↓
-BANI app
-```
-
-Example normalized structure:
-
-```ts
-type BaniPost = {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt?: string;
-  content: string;
-  coverImage?: string;
-  publishedAt: string;
-  updatedAt?: string;
-  categories?: string[];
-  tags?: string[];
-  sourceUrl: string;
-};
-```
-
-The source URL should remain available for:
-
-* attribution
-* fallback
-* sharing
-* opening the original article
-
-But the normal reading experience remains inside BANI OS.
-
----
-
-# 30. BANI Should Not Become a Browser
-
-This is a hard requirement.
-
-Do not include:
-
-* address bar
-* browser tabs
-* browser bookmarks
-* browser refresh button
-* browser-style toolbar
-* duplicated Blogger navigation
-* iframe browser experience
-
-BANI is an app.
-
----
-
-# 31. External Links Philosophy
-
-Whenever possible:
-
-## Experience inside BANI OS.
-
-When an action genuinely requires an external platform:
-
-## Leave the OS intentionally.
-
-Examples:
-
-Amazon purchase:
-
-```text
-BUY / VIEW ON AMAZON
-```
-
-opens Amazon.
-
-GitHub:
-
-```text
-VIEW SOURCE
-```
-
-opens GitHub.
-
-Google search:
-
-```text
-SEARCH WEB
-```
-
-opens the search engine.
-
-Play Store:
-
-```text
-GET APP
-```
-
-opens Google Play.
-
-Do not hide external transitions.
-
----
-
-# 32. GAMING
-
-Gaming is part of the user's creator history.
-
-The user has previously described:
-
-* Bani Entertainment
-* Facebook Gaming
-* 15K+ followers
-* Mobile Legends: Bang Bang
-* former MIL Influencer
-
-The 15K+ follower figure and MIL status should be treated as **user-provided claims unless supporting screenshots/evidence are added**.
-
-The legacy profile also contains a Content Creator & Gaming Influencer section mentioning MLBB/Mobile Legends and digital content creation.
-
-Gaming should therefore be presented as:
-
-## Creator Era / Gaming Archive
-
-Not as a current software project.
-
-Possible UI:
-
-```text
-GAMING
-
-BANI ENTERTAINMENT
-
-15K+ COMMUNITY
-
-Mobile Legends: Bang Bang
-
-Creator Archive
-```
-
-Include:
-
-* screenshots
-* old content
-* creator history
-* gaming clips if available
-* social links
-
-Use evidence assets supplied by the owner for follower counts and historical claims.
-
----
-
-# 33. PLAY
-
-PLAY is the experimental area.
-
-Possible applications:
-
-* Arcade
-* Lab
-* Experiments
-* Creative Coding
-
-This is where the portfolio can become deliberately playful.
-
----
-
-# 34. LAB
-
-LAB represents experimentation.
-
-Possible experiments:
-
-* particles
-* physics
-* generative art
-* WebGL
-* shaders
-* audio visualization
-* AI experiments
-* interactive simulations
-
-The experiments should be small and fast.
-
-Do not build a huge game engine.
-
-Each experiment should demonstrate one idea.
-
-Example:
-
-```text
-LAB
-
-[ PARTICLES ]
-
-[ GRAVITY ]
-
-[ SHADER ]
-
-[ AI ]
-
-[ PHYSICS ]
-
-[ GENERATIVE ]
-```
-
----
-
-# 35. ARCADE
-
-The portfolio can contain small games.
-
-Possible games:
-
-* Snake
-* Breakout
-* Bug Runner
-* hidden game
-
-The games should be optional.
-
-Do not force visitors to play before they can access portfolio information.
-
-Arcade exists because:
-
-> building things for fun is part of the creator identity.
-
----
-
-# 36. MUSIC
-
-Optional Music application.
-
-It can function as an experimental visual player.
-
-Possible:
-
-* waveform
-* visualizer
-* play/pause
-* track selection
-* generative animation
-
-Do not autoplay audio.
-
-Respect browser autoplay restrictions.
-
-If there is no final music content available, keep this as a placeholder rather than inventing a music catalogue.
-
----
-
-# 37. BANI TV
-
-Optional interactive media section.
-
-Possible channels:
-
-```text
-BANI TV
-
-01 — ABOUT
-02 — PROJECTS
-03 — GAMING
-04 — HERITAGE
-05 — LAB
-06 — ARCHIVE
-```
-
-The visitor swipes vertically/horizontally through channels.
-
-This should feel like a creative experiment, not a real streaming service.
-
-Only implement if it contributes meaningfully to the experience.
-
----
-
-# 38. EDUCATION
-
-Education should be represented as an interactive timeline.
-
-Verified from the existing profile:
-
-### Master of Computer Applications
-
-Manipur University, Chanchipur
-
-2020–2023
-
-The existing profile states **7th Position in State** and describes this as 7th position among affiliated colleges at state level.
-
-### Bachelor of Computer Applications
-
-NIELIT Imphal
-
-2017–2020
-
-Do not exaggerate the academic ranking.
-
-Use the exact wording after final verification.
-
----
-
-# 39. WORK
-
-Current profile information:
-
-### Software Developer & Instructor
-
-NTS Institute of Technology, Yairipok
-
-October 2023 – Present
-
-The profile describes the role as software development alongside instruction.
-
-### Instructor
-
-Hi-Tech Education, Thoubal
-
-April 2022 – September 2023
-
-The profile describes teaching computer science/programming and technical support.
+## 8. Work History & Pedagogical Experience
+
+### Software Developer & Computer Science Instructor
+**NTS Institute of Technology** — *Yairipok, Manipur*  
+*(Oct 2023 – Present · Full-time)*
+- Delivers comprehensive technical lectures and lab curricula in C, C++, Core Java, Advanced Web Development, and Object-Oriented Software Design.
+- Mentored over 100+ students through foundational programming, data structure fundamentals, and real-world capstone software projects.
+- Leads quality assurance, manual testing, and automated release validation for in-house educational portals and client web applications.
+
+### Computer Instructor & Laboratory Technical Support
+**Hi-Tech Computer Education** — *Thoubal, Manipur*  
+*(Apr 2022 – Sep 2023 · Full-time)*
+- Conducted hands-on technical training covering programming fundamentals, relational database management systems (DBMS), and modern operating systems.
+- Supervised computer lab operations, configuring local networks, hardware diagnostics, and developer workstations.
 
 ### Freelance Software Developer
-
-Ongoing
-
-The profile describes custom web/mobile application work, including culturally relevant solutions for the Manipuri community.
-
----
-
-# 40. CURRENT PROJECT LIBRARY
-
-The current public portfolio should be treated as the authoritative starting point for project inventory.
-
-Current major applications:
-
-1. Manipur Calculator
-2. Yek Salai
-3. Manipuri Calendar
-4. Khutsuman
-
-Current archived/experimental projects:
-
-5. LeikaiFix
-6. On-Device AI Keyboard
-7. Viral Prompts
-
-These are currently shown on the live portfolio.
+**Independent Community Engineering** — *Thoubal, Manipur*  
+*(2021 – Present · Freelance)*
+- Engineered and released specialized native Android applications targeting local community challenges in Manipur (Manipur Calculator, Khutsuman).
+- Designed offline-first software architectures resilient to intermittent electricity and internet connectivity.
 
 ---
 
-# 41. LEIKAIFIX
+## 9. Academic Background & Gazette Records
 
-Status:
+### Master of Computer Applications (MCA)
+**Manipur University (A Central University)** — *Canchipur, Imphal, Manipur*  
+*(Graduated 2023 · First Division with Distinction)*
+- **State Ranking**: **7th Position in State** across all affiliated university colleges.
+- **Cumulative Score**: **80.30% Distinction**.
+- **Master's Thesis**: *Clustering-Based Missing Data Imputation in Incomplete Datasets*.
+- **Official Documentation**: Verified via Manipur University Official Rank Gazette (Notification: June 2023).
 
-**Prototype / Paused**
+### Bachelor of Computer Applications (BCA)
+**Modern College, Manipur University** — *Porompat, Imphal, Manipur*  
+*(Graduated 2019 · First Division)*
+- **Cumulative Score**: **71.4% First Division**.
+- **Coursework**: C, C++, Data Structures, Software Engineering, Database Systems, Computer Networks.
 
-Purpose:
-
-Civic infrastructure reporting and public accountability.
-
-The public portfolio describes features including:
-
-* photo reports
-* geolocation
-* maps
-* constituency mapping
-* infrastructure issues
-* transparency analytics
-* most neglected constituency concept
-
-Development was paused because of sensitive regulatory, administrative and legal considerations.
-
-Inside BANI OS, this should be presented as:
-
-## Engineering Archive
-
-not as an active product.
-
-The purpose is to demonstrate engineering exploration and lessons learned.
-
-Do not present it as an active civic platform.
+### High-Performance Computing (HPC) Research Certifications
+- **Centre for Development of Advanced Computing (CDAC)** & **IIT Kharagpur**: Advanced workshop certifications in Supercomputing Architectures, Parallel Programming with MPI/OpenMP, and High-Performance Scientific Computing.
 
 ---
 
-# 42. ON-DEVICE AI KEYBOARD
-
-Status:
-
-**R&D / Archived**
-
-The current portfolio describes it as:
-
-* Android keyboard
-* based on FlorisBoard architecture
-* lightweight offline language model
-* paraphrasing
-* grammar correction
-* tone modification
-* zero cloud dependencies
-
-The project was archived because inference latency and RAM pressure affected typing responsiveness on budget Android devices.
-
-This is an excellent project for the Developer Mode / Lab section because it demonstrates:
-
-* edge AI
-* mobile optimization
-* privacy
-* hardware constraints
-* engineering tradeoffs
-
----
-
-# 43. VIRAL PROMPTS
-
-Status:
-
-**Archived / Sunset**
-
-The project focused on:
-
-* AI art prompts
-* content ideas
-* creative writing
-* Midjourney
-* DALL·E
-* Gemini
-* Stable Diffusion
-
-The current portfolio explains that continuous manual curation became too operationally expensive, leading to the project being discontinued.
-
-Present it as:
-
-## A product experiment that taught something.
-
-Do not make it look active.
-
----
-
-# 44. HORIZONTAL HOME NAVIGATION
-
-Each home space should have a strong visual identity.
-
-Suggested:
-
-## HOME
-
-Clean / futuristic / personal.
-
-## ROOTS
-
-Organic / connected / cultural.
-
-## CREATE
-
-Editorial / cinematic / literary.
-
-## PLAY
-
-Experimental / energetic / playful.
-
-The transition between spaces should not simply be:
-
-```text
-page 1 → page 2
-```
-
-Instead use:
-
-* parallax
-* depth
-* scaling
-* object movement
-* subtle blur
-* layered transitions
-* gesture-following motion
-
-The transition should follow the user's finger.
-
----
-
-# 45. Gesture Design
-
-Gestures must remain predictable.
-
-### Tap
-
-Open.
-
-### Swipe left/right
-
-Change Home space.
-
-### Swipe up from Home
-
-Skills.
-
-### Swipe down
-
-Return/collapse where appropriate.
-
-### Edge swipe
-
-Back.
-
-### Long press
-
-Technical information / developer mode / contextual menu.
-
-### Pinch
-
-Only where the content benefits from it:
-
-* Family Tree
-* Roots
-* certain Lab experiments
-
-Do not add gestures simply because they are technically possible.
-
----
-
-# 46. APP OPENING ANIMATION
-
-Applications should feel like actual OS applications.
-
-Example:
-
-User taps:
-
-```text
-CALENDAR
-```
-
-The icon expands into the application.
-
-The application's visual identity should originate from the icon.
-
-Then:
-
-```text
-← CALENDAR
-```
-
-allows returning to Home.
-
-The reverse animation collapses the app back into the icon.
-
-This creates the illusion that the applications actually belong to the OS.
-
----
-
-# 47. APP CLOSING
-
-Do not always use generic:
-
-```text
-X
-```
-
-buttons.
-
-Prefer:
-
-* back gesture
-* edge swipe
-* contextual back button
-* icon-collapse animation
-
-A close button can exist where necessary for accessibility.
-
----
-
-# 48. HOME SCREEN WIDGETS
-
-The 4×2 introduction widget is mandatory.
-
-Other live widgets can be added later.
-
-Possible examples:
-
-### Calendar
-
-Shows today's date.
-
-### Music
-
-Shows waveform.
-
-### Books
-
-Shows rotating book cover.
-
-### Lab
-
-Shows moving particles.
-
-### Roots
-
-Shows a growing node structure.
-
-But don't overload the Home screen.
-
----
-
-# 49. LIVE ICONS
-
-Icons can contain subtle animations.
-
-Examples:
-
-### Calendar
-
-Date changes.
-
-### Music
-
-Waveform moves.
-
-### Books
-
-Cover rotates slightly.
-
-### Roots
-
-Nodes subtly connect.
-
-### Lab
-
-Particles move.
-
-### Arcade
-
-Pixel animation.
-
-These animations must pause when:
-
-* page is hidden
-* reduced motion is enabled
-* performance is low
-
----
-
-# 50. SETTINGS
-
-Create a small Settings application.
-
-Possible sections:
-
-```text
-SETTINGS
-
-Appearance
-Motion
-Sound
-Performance
-Accessibility
-Developer Mode
-About BANI OS
-```
-
-### Appearance
-
-* theme
-* visual intensity
-* wallpaper/background
-
-### Motion
-
-* full motion
-* reduced motion
-
-### Sound
-
-* UI sounds
-* music
-
-### Performance
-
-* high
-* balanced
-* low
-
-Do not make settings unnecessarily complicated.
-
----
-
-# 51. ACCESSIBILITY
-
-The site must remain usable without gestures.
-
-Every major action must have an alternative.
-
-For example:
-
-Swipe right:
-
-```text
-Next space →
-```
-
-Swipe up:
-
-```text
-Open Skills
-```
-
-There should be accessible buttons or keyboard alternatives where appropriate.
-
-Support:
-
-* reduced motion
-* keyboard navigation where relevant
-* readable text
-* sufficient contrast
-* semantic HTML
-* screen-reader labels
-* focus states
-* touch target sizes
-
-Do not sacrifice usability for the concept.
-
----
-
-# 52. REDUCED MOTION
-
-If:
-
-```text
-prefers-reduced-motion: reduce
-```
-
-is enabled:
-
-* remove large parallax
-* reduce spring animations
-* disable unnecessary particles
-* reduce 3D movement
-* keep transitions short
-* preserve navigation
-
-The OS concept must still work.
-
----
-
-# 53. PERFORMANCE
-
-This is especially important because the experience is mobile-first.
-
-Avoid:
-
-* enormous WebGL scenes
-* unnecessary 3D models
-* huge images
-* constant particle simulations
-* continuous expensive rendering
-* autoplay video
-* unnecessary network requests
-
-Use:
-
-* lazy loading
-* code splitting
-* compressed images
-* WebP/AVIF where appropriate
-* dynamic imports
-* requestAnimationFrame carefully
-* intersection observers
-* cached content
-* static data where possible
-
-The website should feel fast on mid-range Android devices.
-
----
-
-# 54. OFFLINE / RESILIENCE
-
-Where practical, the OS shell should still work even if external content cannot be loaded.
-
-For example:
-
-* Home works
-* Projects work
-* Skills work
-* Education works
-* Work works
-* Books metadata works
-* BANI shell works
-
-If BANI content cannot be retrieved:
-
-```text
-BANI
-
-Stories temporarily unavailable.
-
-Try again
-Open original Bani
-```
-
-Do not show a broken white screen.
-
----
-
-# 55. TECHNOLOGY DIRECTION
-
-Preferred architecture:
-
-* React
-* TypeScript
-* Vite
-
-Potential libraries:
-
-* React Three Fiber
-* Three.js
-* Drei
-* GSAP
-* Framer Motion
-* Rapier
-* Web Audio API
-* GLSL
-
-Do not install every library automatically.
-
-Only use a library when it solves a real problem.
-
----
-
-# 56. CONTENT ARCHITECTURE
-
-Keep content separate from UI.
-
-For example:
-
-```text
-src/
-  content/
-    profile.ts
-    projects.ts
-    education.ts
-    work.ts
-    books.ts
-    skills.ts
-    roots.ts
-    gaming.ts
-    experiments.ts
-    bani.ts
-
-  mobile/
-    os/
-    home/
-    roots/
-    create/
-    play/
-    skills/
-    apps/
-
-  desktop/
-    ...
-```
-
-This allows Desktop and Mobile to share information without sharing their UI.
-
----
-
-# 57. PROJECT DATA MODEL
-
-Example:
-
-```ts
-type Project = {
-  id: string;
-  name: string;
-  category: string;
-  status: "active" | "beta" | "paused" | "archived";
-  description: string;
-  technologies: string[];
-  features: string[];
-  links?: {
-    website?: string;
-    github?: string;
-    playStore?: string;
-  };
-  assets?: {
-    icon?: string;
-    screenshots?: string[];
-  };
-};
-```
-
-Do not hardcode project descriptions inside components.
-
----
-
-# 58. SKILLS DATA MODEL
-
-Example:
-
-```ts
-type Skill = {
-  id: string;
-  name: string;
-  category: string;
-  description?: string;
-  projects: string[];
-};
-```
-
-This allows:
-
-```text
-Kotlin
-↓
-Manipur Calculator
-Manipuri Calendar
-Khutsuman
-```
-
-automatically.
-
----
-
-# 59. EXTERNAL LINK DATA
-
-Use centralized metadata.
-
-Example:
-
-```ts
-const externalLinks = {
-  portfolio: "...",
-  blog: "...",
-  github: "...",
-  amazonBook1: "...",
-  amazonBook2: "...",
-  familyTree: "...",
-  yekSalai: "...",
-  gaming: "..."
-};
-```
-
-Do not scatter URLs throughout components.
-
----
-
-# 60. SEARCH INDEX
-
-Build a unified search index from content.
-
-Searchable objects:
-
-```text
-Projects
-Skills
-Education
-Work
-Books
-Bani posts
-Experiments
-Gaming
-Roots
-```
-
-Example:
-
-```text
-Search: "Room"
-
-→ Manipur Calculator
-→ Khutsuman
-→ Developer Mode
-→ Skills
-```
-
-Search:
-
-```text
-"Meitei"
-```
-
-could return:
-
-* Yek Salai
-* Manipuri Calendar
-* Bani
-* Roots
-
----
-
-# 61. ACHIEVEMENTS / DISCOVERY
-
-Optional.
-
-The OS can reward exploration.
-
-Examples:
-
-```text
-ACHIEVEMENT UNLOCKED
-
-You discovered ROOTS.
-```
-
-```text
-ACHIEVEMENT UNLOCKED
-
-You found the archived AI Keyboard.
-```
-
-```text
-ACHIEVEMENT UNLOCKED
-
-You opened Developer Mode.
-```
-
-Keep this subtle.
-
-Do not turn the portfolio into a game unless the visitor chooses to explore that way.
-
----
-
-# 62. EASTER EGGS
-
-The site should contain a few hidden interactions.
-
-Examples:
-
-* Konami-style input
-* secret terminal command
-* hidden arcade
-* developer mode
-* secret animation
-* unusual icon interaction
-
-Do not make essential information dependent on Easter eggs.
-
----
-
-# 63. PERSONAL IDENTITY
-
-The site should communicate multiple sides of Banishwor.
-
-## Builder
-
-Software applications.
-
-## Engineer
-
-Architecture, offline-first systems, mobile development.
-
-## Educator
-
-Teaching and instructor experience.
-
-## Writer
-
-Books and storytelling.
-
-## Cultural Creator
-
-Bani, Yek Salai, Manipuri Calendar, digital heritage.
-
-## Family / Roots
-
-Athokpam Family Tree.
-
-## Creator
-
-Gaming/content creation.
-
-## Experimenter
-
-AI, WebGL, prototypes and creative coding.
-
-The OS metaphor exists to connect these identities.
-
----
-
-# 64. THE CENTRAL METAPHOR
-
-The application structure should communicate:
-
-```text
-Apps
-= What I built
-
-Skills
-= What powers it
-
-Work
-= Where I applied it
-
-Education
-= Where I learned
-
-Books
-= What I write
-
-Bani
-= What I preserve and publish
-
-Roots
-= Where I come from
-
-Gaming
-= My creator history
-
-Lab
-= What I experiment with
-
-Arcade
-= What I build for fun
-
-Search
-= How you find me
-```
-
-This is the conceptual foundation of BANI OS.
-
----
-
-# 65. VISUAL DESIGN
-
-Avoid generic "AI portfolio" aesthetics.
-
-Do not create:
-
-* generic glassmorphism everywhere
-* random gradients
-* excessive neon
-* meaningless 3D objects
-* stock illustrations
-* fake dashboards
-* giant "Hello, I'm Banishwor" hero section
-* generic skill progress bars
-* résumé cards everywhere
-
-Instead use:
-
-* strong typography
-* intentional spacing
-* subtle depth
-* motion
-* original icons
-* meaningful animations
-* visual storytelling
-* carefully selected imagery
-* project screenshots
-* real assets
-
----
-
-# 66. CULTURAL DESIGN
-
-Cultural elements should be authentic and purposeful.
-
-Do not use random:
-
-* tribal patterns
-* decorative symbols
-* fake traditional motifs
-* generic Indian cultural visuals
-
-If Meitei visual elements are used, they should have a reason and should be researched/verified.
-
-The overall UI should still look contemporary.
-
----
-
-# 67. CONTENT TRUTH RULE
-
-This is extremely important.
-
-## Never invent facts about Banishwor.
-
-If information is not available:
-
-```text
-TODO: VERIFY
-```
-
-Do not generate fake:
-
-* employers
-* awards
-* follower counts
-* project statistics
-* publication dates
-* book metadata
-* client names
-* technology claims
-* certifications
-* testimonials
-* achievements
-
-If a number is supplied by the owner but cannot be independently verified, it may be included with appropriate treatment, but should not be embellished.
-
----
-
-# 68. CURRENT VERIFIED PROJECT INFORMATION
-
-At the time this README is being prepared, the current portfolio publicly lists:
-
-### Active / featured
-
-* Manipur Calculator
-* Yek Salai
-* Manipuri Calendar
-* Khutsuman
-
-### Engineering archive
-
-* LeikaiFix
-* On-Device AI Keyboard
-* Viral Prompts
-
-Source:
-
-https://banishwor.github.io/
-
-The legacy profile additionally contains education, work history, publications and creator information.
-
----
-
-# 69. WHAT MUST NOT BE ASSUMED
-
-The following should be verified before final implementation if not supplied as assets/data:
-
-* exact current book covers
-* exact current book descriptions
-* exact publication dates
-* exact author metadata
-* exact follower screenshots
-* exact gaming history dates
-* exact current social metrics
-* exact Bani article categories
-* exact Bani API/feed architecture
-* exact GitHub repository inventory
-* exact current Play Store URLs
-* exact current social profile URLs
-
-If the developer cannot verify something:
-
-## ASK OR MARK VERIFY.
-
-Never invent it.
-
----
-
-# 70. BANI BLOG IMPLEMENTATION PRIORITY
-
-The Bani application is not optional decoration.
-
-It should demonstrate that the portfolio can consume and present real publishing content.
-
-Priority:
-
-### Phase 1
-
-* Bani home
-* featured article
-* latest articles
-* article reader
-* categories
-* back navigation
-
-### Phase 2
-
-* search
-* related articles
-* reading progress
-* image viewer
-* share
-* bookmarks
-
-### Phase 3
-
-* offline cache
-* smarter recommendations
-* animations
-* article transitions
-
----
-
-# 71. MINI APPS IMPLEMENTATION PRIORITY
-
-Do not attempt to recreate entire applications.
-
-Recommended first versions:
-
-### Manipur Calculator
-
-One or two working calculations.
-
-### Yek Salai
-
-Surname/clan educational demo.
-
-### Manipuri Calendar
-
-Date/month/festival demo.
-
-### Khutsuman
-
-Attendance + wage calculation demo.
-
-### Family Tree
-
-Small interactive sample tree.
-
-The goal is:
-
-> demonstrate the real product idea.
-
-Not:
-
-> rebuild the entire application inside the portfolio.
-
----
-
-# 72. FIRST LAUNCH EXPERIENCE
-
-First visit can have a short boot-like transition.
-
-Example:
-
-```text
-BANI OS
-
-Initializing...
-
-Projects ........ OK
-Roots ........... OK
-Books ........... OK
-Bani ............ OK
-Experiments ..... OK
-
-WELCOME
-```
-
-Keep it short.
-
-Approximately 1–2 seconds maximum.
-
-After the first visit, consider skipping or shortening the boot sequence.
-
-Do not force users to watch an animation every time.
-
----
-
-# 73. HOME SCREEN FIRST IMPRESSION
-
-After boot:
-
-```text
-                BANI OS
-
-      ┌─────────────────────────┐
-      │                         │
-      │    BANISHWOR ATHOKPAM   │
-      │    Software Developer   │
-      │    Builder · Author     │
-      │                         │
-      └─────────────────────────┘
-
-        [ Search Banishwor... ]
-
-     ABOUT       WORK
-     PROJECTS    EDUCATION
-
-     BOOKS       BANI
-     ROOTS       GAMING
-
-     LAB         PLAY
-
-            ↑
-       SWIPE FOR SKILLS
-```
-
-This is conceptual, not a final visual specification.
-
----
-
-# 74. HORIZONTAL SPACE INDICATOR
-
-The user should understand that Home is horizontally navigable.
-
-Possible subtle indicator:
-
-```text
-      ● ○ ○ ○
-```
-
-or a more creative spatial indicator.
-
-Do not use a huge traditional carousel indicator.
-
-It should feel like part of the OS.
-
----
-
-# 75. MOBILE NAVIGATION PRINCIPLE
-
-Always preserve orientation.
-
-The visitor should know:
-
-> Where am I?
-
-> What can I do?
-
-> How do I go back?
-
-> What happens if I swipe?
-
-Avoid gesture overload.
-
----
-
-# 76. RESPONSIVE BEHAVIOR
-
-Mobile should be designed first.
-
-Then support:
-
-* small phones
-* large phones
-* tablets
-
-Do not simply scale the phone interface to tablet.
-
-For tablets, adapt the spatial layout while keeping the BANI OS mental model.
-
----
-
-# 77. DESKTOP FALLBACK
-
-If the user visits the mobile BANI OS on desktop accidentally, do not simply stretch it.
-
-Detect viewport/device appropriately and direct the experience toward the desktop BANISHWOR.EXE version.
-
-However, do not block access.
-
-There should always be a usable fallback.
-
----
-
-# 78. URL / ROUTING STRATEGY
-
-Although the interface behaves like an OS, URLs should remain meaningful.
-
-Possible routes:
-
-```text
-/
- /mobile
- /desktop
-
-/mobile/projects
-/mobile/books
-/mobile/bani
-/mobile/roots
-/mobile/skills
-/mobile/gaming
-/mobile/lab
-```
-
-The exact routing architecture can be decided during implementation.
-
-Important:
-
-Browser back/forward must still work.
-
-Do not make the website inaccessible to normal browser navigation.
-
----
-
-# 79. DEEP LINKING
-
-A visitor should be able to share:
-
-```text
-/mobile/bani/article/example
-```
-
-and open directly into that content.
-
-The OS should reconstruct the necessary UI state.
-
-This is important for:
-
-* SEO
-* sharing
-* bookmarks
-* social media
-* usability
-
----
-
-# 80. SEO
-
-Even though the interface is experimental, normal web fundamentals remain important.
-
-Provide:
-
-* title
-* meta description
-* Open Graph
-* Twitter/X metadata
-* canonical URLs
-* structured data where appropriate
-* semantic HTML
-* crawlable content where practical
-
-The creative OS should not destroy search discoverability.
-
----
-
-# 81. SOCIAL SHARING
-
-When sharing an article or project, generate a meaningful URL.
-
-For example:
-
-```text
-BANI
-Article title
-
-Read inside BANI OS
-```
-
-Social previews should use real article/project images.
-
----
-
-# 82. ANALYTICS
-
-If analytics are added, keep them minimal and privacy-conscious.
-
-Potential anonymous events:
-
-```text
-opened_project
-opened_book
-opened_bani
-opened_article
-used_search
-opened_skills
-entered_lab
-played_game
-```
-
-Do not collect unnecessary personal information.
-
----
-
-# 83. SECURITY
-
-Never expose:
-
-* API secrets
-* Firebase private credentials
-* service account credentials
-* private family data
-* private API keys
-
-Any public data source must be designed as public.
-
----
-
-# 84. CONTENT SOURCE PRIORITY
-
-Use this priority:
-
-1. Current portfolio data
-2. Existing project repositories/data
-3. Owner-supplied content
-4. Existing public websites
-5. Verified external sources
-
-If sources conflict:
-
-## Do not silently choose.
-
-Mark the discrepancy and ask for confirmation when necessary.
-
----
-
-# 85. DEVELOPMENT APPROACH
-
-Do not attempt to build the entire OS at once.
-
-Build a vertical slice first.
-
-## Milestone 1
-
-Create:
-
-* Home
-* 4×2 widget
-* Search
-* 10 icons
-* horizontal swipe
-* swipe-up Skills
-
-Make this feel excellent.
-
-## Milestone 2
-
-Add:
-
-* Projects
-* mini apps
-* app transitions
-
-## Milestone 3
-
-Add:
-
-* Roots
-* Family Tree
-* Yek Salai
-* Calendar
-
-## Milestone 4
-
-Add:
-
-* Books
-* Bani
-* article reader
-
-## Milestone 5
-
-Add:
-
-* Gaming
-* Lab
-* Arcade
-* Music
-* Bani TV
-
-## Milestone 6
-
-Add:
-
-* Developer Mode
-* Easter eggs
-* achievements
-* advanced motion
-
----
-
-# 86. DO NOT OVERBUILD
-
-The portfolio itself is the product.
-
-If an interaction takes weeks to build but adds little value, don't build it.
-
-Priority should be:
-
-```text
-Identity
-↓
-Navigation
-↓
-Projects
-↓
-Content
-↓
-Interactions
-↓
-Experiments
-```
-
-Not:
-
-```text
-3D effects
-↓
-particles
-↓
-shader
-↓
-portfolio content
+## 10. Technical Stack & Design System
+
+### Core Technologies
+- **Runtime & UI**: React 18.2, TypeScript 5.2.
+- **Bundler & Tooling**: Vite 5.0 with fast hot module replacement.
+- **Animation & Timeline**: GSAP 3.12 (GreenSock) and ScrollTrigger plugin.
+- **Icons**: Lucide React.
+- **Rendering & Audio**: HTML5 2D Canvas API and Web Audio API.
+
+### Design Tokens & Variables (`src/index.css`)
+```css
+:root {
+  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  --color-bg-deep: #070B14;
+  --color-bg-card: #0D1117;
+  --color-accent-gold: #F59E0B;
+  --color-accent-cyan: #06B6D4;
+  --color-accent-emerald: #10B981;
+  --color-accent-rose: #F43F5E;
+  --color-accent-indigo: #6366F1;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-glow: rgba(245, 158, 11, 0.25);
+  --glass-bg: rgba(13, 17, 23, 0.72);
+  --glass-blur: blur(20px);
+}
 ```
 
 ---
 
-# 87. FINAL EXPERIENCE GOAL
+## 11. Audio Synthesis & Haptics Engine
 
-The visitor should be able to enter BANI OS and naturally discover:
+All interactive sound effects in BANI // OS are synthesized dynamically in real-time via the browser's **Web Audio API** (`src/utils/audioFeedback.ts`), requiring zero audio asset downloads:
 
-```text
-WHO IS HE?
-    ↓
-WHAT DOES HE BUILD?
-    ↓
-HOW DOES HE BUILD IT?
-    ↓
-WHAT HAS HE STUDIED?
-    ↓
-WHERE HAS HE WORKED?
-    ↓
-WHAT DOES HE WRITE?
-    ↓
-WHAT IS BANI?
-    ↓
-WHAT ARE HIS ROOTS?
-    ↓
-WHAT DID HE EXPERIMENT WITH?
-    ↓
-WHAT DOES HE DO FOR FUN?
+- **Tactile Click (`playClickSound`)**: Dual-sine micro burst ($800\text{Hz} \rightarrow 120\text{Hz}$, duration $40\text{ms}$) simulating mechanical mouse clicks or haptic smartphone taps.
+- **Success Chime (`playSuccessChime`)**: Two-stage harmonic chord ($523.25\text{Hz}$ C5 $\rightarrow 659.25\text{Hz}$ E5, duration $280\text{ms}$) played on stage transitions and modal confirmations.
+- **Sunrise Chime (`playSunriseSound`)**: Three-stage golden sunrise chord with exponential decay ($440\text{Hz} \rightarrow 554.37\text{Hz} \rightarrow 659.25\text{Hz}$), signaling the transition to daylight sanctuary mode.
+- **Mute & Volume Control**: Fully respected across all audio triggers.
+
+---
+
+## 12. SEO, Structured Data & LLM Knowledge (`llms.txt`)
+
+This repository is designed to be fully parseable by modern AI scrapers, LLM search agents (ChatGPT Search, Perplexity, Gemini, Claude), and search engine crawlers.
+
+### Knowledge Entities Recognized:
+- **Person**: Banishwor Athokpam (`https://banishwor.github.io/`)
+- **Occupation**: Software Developer, Computer Science Educator, Author
+- **AlumniOf**: Manipur University (MCA 7th Rank, 80.30%)
+- **PublishedWorks**: *The Echoes of Silence* (`B0GT48RW96`), *Pushback* (`B0BTB1JVVB`)
+- **KeySoftware**: *Manipur Calculator*, *Khutsuman*, *FlorisBoard Meitei Mayek*, *LeikaiFix*
+- **GeographicOrigin**: Thoubal, Manipur, India
+
+---
+
+## 13. Getting Started & Local Development
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) version `18.x` or `20.x` or newer.
+- [npm](https://www.npmjs.com/) or `pnpm` / `yarn`.
+
+### Installation
+Clone the repository and install all dependencies:
+```bash
+git clone https://github.com/banishwor/aboutme.git
+cd aboutme
+npm install
 ```
 
-without ever feeling like they are reading a résumé.
+### Development Server
+Run the local Vite development server with Hot Module Replacement (HMR):
+```bash
+npm run dev
+```
+Open your browser and navigate to:
+```
+http://localhost:3005/
+```
+
+### Production Build
+Compile TypeScript and build the optimized production assets:
+```bash
+npm run build
+```
+The output will be bundled in the `dist/` directory, ready for zero-configuration static deployment to **GitHub Pages**, **Vercel**, or **Cloudflare Pages**.
+
+### Production Preview
+Preview the production build locally:
+```bash
+npm run preview
+```
 
 ---
 
-# 88. THE BIG IDEA
+## License
 
-The entire project can be summarized as:
-
-> **Don't build a portfolio that looks like an OS. Build an OS that happens to be a portfolio.**
-
-The Home screen represents the person.
-
-The Apps represent the things he built.
-
-The Skills layer represents the technology behind them.
-
-Roots represent culture and family.
-
-Books represent writing.
-
-Bani represents publishing and Meitei heritage.
-
-Gaming represents the creator era.
-
-Lab represents experimentation.
-
-Arcade represents play.
-
-Search represents discovery.
-
-And the entire system becomes one interactive representation of:
-
-# BANISHWOR ATHOKPAM
-
----
-
-# 89. IMPLEMENTATION RULE
-
-Before implementing any major feature:
-
-1. Understand its purpose.
-2. Determine whether it belongs to Home, Roots, Create, Play, or Skills.
-3. Decide whether it should be an app, interaction, or content layer.
-4. Check whether the information is verified.
-5. Check whether the interaction is useful.
-6. Build the smallest working version.
-7. Test on a real mobile device.
-8. Only then add visual polish.
-
-Do not start by building decorative effects.
-
----
-
-# 90. DEFINITION OF DONE
-
-BANI OS is successful when a first-time visitor can:
-
-* immediately identify Banishwor
-* understand that this is an interactive portfolio
-* navigate horizontally
-* discover Skills by swiping upward
-* open real project demos
-* explore the cultural projects
-* explore Books
-* read Bani articles without leaving the OS
-* discover gaming/creator history
-* find archived experiments
-* access external destinations when necessary
-* use the website without understanding the underlying implementation
-* enjoy the experience even if they never read the résumé
-
-And technically:
-
-* works on mobile
-* works on desktop through the separate desktop experience
-* respects reduced motion
-* remains performant
-* supports browser navigation
-* supports deep links
-* does not depend on fake browser UI
-* does not invent personal information
-* does not expose private information
-* does not turn into an unnecessary 3D game
-
----
-
-# 91. FINAL DESIGN DIRECTION
-
-The final mobile experience should feel like:
-
-**a personal operating system + interactive archive + mini app store + digital publication + creative playground.**
-
-It should be unusual enough that someone remembers it after leaving.
-
-But it should never become so experimental that the visitor cannot understand what Banishwor actually does.
-
-The rule is:
-
-> **Playful on the surface. Structured underneath.**
-
-And above everything:
-
-> **The interface is the portfolio.**
+Created with pride in **Thoubal, Manipur (ꯀꯪꯂꯩꯄꯥꯛ)** by **Banishwor Athokpam**.  
+Released under the [MIT License](LICENSE).

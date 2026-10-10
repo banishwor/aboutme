@@ -1,0 +1,713 @@
+/* ========================================================
+   THE R&D VAULT // ARCHITECTURAL POST-MORTEMS
+   visionOS Spatial Glass Styling (100% Consistent Aesthetic)
+   ======================================================== */
+
+.vos-vault-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  perspective: 1400px;
+  font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1E293B;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* 1. Warm Sunlit Architectural Living Room / Studio Backdrop (100% Identical to Slide 2) */
+.vos-vault-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/study-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(1.1) saturate(1.12);
+  transform: scale(1.06);
+}
+
+.vos-vault-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Luminous daylight vignette keeping the scene bright, warm and airy */
+  background: radial-gradient(
+    ellipse 95% 85% at 50% 45%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(215, 210, 205, 0.32) 100%
+  );
+}
+
+/* 2. Safari Spatial Pill URL Toolbar (Matches Slide 2 and Slide 4) */
+.vos-safari-toolbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  height: 44px;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(34px) saturate(1.25);
+  -webkit-backdrop-filter: blur(34px) saturate(1.25);
+  box-shadow: 
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.9),
+    0 10px 28px rgba(30, 20, 10, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #1E293B;
+  box-sizing: border-box;
+}
+
+.vos-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-pill-circle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E293B;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-pill-circle-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+}
+
+/* URL Pill Field */
+.vos-url-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px 2px 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+.vos-profile-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 3. Master VisionOS Spatial Glass Window */
+.vos-vault-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  height: 535px;
+  min-height: 535px;
+  max-height: 535px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 22px 32px 26px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 20px 48px rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Window Top Integrated Header with Category Tabs (Matches Slide 4) */
+.vos-vault-window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  flex-shrink: 0;
+}
+
+.vos-vault-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-vault-category-tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.04);
+  color: #475569;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  outline: none;
+}
+
+.vos-vault-category-tab:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-vault-category-tab.active {
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+.vos-vault-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+}
+
+.vos-vault-body {
+  display: grid;
+  grid-template-columns: 1fr 218px;
+  gap: 28px;
+  overflow: hidden;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Left Column: Technical Dossier, Post-Mortem & Highlights */
+.vos-vault-dossier-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+}
+
+.vos-vault-dossier-top {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.vos-vault-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.vos-vault-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3.5px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.vos-vault-title {
+  font-size: clamp(1.4rem, 1.9vw, 1.85rem);
+  font-weight: 900;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+  line-height: 1.15;
+}
+
+.vos-vault-subtitle {
+  font-size: 12.5px;
+  color: #4F46E5;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.vos-vault-summary {
+  font-size: 12px;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+/* Architecture Highlights */
+.vos-vault-arch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.vos-vault-arch-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.4;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 9px;
+  padding: 6px 11px;
+}
+
+.vos-vault-arch-bullet {
+  color: #4F46E5;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Post-Mortem Card */
+.vos-vault-postmortem-card {
+  background: linear-gradient(145deg, rgba(254, 243, 199, 0.35) 0%, rgba(248, 250, 252, 0.85) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.05);
+}
+
+.vos-vault-postmortem-card.purple {
+  background: linear-gradient(145deg, rgba(243, 232, 255, 0.35) 0%, rgba(248, 250, 252, 0.85) 100%);
+  border-color: rgba(147, 51, 234, 0.35);
+  box-shadow: 0 3px 12px rgba(147, 51, 234, 0.05);
+}
+
+.vos-vault-postmortem-card.slate {
+  background: linear-gradient(145deg, rgba(241, 245, 249, 0.5) 0%, rgba(248, 250, 252, 0.85) 100%);
+  border-color: rgba(100, 116, 139, 0.35);
+  box-shadow: 0 3px 12px rgba(100, 116, 139, 0.05);
+}
+
+.vos-vault-postmortem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #B45309;
+  letter-spacing: 0.05em;
+}
+
+.vos-vault-postmortem-badge.purple {
+  color: #7E22CE;
+}
+
+.vos-vault-postmortem-badge.slate {
+  color: #475569;
+}
+
+.vos-vault-quote {
+  font-size: 12px;
+  color: #1E293B;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.vos-vault-target-meta {
+  padding-top: 6px;
+  border-top: 1px dashed rgba(203, 213, 225, 0.8);
+  font-size: 10.5px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vos-vault-target-meta strong {
+  color: #334155;
+}
+
+/* Bottom Row: Tech Tags & Action Buttons */
+.vos-vault-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+.vos-vault-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  flex: 1;
+}
+
+.vos-vault-tag {
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: #475569;
+}
+
+/* Action Buttons */
+.vos-vault-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.vos-vault-btn-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #1E293B;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.vos-vault-btn-source:hover {
+  background: #FFFFFF;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-vault-btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  border: 1px solid #818CF8;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.vos-vault-btn-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.45);
+}
+
+/* ========================================================
+   RIGHT COLUMN: REALISTIC SMARTPHONE MOCKUP FRAME
+======================================================== */
+.vos-vault-phone-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.vos-vault-phone-frame {
+  position: relative;
+  width: 188px;
+  height: 388px;
+  background: #090D16;
+  border-radius: 34px;
+  padding: 6px;
+  box-sizing: border-box;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.25) inset,
+    0 0 0 2px #1E293B,
+    0 16px 36px -8px rgba(15, 23, 42, 0.35),
+    0 6px 14px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-vault-phone-frame:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 0 0 2px #334155,
+    0 22px 44px -8px rgba(15, 23, 42, 0.45),
+    0 10px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Hardware side buttons */
+.vos-vault-phone-frame::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 60px;
+  width: 3px;
+  height: 36px;
+  background: #334155;
+  border-radius: 2px 0 0 2px;
+}
+
+.vos-vault-phone-frame::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 75px;
+  width: 3px;
+  height: 30px;
+  background: #334155;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Inner Phone Screen Area */
+.vos-vault-phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050811;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dynamic Island / Top Camera Pill */
+.vos-vault-phone-island {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 13px;
+  background: #000000;
+  border-radius: 12px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.vos-vault-phone-camera {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: #0B192C;
+  border: 1px solid #1E293B;
+}
+
+/* Glare Sheen Reflection */
+.vos-vault-phone-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 29px;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 60%);
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* Home Indicator Bar */
+.vos-vault-phone-home-bar {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+/* Screenshot image rendering inside phone */
+.vos-vault-phone-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Custom florisboard AI keyboard screen */
+.vos-vault-phone-custom-screen.ai-keyboard {
+  width: 100%;
+  height: 100%;
+  background: #111520;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vos-vault-phone-chat-area {
+  padding: 30px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vos-vault-phone-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 8.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #C084FC;
+  letter-spacing: 0.04em;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vos-vault-phone-chat-bubble {
+  border-radius: 10px;
+  padding: 6px 9px;
+  font-size: 9.5px;
+  line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vos-vault-phone-chat-bubble.prompt {
+  background: rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.vos-vault-phone-chat-bubble.response {
+  background: rgba(147, 51, 234, 0.25);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  color: #F8FAFC;
+  align-self: flex-end;
+  max-width: 95%;
+}
+
+.vos-vault-phone-chat-label {
+  font-size: 7.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #A855F7;
+  letter-spacing: 0.05em;
+}
+
+.vos-vault-phone-keyboard-dock {
+  width: 100%;
+  background: #17181F;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.vos-vault-phone-keyboard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.vos-vault-phone-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  color: #64748B;
+  font-size: 11px;
+}
+
+/* Spatial Ground Shadow under phone */
+.vos-vault-phone-pedestal {
+  width: 120px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(15, 23, 42, 0.25) 0%, transparent 72%);
+  margin-top: 4px;
+  filter: blur(1.5px);
+  flex-shrink: 0;
+}
+
+.vos-vault-phone-caption {
+  font-size: 8.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #64748B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  flex-shrink: 0;
+}

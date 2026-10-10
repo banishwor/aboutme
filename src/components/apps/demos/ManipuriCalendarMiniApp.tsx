@@ -24,17 +24,18 @@ import { getAssetUrl } from '../../../utils/assetUrl';
 export interface ManipuriCalendarMiniAppProps {
   onBack: () => void;
   onHome: () => void;
+  initialTab?: BottomTab;
 }
 
 type BottomTab = 'today' | 'calendar' | 'almanac' | 'info';
 
 export const ManipuriCalendarMiniApp: React.FC<ManipuriCalendarMiniAppProps> = ({
   onBack,
-  onHome
+  onHome,
+  initialTab
 }) => {
-  // 4 Bottom Tabs matching user's screenshot: 'today' | 'calendar' | 'almanac' | 'info'
-  // Default is 'today' as requested by the user
-  const [activeTab, setActiveTab] = useState<BottomTab>('today');
+  // 4 Bottom Tabs: 'today' | 'calendar' | 'almanac' | 'info'
+  const [activeTab, setActiveTab] = useState<BottomTab>(initialTab || 'today');
 
   // Month navigation: 0 = January 2027, 1 = February 2027
   const [activeMonthIndex, setActiveMonthIndex] = useState<number>(0);

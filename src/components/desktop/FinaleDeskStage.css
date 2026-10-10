@@ -1,0 +1,917 @@
+/* ==========================================================================
+   BANI // OS — UNIFIED FINALE DESK (ACT 12 & ACT 13 PERSISTENT ENCLOSURE)
+   Shared Spatial Glass Desk: 1220px × 570px (100% Stationary Frame)
+   Left Rail: 380px fixed width (Never shifts or resizes)
+   Right Canvas: Flex 1 (Never shifts or resizes)
+   ========================================================================== */
+
+.vos-finale-desk-container {
+  width: 1220px;
+  height: 570px;
+  max-height: 570px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 64px rgba(15, 23, 42, 0.08),
+    0 4px 16px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: text;
+}
+
+@media (max-width: 1240px) {
+  .vos-finale-desk-container {
+    width: 1020px;
+    height: 550px;
+    max-height: 550px;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   LEFT PANEL FRAME: 380px (Completely static container)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-finale-left-panel {
+  width: 380px;
+  min-width: 380px;
+  max-width: 380px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: rgba(248, 250, 252, 0.78);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 18px 16px 14px 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 1240px) {
+  .vos-finale-left-panel {
+    width: 340px;
+    min-width: 340px;
+    max-width: 340px;
+    padding: 14px 12px 12px 12px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RIGHT PANEL FRAME: Flex 1 (Completely static container)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-finale-right-panel {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 22px 26px 18px 26px;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .vos-finale-right-panel {
+    padding: 18px 20px 14px 20px;
+  }
+}
+
+/* ==========================================================================
+   CONTENT STYLES — ACT 12: IDEOLOGY PILLARS (LEFT)
+   ========================================================================== */
+.vos-pillars-header {
+  margin-bottom: 12px;
+}
+
+.vos-pillars-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #D97706;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.vos-pillars-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D97706;
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.6);
+}
+
+.vos-pillars-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-pillars-subtitle {
+  font-size: 11px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vos-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.vos-pillar-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.16s ease;
+  position: relative;
+}
+
+.vos-pillar-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(203, 213, 225, 1);
+  transform: translateY(-1px);
+}
+
+.vos-pillar-card.active {
+  background: var(--pillar-light-bg, rgba(217, 119, 6, 0.08));
+  border-color: var(--pillar-border, rgba(217, 119, 6, 0.3));
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.vos-pillar-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--pillar-color, #0F172A);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.vos-pillar-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-pillar-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.04em;
+  margin-bottom: 1px;
+}
+
+.vos-pillar-card.active .vos-pillar-tag {
+  color: var(--pillar-color, #D97706);
+}
+
+.vos-pillar-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.vos-pillar-sub {
+  font-size: 9.5px;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vos-pillar-active-pip {
+  position: absolute;
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pillar-color, #D97706);
+}
+
+.vos-pillar-spotlight-box {
+  margin-top: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(217, 119, 6, 0.25);
+  padding: 10px 12px;
+  background: rgba(217, 119, 6, 0.06);
+}
+
+.vos-spotlight-quote-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.vos-spotlight-quote-text {
+  font-size: 10.5px;
+  color: #334155;
+  line-height: 1.45;
+  margin: 0 0 6px 0;
+  font-style: italic;
+}
+
+.vos-spotlight-lesson {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* ==========================================================================
+   CONTENT STYLES — ACT 13: CONTACT CHANNELS (LEFT)
+   ========================================================================== */
+.vos-channels-header {
+  margin-bottom: 12px;
+}
+
+.vos-channels-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.vos-channels-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+}
+
+.vos-channels-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-channels-subtitle {
+  font-size: 11px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.vos-channel-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.vos-channel-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.16s ease;
+}
+
+.vos-channel-card:hover {
+  background: #FFFFFF;
+  border-color: rgba(203, 213, 225, 1);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.vos-channel-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vos-channel-icon-wrap.whatsapp {
+  background: rgba(37, 211, 102, 0.12);
+  color: #128C7E;
+}
+
+.vos-channel-icon-wrap.email {
+  background: rgba(0, 114, 206, 0.12);
+  color: #0072CE;
+}
+
+.vos-channel-icon-wrap.doc {
+  background: rgba(79, 70, 229, 0.12);
+  color: #4F46E5;
+}
+
+.vos-channel-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-channel-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+  margin-bottom: 1px;
+}
+
+.vos-channel-value {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.vos-channel-desc {
+  font-size: 9.5px;
+  color: #64748B;
+}
+
+.vos-channel-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.vos-channel-btn-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #475569;
+  transition: all 0.14s ease;
+}
+
+.vos-channel-btn-icon:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.vos-channel-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vos-channel-btn-primary.whatsapp {
+  background: #25D366;
+}
+
+.vos-channel-btn-primary.whatsapp:hover {
+  background: #20BA5A;
+}
+
+.vos-channel-btn-primary.email {
+  background: #0072CE;
+}
+
+.vos-channel-btn-primary.email:hover {
+  background: #005FA8;
+}
+
+.vos-channel-btn-primary.doc {
+  background: #4F46E5;
+}
+
+.vos-channel-btn-primary.doc:hover {
+  background: #4338CA;
+}
+
+/* Status Beacon */
+.vos-contact-status-beacon {
+  margin-top: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 12px;
+}
+
+.vos-beacon-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.vos-beacon-pulse {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-pulse-ring {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.4);
+  animation: beacon-ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.vos-pulse-core {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+@keyframes beacon-ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.vos-beacon-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.vos-beacon-city {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.vos-beacon-clock {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  color: #059669;
+  font-weight: 700;
+}
+
+.vos-beacon-note {
+  font-size: 9.5px;
+  color: #64748B;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   CONTENT STYLES — ACT 12: MANIFESTO LETTER (RIGHT)
+   ========================================================================== */
+.vos-letter-watermark-seal {
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  pointer-events: none;
+  opacity: 0.12;
+}
+
+.vos-seal-meitei {
+  font-size: 26px;
+  font-weight: 900;
+  color: #D97706;
+  display: block;
+  text-align: right;
+  line-height: 1;
+}
+
+.vos-seal-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.08em;
+}
+
+.vos-letter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(241, 245, 249, 1);
+  padding-bottom: 10px;
+}
+
+.vos-letter-act-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #D97706;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.vos-letter-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-letter-subheading {
+  font-size: 11px;
+  color: #64748B;
+  margin: 0;
+}
+
+.vos-letter-origin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #0F172A;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.vos-letter-body-scrollable {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 8px;
+  margin-bottom: 12px;
+}
+
+.vos-letter-prose {
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.vos-letter-prose p {
+  margin: 0 0 10px 0;
+}
+
+.vos-drop-cap {
+  float: left;
+  font-size: 32px;
+  line-height: 28px;
+  padding-top: 2px;
+  padding-right: 6px;
+  padding-bottom: 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 900;
+  color: #D97706;
+}
+
+.vos-letter-pull-quote {
+  background: rgba(217, 119, 6, 0.05);
+  border-left: 3px solid #D97706;
+  border-radius: 0 10px 10px 0;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+.vos-quote-fleuron {
+  font-size: 14px;
+  color: #D97706;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vos-pull-quote-content {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 600;
+  color: #0F172A;
+  margin: 0 0 4px 0;
+  line-height: 1.45;
+}
+
+.vos-quote-author {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #D97706;
+}
+
+.vos-letter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(241, 245, 249, 1);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.vos-signature-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-cursive-signature {
+  font-family: 'Caveat', 'Brush Script MT', cursive, serif;
+  font-size: 20px;
+  color: #0F172A;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vos-signature-meta {
+  font-size: 9.5px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.vos-meta-sep {
+  color: #CBD5E1;
+}
+
+.vos-pulse-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #059669;
+  font-weight: 600;
+}
+
+.vos-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.vos-connect-finale-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+  transition: all 0.18s ease;
+}
+
+.vos-connect-finale-btn:hover {
+  background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.24);
+}
+
+/* ==========================================================================
+   CONTENT STYLES — ACT 13: SOCIAL ECOSYSTEM (RIGHT)
+   ========================================================================== */
+.vos-social-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(241, 245, 249, 1);
+  padding-bottom: 10px;
+}
+
+.vos-social-act-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+
+.vos-social-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-social-subheading {
+  font-size: 11px;
+  color: #64748B;
+  margin: 0;
+}
+
+.vos-restart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vos-restart-btn:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
+}
+
+.vos-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.vos-social-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(248, 250, 252, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  text-decoration: none;
+  transition: all 0.16s ease;
+  position: relative;
+}
+
+.vos-social-tile:hover {
+  background: #FFFFFF;
+  border-color: var(--tile-border, rgba(15, 23, 42, 0.25));
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.vos-tile-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tile-color, #0F172A);
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.vos-tile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-tile-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  font-weight: 800;
+  color: #94A3B8;
+  letter-spacing: 0.04em;
+  margin-bottom: 1px;
+}
+
+.vos-social-tile:hover .vos-tile-tag {
+  color: var(--tile-color, #0F172A);
+}
+
+.vos-tile-name {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+}
+
+.vos-tile-handle {
+  font-size: 10px;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-tile-arrow {
+  color: #CBD5E1;
+  transition: all 0.15s ease;
+}
+
+.vos-social-tile:hover .vos-tile-arrow {
+  color: var(--tile-color, #0F172A);
+  transform: translate(2px, -2px);
+}
+
+.vos-social-colophon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(241, 245, 249, 1);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.vos-colophon-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-colophon-brand {
+  font-size: 10.5px;
+  color: #0F172A;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.vos-colophon-sep {
+  color: #CBD5E1;
+}
+
+.vos-colophon-origin {
+  font-size: 9.5px;
+  color: #64748B;
+}
+
+.vos-colophon-kangleipak {
+  font-size: 11px;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 999px;
+  padding: 3px 10px;
+}

@@ -19,6 +19,7 @@ export interface ProjectItem {
   status: ProjectStatus;
   statusLabel: string;
   iconPath?: string;
+  screenshotPath?: string;
   iconFallback: string;
   accentColor: string;
   bgLight: string;
@@ -151,7 +152,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 'yek-salai',
-    title: 'Yek Salai',
+    title: 'Yek-Salai Meitei Clan',
     subtitle: 'Ancestral Meitei Clan & Surname Identification Matrix',
     category: 'Community Tools',
     status: 'Active',
@@ -195,6 +196,7 @@ export const projects: ProjectItem[] = [
     status: 'Prototype',
     statusLabel: 'Paused / Prototype',
     iconFallback: 'Building',
+    screenshotPath: getAssetUrl('projects/leikaifix_screenshot.jpeg'),
     accentColor: '#EA580C',
     bgLight: '#FFF7ED',
     summary: 'An experimental civic tech platform enabling citizens to report local ward grievances (potholes, waterlogging, streetlights) with geo-tagged photos and automated constituency tagging.',
@@ -222,6 +224,7 @@ export const projects: ProjectItem[] = [
     status: 'Archived',
     statusLabel: 'R&D / Archived',
     iconFallback: 'Cpu',
+    screenshotPath: getAssetUrl('projects/florisboard_screenshot.png'),
     accentColor: '#9333EA',
     bgLight: '#FAF5FF',
     summary: 'An exploratory Android input method editor (IME) running a quantized on-device language model to provide offline grammar correction, tone shifting, and auto-paraphrasing with zero cloud exposure.',
@@ -249,6 +252,7 @@ export const projects: ProjectItem[] = [
     status: 'Archived',
     statusLabel: 'Sunset / Sunset',
     iconFallback: 'Sparkles',
+    screenshotPath: getAssetUrl('projects/viral_prompts_screenshot.jpg'),
     accentColor: '#64748B',
     bgLight: '#F1F5F9',
     summary: 'A curated taxonomy and repository for AI creators, categorizing high-performing prompt templates for Midjourney, DALL·E, Stable Diffusion, and conversational LLMs.',

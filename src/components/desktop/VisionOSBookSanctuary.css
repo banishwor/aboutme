@@ -1,0 +1,528 @@
+/* ========================================================
+   VISIONOS LIQUID-GLASS SPATIAL BOOK SANCTUARY
+   Apple visionOS / Safari-in-Spatial Design System
+   ======================================================== */
+
+.vos-sanctuary-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 40px;
+  perspective: 1200px;
+  font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #FFFFFF;
+  user-select: none;
+}
+
+/* 1. Full-Bleed Warm Blurred Study Background Photo */
+.vos-study-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/study-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(1.1) saturate(1.12);
+  transform: scale(1.06);
+}
+
+.vos-study-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 95% 85% at 50% 45%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(215, 210, 205, 0.32) 100%
+  );
+}
+
+/* 2. Safari Spatial Pill URL Toolbar */
+.vos-safari-toolbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  height: 48px;
+  margin-bottom: 14px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(34px) saturate(1.25);
+  -webkit-backdrop-filter: blur(34px) saturate(1.25);
+  box-shadow: 
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.9),
+    0 14px 32px rgba(30, 20, 10, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #1E293B;
+}
+
+.vos-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-pill-circle-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-pill-circle-btn:hover {
+  background: rgba(255, 255, 255, 0.36);
+}
+
+/* URL Pill Field */
+.vos-url-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(24, 22, 20, 0.38);
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: 'Space Grotesk', monospace;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.vos-url-lock {
+  color: #59E6B6;
+}
+
+.vos-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vos-profile-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 4px 12px 4px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.vos-profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #5b3fd4;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  object-fit: cover;
+}
+
+/* 3. Main Floating Liquid-Glass Window (NO backdrop-filter on window so children frost photo!) */
+.vos-floating-window {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  height: calc(100vh - 125px);
+  max-height: 800px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.38);
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.75),
+    0 28px 70px rgba(30, 20, 10, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  gap: 16px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Window Header Bar: Tabs */
+.vos-window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.vos-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-category-tab {
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-category-tab:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vos-category-tab.active {
+  color: #FFFFFF;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* 4. Window Two-Column Body Grid */
+.vos-window-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 32%) 1fr;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Left Column: New Releases + Continue Reading Panels */
+.vos-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.vos-frosted-panel {
+  background: rgba(240, 250, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.25);
+}
+
+.vos-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.vos-panel-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-family: 'Space Grotesk', monospace;
+}
+
+.vos-panel-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+/* Book Rows in Left Panel */
+.vos-book-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-book-row:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.vos-book-row.active {
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.vos-book-thumb {
+  width: 42px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.vos-book-row-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-book-row-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #FFFFFF;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.vos-book-row-author {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Progress bar for Continue Reading */
+.vos-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.vos-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #59E6B6, #34D399);
+  border-radius: 999px;
+}
+
+/* Right Column: Hero Spotlight + Themes Shelf */
+.vos-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+}
+
+.vos-spotlight-hero {
+  position: relative;
+  flex: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(20, 24, 38, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  padding: 32px;
+  gap: 32px;
+}
+
+.vos-hero-cover-wrap {
+  width: 160px;
+  flex-shrink: 0;
+  perspective: 1000px;
+}
+
+.vos-hero-cover {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 
+    0 18px 45px rgba(0, 0, 0, 0.7),
+    8px 8px 24px rgba(0, 0, 0, 0.5);
+  transform: rotateY(-10deg);
+  transition: transform 0.4s ease;
+}
+
+.vos-hero-cover-wrap:hover .vos-hero-cover {
+  transform: rotateY(0deg) scale(1.04);
+}
+
+.vos-hero-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.vos-chip {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vos-hero-title {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 6px 0;
+  color: #FFFFFF;
+}
+
+.vos-hero-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #818CF8;
+  margin-bottom: 14px;
+}
+
+.vos-hero-synopsis {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 22px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vos-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vos-btn-read-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: #0F172A;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+}
+
+.vos-btn-read-now:hover {
+  background: #F1F5F9;
+  transform: translateY(-1px);
+}
+
+.vos-btn-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-btn-save:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Bottom Shelf: Themes & Reader Cards */
+.vos-themes-shelf {
+  height: 120px;
+  border-radius: 20px;
+  background: rgba(240, 250, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.25);
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-shelf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.vos-shelf-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  font-family: 'Space Grotesk', monospace;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vos-cards-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.vos-cards-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.vos-theme-chip-card {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: default;
+  transition: all 0.2s ease;
+}
+
+.vos-theme-chip-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.vos-theme-card-tag {
+  font-size: 9.5px;
+  font-mono: monospace;
+  color: #FBBF24;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.vos-theme-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+}

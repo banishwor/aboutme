@@ -1,0 +1,542 @@
+/* ==========================================================================
+   BANI // OS — ACT 12: THE AUTHOR'S EPILOGUE & LAST FEW WORDS (DAYLIGHT)
+   Dual-Panel Spatial Desk: 1220px × 570px
+   Left Panel: The Four Pillars Philosophy Matrix (360px)
+   Right Panel: Author's Monograph Parchment & Signed Dispatch (Flex 1)
+   ========================================================================== */
+
+.vos-epilogue-desk-container {
+  width: 1220px;
+  height: 570px;
+  max-height: 570px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 64px rgba(15, 23, 42, 0.08),
+    0 4px 16px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: text;
+}
+
+@media (max-width: 1240px) {
+  .vos-epilogue-desk-container {
+    width: 1020px;
+    height: 550px;
+    max-height: 550px;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   LEFT PANEL: THE FOUR PILLARS (360px)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-epilogue-pillars-panel {
+  width: 360px;
+  min-width: 360px;
+  max-width: 360px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: rgba(248, 250, 252, 0.75);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 18px 16px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .vos-epilogue-pillars-panel {
+    width: 310px;
+    min-width: 310px;
+    max-width: 310px;
+    padding: 14px 12px;
+  }
+}
+
+.vos-pillars-header {
+  margin-bottom: 12px;
+}
+
+.vos-pillars-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #475569;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.vos-pillars-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E11D48;
+  box-shadow: 0 0 6px rgba(225, 29, 72, 0.6);
+}
+
+.vos-pillars-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-pillars-subtitle {
+  font-size: 11.5px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Pillar Card List */
+.vos-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 10px;
+}
+
+.vos-pillar-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  position: relative;
+  outline: none;
+}
+
+.vos-pillar-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(203, 213, 225, 0.9);
+  transform: translateY(-1px);
+}
+
+.vos-pillar-card.active {
+  background: var(--pillar-light-bg, rgba(99, 102, 241, 0.08));
+  border-color: var(--pillar-border, rgba(99, 102, 241, 0.35));
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.vos-pillar-icon-box {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pillar-color, #6366F1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.vos-pillar-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-pillar-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: var(--pillar-color, #6366F1);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vos-pillar-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.vos-pillar-sub {
+  font-size: 10.5px;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vos-pillar-active-pip {
+  position: absolute;
+  right: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pillar-color, #6366F1);
+}
+
+/* Spotlight Card at bottom of Left Panel */
+.vos-pillar-spotlight-box {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid;
+  transition: all 0.22s ease;
+}
+
+.vos-spotlight-quote-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.vos-spotlight-quote-text {
+  font-size: 11px;
+  color: #1E293B;
+  line-height: 1.45;
+  font-style: italic;
+  margin: 0 0 8px 0;
+}
+
+.vos-spotlight-lesson {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.25;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RIGHT PANEL: THE AUTHOR'S MONOGRAPH & SIGNED LETTER (Flex 1)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-epilogue-letter-panel {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 253, 248, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-top: 3px solid #D4AF37;
+  border-radius: 20px;
+  padding: 22px 26px 18px 26px;
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .vos-epilogue-letter-panel {
+    padding: 18px 20px 14px 20px;
+  }
+}
+
+/* Parchment Background Stamp */
+.vos-letter-watermark-seal {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  pointer-events: none;
+  opacity: 0.16;
+  user-select: none;
+}
+
+.vos-letter-seal-inner {
+  width: 78px;
+  height: 78px;
+  border: 1.5px dashed #B45309;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-12deg);
+}
+
+.vos-seal-meitei {
+  font-size: 13px;
+  font-weight: 800;
+  color: #92400E;
+  letter-spacing: 0.04em;
+}
+
+.vos-seal-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 7.5px;
+  color: #92400E;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* Letter Top Header */
+.vos-letter-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.vos-letter-meta-left {
+  flex: 1;
+}
+
+.vos-letter-act-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #B45309;
+  letter-spacing: 0.06em;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 999px;
+  padding: 3px 9px;
+  margin-bottom: 6px;
+}
+
+.vos-letter-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 3px 0;
+  letter-spacing: -0.025em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-letter-subheading {
+  font-size: 12px;
+  color: #64748B;
+  margin: 0;
+  font-style: italic;
+}
+
+.vos-letter-origin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-left: 12px;
+  flex-shrink: 0;
+}
+
+/* Letter Body Prose */
+.vos-letter-body-scrollable {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Custom Clean Scrollbar */
+.vos-letter-body-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+.vos-letter-body-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+.vos-letter-body-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 4px;
+}
+
+.vos-letter-prose p {
+  font-size: 12.5px;
+  line-height: 1.62;
+  color: #334155;
+  margin: 0 0 10px 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.vos-letter-prose strong {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.vos-drop-cap {
+  float: left;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: 34px;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 7px;
+  padding-bottom: 2px;
+  color: #92400E;
+  font-weight: 900;
+  text-shadow: 1px 1px 0 rgba(217, 119, 6, 0.2);
+}
+
+/* Golden Fleuron Pull-Quote */
+.vos-letter-pull-quote {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.45) 0%, rgba(253, 230, 138, 0.2) 100%);
+  border-left: 3px solid #D4AF37;
+  border-radius: 0 12px 12px 0;
+  padding: 10px 16px;
+  margin: 10px 0 4px 0;
+  position: relative;
+}
+
+.vos-quote-fleuron {
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  font-size: 16px;
+  color: #D4AF37;
+  opacity: 0.5;
+}
+
+.vos-pull-quote-content {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  font-style: italic;
+  color: #78350F;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+
+.vos-quote-author {
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #92400E;
+  letter-spacing: 0.04em;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   FOOTER: SIGNATURE BLOCK & GRAND CTA
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-letter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.vos-signature-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-cursive-signature {
+  font-family: 'Playfair Display', 'Brush Script MT', 'Georgia', cursive;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  color: #1E293B;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.vos-signature-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.vos-meta-sep {
+  opacity: 0.4;
+}
+
+.vos-pulse-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #059669;
+  font-weight: 600;
+}
+
+.vos-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite ease-in-out;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* Grand Finale Connect Button */
+.vos-connect-finale-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(225, 29, 72, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.vos-connect-finale-btn:hover {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(225, 29, 72, 0.45);
+}
+
+.vos-connect-finale-btn:active {
+  transform: translateY(0);
+}

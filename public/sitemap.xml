@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- BANI // OS Spatial Interactive Portfolio -->
+  <url>
+    <loc>https://banishwor.github.io/aboutme/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Banishwor Athokpam Primary Apps Portfolio -->
+  <url>
+    <loc>https://banishwor.github.io/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- LLM Context & Knowledge Summary -->
+  <url>
+    <loc>https://banishwor.github.io/aboutme/llms.txt</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- LLM Exhaustive Technical Specification -->
+  <url>
+    <loc>https://banishwor.github.io/aboutme/llms-full.txt</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Official Verified Resume -->
+  <url>
+    <loc>https://banishwor.github.io/aboutme/resume.pdf</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Humans.txt Team & Technology Credit -->
+  <url>
+    <loc>https://banishwor.github.io/aboutme/humans.txt</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>

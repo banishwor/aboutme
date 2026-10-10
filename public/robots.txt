@@ -1,0 +1,44 @@
+# robots.txt for BANI // OS — Banishwor Athokpam
+# Website: https://banishwor.github.io/aboutme/
+
+User-agent: *
+Allow: /
+
+# Explicit AI and LLM Crawlers Permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemaps and LLM Context Files
+Sitemap: https://banishwor.github.io/aboutme/sitemap.xml
+Sitemap: https://banishwor.github.io/sitemap.xml
+
+# LLM Context Discovery Links
+# See https://llmstxt.org/ for details
+# Primary LLM summary file:
+# https://banishwor.github.io/aboutme/llms.txt
+# Comprehensive LLM detailed file:
+# https://banishwor.github.io/aboutme/llms-full.txt

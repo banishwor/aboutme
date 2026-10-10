@@ -1,0 +1,1104 @@
+/* ========================================================
+   ACT 10: HOBBIES & CREATIVE PASSIONS (REDESIGNED)
+   Standard Spatial Desk Dimensions: strictly 1220px x 570px
+   Zero Cutoff, Calibrated Heights, View-Media-on-Click Portrait Cinema
+   ======================================================== */
+
+.vos-hobbies-stage-root {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-hobbies-desk-container {
+  position: relative;
+  width: 1220px;
+  max-width: 1220px;
+  height: 570px;
+  display: flex;
+  gap: 16px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1240px) {
+  .vos-hobbies-desk-container {
+    width: 1020px;
+    max-width: 1020px;
+  }
+}
+
+/* =========================================================
+   PANEL 1: THE OBSIDIAN PASSIONS BENTO (LEFT - 480px)
+   ========================================================= */
+
+.vos-hobbies-bento-panel {
+  width: 480px;
+  height: 570px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(244, 63, 94, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.vos-bento-panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.vos-bento-header-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vos-bento-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #F8FAFC;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.vos-bento-sub {
+  font-size: 10.5px;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+  font-weight: 500;
+}
+
+/* Bento Grid (2x2 perfectly proportioned to fill remaining height) */
+.vos-bento-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.vos-bento-card {
+  position: relative;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 11px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-bento-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* Ambient Vector Art Watermarks */
+.vos-bento-watermark-wrap {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 94px;
+  height: 94px;
+  pointer-events: none;
+  opacity: 0.16;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(6px, -4px);
+}
+
+.watermark-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vos-bento-card:hover .vos-bento-watermark-wrap {
+  opacity: 0.44;
+  transform: translate(0px, 0px) scale(1.08);
+}
+
+.vos-bento-card.card-messi:hover .vos-bento-watermark-wrap {
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.45));
+}
+
+.vos-bento-card.card-crypto:hover .vos-bento-watermark-wrap {
+  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.45));
+}
+
+.vos-bento-card.card-comics.marvel:hover .vos-bento-watermark-wrap {
+  filter: drop-shadow(0 0 16px rgba(239, 68, 68, 0.5));
+}
+
+.vos-bento-card.card-comics.dc:hover .vos-bento-watermark-wrap {
+  filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.5));
+}
+
+.vos-bento-card.card-travel:hover .vos-bento-watermark-wrap {
+  filter: drop-shadow(0 0 16px rgba(16, 185, 129, 0.45));
+}
+
+/* Ensure text layers float crisp above watermark */
+.vos-bento-card-top,
+.vos-bento-card-title,
+.vos-bento-card-desc,
+.vos-bento-chips-row {
+  position: relative;
+  z-index: 2;
+}
+
+/* Accent Card Borders & Glows */
+.vos-bento-card.card-messi {
+  border-color: rgba(56, 189, 248, 0.25);
+}
+.vos-bento-card.card-messi:hover {
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(56, 189, 248, 0.16);
+}
+
+.vos-bento-card.card-crypto {
+  border-color: rgba(245, 158, 11, 0.25);
+}
+.vos-bento-card.card-crypto:hover {
+  border-color: rgba(245, 158, 11, 0.55);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(245, 158, 11, 0.16);
+}
+
+.vos-bento-card.card-comics.marvel {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+.vos-bento-card.card-comics.marvel:hover {
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.vos-bento-card.card-comics.dc {
+  border-color: rgba(6, 182, 212, 0.3);
+}
+.vos-bento-card.card-comics.dc:hover {
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.vos-bento-card.card-travel {
+  border-color: rgba(16, 185, 129, 0.25);
+}
+.vos-bento-card.card-travel:hover {
+  border-color: rgba(16, 185, 129, 0.55);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35), 0 0 20px rgba(16, 185, 129, 0.16);
+}
+
+/* Card Header */
+.vos-bento-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+}
+
+.vos-bento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.messi-badge {
+  background: rgba(56, 189, 248, 0.14);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.crypto-badge {
+  background: rgba(245, 158, 11, 0.14);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.comic-badge.marvel {
+  background: rgba(239, 68, 68, 0.16);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.comic-badge.dc {
+  background: rgba(6, 182, 212, 0.16);
+  color: #22D3EE;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+}
+
+.travel-badge {
+  background: rgba(16, 185, 129, 0.14);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.vos-messi-jersey,
+.vos-crypto-tag,
+.vos-travel-tag {
+  font-size: 9px;
+  font-weight: 800;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-comic-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 1.5px 6px;
+  font-size: 9px;
+  font-weight: 800;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vos-comic-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.04);
+}
+
+.vos-bento-card-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #F1F5F9;
+  margin: 0 0 3px 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.vos-bento-card-desc {
+  font-size: 10px;
+  color: #94A3B8;
+  line-height: 1.38;
+  margin: 0 0 6px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.vos-bento-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.vos-bento-chip {
+  font-size: 8.5px;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  padding: 1.5px 5px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   PANEL 2: HALOBAN MEDIA DOCUMENTARY CATALOG (RIGHT - 724px)
+   ========================================================= */
+
+.vos-hobbies-cinema-panel {
+  flex: 1;
+  height: 570px;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(245, 158, 11, 0.08);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Studio Header */
+.vos-cinema-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.vos-cinema-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-cinema-logo-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vos-cinema-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-cinema-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.vos-cinema-badge {
+  font-size: 9px;
+  font-weight: 800;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 1px 6px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.vos-cinema-sub {
+  font-size: 10.5px;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-header-right-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-cinema-format-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.vos-cinema-co-owner-pill {
+  font-size: 9px;
+  font-weight: 800;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px 9px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+/* Stat Bar */
+.vos-cinema-stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+  flex-shrink: 0;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+/* 3 Curated Documentary Episode Cards */
+.vos-documentaries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  margin: 6px 0;
+}
+
+.vos-doc-card {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.vos-doc-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(245, 158, 11, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 20px rgba(245, 158, 11, 0.12);
+}
+
+.vos-doc-card.featured {
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+/* Portrait Reel Thumbnail Viewport (Vertical Ratio) */
+.vos-doc-card-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: #030712;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-thumbnail-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.65;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.vos-doc-card:hover .vos-thumbnail-video {
+  transform: scale(1.05);
+  opacity: 0.85;
+}
+
+/* Overlay Play Button on Thumbnail */
+.vos-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(3, 7, 18, 0.35);
+  transition: all 0.2s ease;
+}
+
+.vos-doc-card:hover .vos-thumbnail-overlay {
+  background: rgba(3, 7, 18, 0.15);
+}
+
+.vos-thumb-play-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F59E0B, #EA580C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-doc-card:hover .vos-thumb-play-circle {
+  transform: scale(1.12);
+}
+
+.vos-thumb-watch-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.02em;
+}
+
+/* Badges on Thumbnail */
+.vos-thumb-top-badges {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.vos-thumb-ep-badge {
+  font-size: 9px;
+  font-weight: 800;
+  color: #F59E0B;
+  background: rgba(3, 7, 18, 0.8);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-thumb-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Content Below Thumbnail */
+.vos-doc-card-content {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 0;
+}
+
+.vos-doc-category {
+  font-size: 9px;
+  font-weight: 700;
+  color: #F59E0B;
+  font-family: var(--font-mono, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.vos-doc-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #F1F5F9;
+  line-height: 1.3;
+  margin: 0 0 4px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.vos-doc-snippet {
+  font-size: 9.5px;
+  color: #94A3B8;
+  line-height: 1.35;
+  margin: 0 0 6px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.vos-doc-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.vos-doc-watch-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #38BDF8;
+  transition: transform 0.15s ease;
+}
+
+.vos-doc-card:hover .vos-doc-watch-cta {
+  transform: translateX(2px);
+}
+
+/* Footer Bar */
+.vos-cinema-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  flex-shrink: 0;
+}
+
+.pipeline-flow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+}
+
+.pipeline-label {
+  font-weight: 800;
+  color: #CBD5E1;
+}
+
+.pipeline-step {
+  font-weight: 600;
+  color: #10B981;
+}
+
+.pipeline-arrow {
+  color: #64748B;
+}
+
+.vos-cinema-ext-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3.5px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.18s ease;
+}
+
+.vos-cinema-ext-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PORTRAIT CINEMA MODAL (OPENS ON CLICK)
+   Authentic 9:16 Vertical Smartphone Viewport
+   ========================================================= */
+
+.vos-cinema-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.vos-cinema-modal-shell {
+  position: relative;
+  width: 780px;
+  max-width: 95vw;
+  height: 520px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(245, 158, 11, 0.1);
+  display: flex;
+  gap: 20px;
+  padding: 18px 22px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.vos-modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  z-index: 20;
+}
+
+.vos-modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #EF4444;
+  transform: scale(1.08);
+}
+
+/* Left: Authentic 9:16 Portrait Smartphone Rig */
+.vos-phone-cinema-rig {
+  width: 270px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vos-phone-bezel {
+  width: 260px;
+  height: 480px;
+  border-radius: 28px;
+  background: #030712;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.75), 0 0 35px rgba(245, 158, 11, 0.18);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-phone-notch-bar {
+  height: 20px;
+  background: #030712;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.vos-phone-camera-lens {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1E293B;
+  border: 1px solid #334155;
+}
+
+.vos-phone-speaker {
+  width: 38px;
+  height: 3px;
+  border-radius: 999px;
+  background: #1E293B;
+}
+
+.vos-phone-screen-frame {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-portrait-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Overlay Pause State */
+.vos-portrait-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.55);
+  backdrop-filter: blur(4px);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 8;
+}
+
+.play-pulse-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F59E0B, #EA580C);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  animation: playPulse 2s infinite ease-in-out;
+}
+
+@keyframes playPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Floating Vertical Player Controls */
+.vos-portrait-controls-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(3, 7, 18, 0.9) 100%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 9;
+}
+
+.portrait-ctrl-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.portrait-ctrl-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
+}
+
+.portrait-badge-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: #CBD5E1;
+  font-family: var(--font-mono, monospace);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+/* Right: Episode Inspector & Research Brief */
+.vos-modal-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px 0 6px 10px;
+  min-width: 0;
+}
+
+.vos-sidebar-header {
+  margin-bottom: 12px;
+}
+
+.vos-sidebar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #F59E0B;
+  font-family: var(--font-mono, monospace);
+  margin-bottom: 4px;
+}
+
+.vos-sidebar-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+  margin: 0 0 4px 0;
+}
+
+.vos-sidebar-category {
+  font-size: 11px;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+/* Episode Switcher Buttons */
+.vos-modal-ep-switcher {
+  margin-bottom: 12px;
+}
+
+.switcher-heading {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.switcher-buttons-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.modal-ep-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.modal-ep-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-ep-tab.active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.modal-ep-tab .tab-ep {
+  font-size: 9px;
+  font-weight: 800;
+  color: #F59E0B;
+  font-family: var(--font-mono, monospace);
+}
+
+.modal-ep-tab .tab-name {
+  font-size: 10px;
+  font-weight: 700;
+  color: #F1F5F9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Verified Research Paragraph */
+.vos-sidebar-research-card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+.research-card-title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 800;
+  color: #10B981;
+  margin-bottom: 4px;
+}
+
+.research-card-desc {
+  font-size: 11px;
+  color: #CBD5E1;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Topics & Highlights Tags */
+.vos-sidebar-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.sidebar-tag-pill {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: var(--font-mono, monospace);
+}
+
+/* Footer Info */
+.vos-sidebar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.vos-sidebar-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vos-sidebar-close-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}

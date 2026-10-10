@@ -1,0 +1,617 @@
+/* ==========================================================================
+   BANI // OS — ACT 13: GET IN TOUCH & DIRECT CONNECT (DAYLIGHT FINALE)
+   Dual-Panel Spatial Desk: 1220px × 570px
+   Left Panel: Direct Channels & Fast Actions (WhatsApp, Outlook, CV) (400px)
+   Right Panel: Verified Social Network Ecosystem (Flex 1)
+   ========================================================================== */
+
+.vos-contact-desk-container {
+  width: 1220px;
+  height: 570px;
+  max-height: 570px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 64px rgba(15, 23, 42, 0.08),
+    0 4px 16px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+  user-select: text;
+}
+
+@media (max-width: 1240px) {
+  .vos-contact-desk-container {
+    width: 1020px;
+    height: 550px;
+    max-height: 550px;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   LEFT PANEL: DIRECT CHANNELS & FAST ACTIONS (400px)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-contact-channels-panel {
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: rgba(248, 250, 252, 0.78);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 18px 18px 14px 18px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.02);
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .vos-contact-channels-panel {
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    padding: 14px 14px 12px 14px;
+  }
+}
+
+.vos-channels-header {
+  margin-bottom: 12px;
+}
+
+.vos-channels-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.vos-channels-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7);
+}
+
+.vos-channels-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-channels-subtitle {
+  font-size: 11.5px;
+  color: #64748B;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Channel Cards List */
+.vos-channel-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.vos-channel-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+  transition: all 0.2s ease;
+}
+
+.vos-channel-card:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(203, 213, 225, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.vos-channel-card.whatsapp-theme {
+  border-left: 3.5px solid #25D366;
+}
+
+.vos-channel-card.email-theme {
+  border-left: 3.5px solid #0078D4;
+}
+
+.vos-channel-card.doc-theme {
+  border-left: 3.5px solid #6366F1;
+}
+
+.vos-channel-icon-wrap {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.vos-channel-icon-wrap.whatsapp {
+  color: #25D366;
+  background: rgba(37, 211, 102, 0.1);
+  border-color: rgba(37, 211, 102, 0.25);
+}
+
+.vos-channel-icon-wrap.email {
+  color: #0078D4;
+  background: rgba(0, 120, 212, 0.1);
+  border-color: rgba(0, 120, 212, 0.25);
+}
+
+.vos-channel-icon-wrap.doc {
+  color: #6366F1;
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.vos-channel-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-channel-label {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #64748B;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vos-channel-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+
+.vos-channel-desc {
+  font-size: 10px;
+  color: #94A3B8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vos-channel-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vos-channel-btn-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.vos-channel-btn-icon:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.vos-channel-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  outline: none;
+}
+
+.vos-channel-btn-primary.whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+}
+.vos-channel-btn-primary.whatsapp:hover {
+  background: #20BA5A;
+  transform: translateY(-1px);
+}
+
+.vos-channel-btn-primary.email {
+  background: #0078D4;
+  color: #FFFFFF;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.3);
+}
+.vos-channel-btn-primary.email:hover {
+  background: #006CBE;
+  transform: translateY(-1px);
+}
+
+.vos-channel-btn-primary.doc {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4F46E5;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+.vos-channel-btn-primary.doc:hover {
+  background: rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Status Beacon */
+.vos-contact-status-beacon {
+  margin-top: auto;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.vos-beacon-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.vos-beacon-pulse {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-pulse-core {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.vos-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.4);
+  animation: beaconPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.vos-beacon-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.vos-beacon-city {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.vos-beacon-clock {
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  color: #059669;
+  font-weight: 700;
+}
+
+.vos-beacon-note {
+  font-size: 10px;
+  color: #64748B;
+  line-height: 1.35;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   RIGHT PANEL: VERIFIED SOCIAL ECOSYSTEM (Flex 1)
+   ────────────────────────────────────────────────────────────────────────── */
+.vos-contact-social-panel {
+  flex: 1;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 253, 248, 0.92) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-top: 3px solid #059669;
+  border-radius: 20px;
+  padding: 22px 24px 16px 24px;
+  box-shadow:
+    0 8px 28px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1240px) {
+  .vos-contact-social-panel {
+    padding: 16px 18px 12px 18px;
+  }
+}
+
+.vos-social-watermark {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  pointer-events: none;
+  opacity: 0.16;
+  user-select: none;
+}
+
+.vos-social-watermark-inner {
+  width: 78px;
+  height: 78px;
+  border: 1.5px dashed #059669;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotate(-10deg);
+}
+
+.vos-watermark-meitei {
+  font-size: 13px;
+  font-weight: 800;
+  color: #047857;
+}
+
+.vos-watermark-sub {
+  font-family: var(--font-mono, monospace);
+  font-size: 7.5px;
+  color: #047857;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* Header */
+.vos-social-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.vos-social-act-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.06em;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 999px;
+  padding: 3px 9px;
+  margin-bottom: 5px;
+}
+
+.vos-social-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.025em;
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+.vos-social-subheading {
+  font-size: 12px;
+  color: #64748B;
+  margin: 0;
+  font-style: italic;
+}
+
+.vos-restart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #334155;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  outline: none;
+}
+
+.vos-restart-btn:hover {
+  background: #0F172A;
+  color: #FFFFFF;
+  border-color: #0F172A;
+  transform: translateY(-1px);
+}
+
+/* 6-Grid Social Network Hub */
+.vos-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1240px) {
+  .vos-social-grid {
+    gap: 8px;
+  }
+}
+
+.vos-social-tile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: var(--tile-light-bg, rgba(255, 255, 255, 0.7));
+  border: 1px solid var(--tile-border, rgba(226, 232, 240, 0.8));
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vos-social-tile:hover {
+  background: #FFFFFF;
+  border-color: var(--tile-color, #0F172A);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.vos-tile-icon-box {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tile-color, #0F172A);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease;
+}
+
+.vos-social-tile:hover .vos-tile-icon-box {
+  transform: scale(1.08);
+}
+
+.vos-tile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.vos-tile-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  color: var(--tile-color, #0F172A);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.vos-tile-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+}
+
+.vos-tile-handle {
+  font-size: 11px;
+  color: #64748B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vos-tile-arrow {
+  color: #94A3B8;
+  transition: all 0.18s ease;
+}
+
+.vos-social-tile:hover .vos-tile-arrow {
+  color: var(--tile-color, #0F172A);
+  transform: translate(2px, -2px);
+}
+
+/* Colophon Bottom */
+.vos-social-colophon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  position: relative;
+  z-index: 1;
+}
+
+.vos-colophon-brand {
+  font-size: 11px;
+  color: #0F172A;
+}
+
+.vos-colophon-brand strong {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.vos-colophon-sep {
+  margin: 0 6px;
+  opacity: 0.4;
+}
+
+.vos-colophon-origin {
+  font-size: 10px;
+  color: #64748B;
+  margin-top: 1px;
+}
+
+.vos-colophon-kangleipak {
+  font-size: 12px;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.04em;
+}

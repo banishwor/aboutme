@@ -1,0 +1,1153 @@
+/* ========================================================
+   UNIFIED ENGINEERING STAGE (ACT 02 & ACT 03 PERSISTENT STAGE)
+   APPROACH B: DUAL-PANEL SPATIAL SPLIT (LIGHT & SUNLIT)
+   ======================================================== */
+
+.vos-unified-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.vos-stage-center-shell {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-substage-content-host {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-unified-substage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* 1. Warm Architectural Living Room Backdrop (Light, Sunlit Daylight) */
+.vos-unified-bg {
+  position: absolute;
+  inset: -20px;
+  background-image: url('/study-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  filter: blur(16px) brightness(1.18) saturate(1.18);
+  transform: scale(1.04);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.vos-unified-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.58) 0%, rgba(241, 245, 249, 0.35) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 1b. Smooth Dark Mode Ambient Overlays (Cross-Fades over /study-bg.jpg) */
+.vos-unified-bg-dark {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at 50% 35%, rgba(10, 14, 26, 0.94) 0%, rgba(3, 7, 18, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.vos-unified-bg-dark-nebula {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 35%, rgba(99, 102, 241, 0.18) 0%, transparent 55%),
+              radial-gradient(circle at 75% 65%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.12) 0%, transparent 60%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* 2. Top Spatial Safari Pill Toolbar */
+.vos-unified-toolbar {
+  position: relative;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.vos-unified-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-unified-pill-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.vos-unified-pill-btn:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+}
+
+.vos-phone-os-btn {
+  width: auto !important;
+  padding: 0 14px !important;
+  gap: 6px;
+  border-radius: 999px !important;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.vos-pin-notice-btn {
+  width: auto !important;
+  padding: 0 13px !important;
+  gap: 6px;
+  border-radius: 999px !important;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E293B;
+  background: rgba(255, 255, 255, 0.85) !important;
+}
+
+.vos-pin-notice-btn:hover {
+  background: #FFFFFF !important;
+  color: #DC2626;
+}
+
+.vos-pin-notice-btn.pinned {
+  color: #DC2626 !important;
+  border-color: rgba(220, 38, 38, 0.4) !important;
+}
+/* Safari Spatial Pill Field with Morphing Title */
+.vos-unified-url-field {
+  flex: 1;
+  max-width: 440px;
+  margin: 0 16px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+
+.vos-pill-morph-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1E293B;
+  font-family: var(--font-mono, monospace);
+  white-space: nowrap;
+}
+
+.vos-unified-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-unified-author-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px 0 6px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0F172A;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.vos-unified-author-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #FFFFFF;
+}
+
+.vos-unified-author-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1E293B;
+}
+
+/* Dark Mode Toolbar Adaptations */
+.vos-unified-stage.dark-mode .vos-unified-pill-btn {
+  background: rgba(15, 23, 42, 0.78);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #F1F5F9;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.vos-unified-stage.dark-mode .vos-unified-pill-btn:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #FFFFFF;
+}
+
+.vos-unified-stage.dark-mode .vos-unified-url-field {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.vos-unified-stage.dark-mode .vos-pill-morph-content {
+  color: #F1F5F9;
+}
+
+.vos-unified-stage.dark-mode .vos-unified-author-pill {
+  background: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #F8FAFC;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.vos-unified-stage.dark-mode .vos-unified-author-name {
+  color: #F8FAFC;
+}
+
+.vos-unified-stage.dark-mode .vos-phone-os-btn {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #F1F5F9 !important;
+}
+
+/* Theme Toggle Button (Light/Dark) */
+.vos-theme-toggle-btn {
+  width: auto !important;
+  padding: 0 12px !important;
+  gap: 6px;
+  border-radius: 999px !important;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #1E293B;
+  background: rgba(255, 255, 255, 0.82) !important;
+}
+
+.vos-theme-toggle-btn:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: #FFFFFF !important;
+}
+
+.vos-theme-toggle-btn.dark-active {
+  background: rgba(139, 92, 246, 0.25) !important;
+  border-color: rgba(139, 92, 246, 0.45) !important;
+  color: #DDD6FE !important;
+}
+
+.vos-theme-toggle-btn.dark-active:hover {
+  background: rgba(139, 92, 246, 0.35) !important;
+  color: #FFFFFF !important;
+}
+
+
+/* ========================================================
+   3. DUAL-PANEL SPATIAL WORKSPACE (APPROACH B)
+   ======================================================== */
+.vos-spatial-workspace {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1240px;
+  box-sizing: border-box;
+}
+
+/* LEFT PANEL: FROSTED GLASS DOSSIER WINDOW */
+.vos-dossier-window {
+  position: relative;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(32px) saturate(1.25);
+  -webkit-backdrop-filter: blur(32px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 24px 54px rgba(15, 23, 42, 0.08);
+  color: #0F172A;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  min-height: 520px;
+  padding: 24px 28px;
+}
+
+/* Card Header: Tabs on Left, Meta Switcher on Right */
+.vos-unified-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  flex-shrink: 0;
+}
+
+.vos-unified-tabs-wrapper {
+  position: relative;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+}
+
+.vos-unified-tabs-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.vos-unified-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.04);
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  outline: none;
+}
+
+.vos-unified-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-unified-tab-btn.active {
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+}
+
+.vos-unified-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-header-meta-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vos-meta-label {
+  font-size: 10.5px;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.meta-jump-btn {
+  width: auto !important;
+  min-width: 0 !important;
+  padding: 4px 14px !important;
+  height: 26px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(79, 70, 229, 0.25) !important;
+  background: rgba(79, 70, 229, 0.08) !important;
+  color: #4F46E5 !important;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center;
+  white-space: nowrap !important;
+  transition: all 0.2s ease;
+}
+
+.meta-jump-btn:hover {
+  background: #4F46E5 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.meta-jump-btn.secondary {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  background: rgba(15, 23, 42, 0.04) !important;
+  color: #334155 !important;
+}
+
+.meta-jump-btn.secondary:hover {
+  background: #1E293B !important;
+  color: #FFFFFF !important;
+}
+
+/* ========================================================
+   4. DOSSIER CONTENT AREA
+   ======================================================== */
+.vos-dossier-content-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.vos-unified-dossier {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 0;
+}
+
+.vos-unified-dossier-top {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.vos-unified-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.vos-unified-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 9.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.04em;
+}
+
+.vos-unified-status-badge.active {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #047857;
+}
+
+.vos-unified-cat-label {
+  font-size: 10.5px;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+}
+
+.vos-unified-title {
+  font-size: clamp(1.4rem, 1.85vw, 1.95rem);
+  font-weight: 900;
+  margin: 0 0 2px 0;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+  line-height: 1.15;
+}
+
+.vos-unified-subtitle {
+  font-size: 13px;
+  color: #4F46E5;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.vos-unified-subtitle.vault {
+  color: #B45309;
+}
+
+.vos-unified-summary {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+/* Architecture Highlights */
+.vos-unified-arch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.vos-unified-arch-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.4;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 9px;
+  padding: 6px 11px;
+}
+
+.vos-unified-arch-bullet {
+  color: #4F46E5;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* Post-Mortem Card for Act 03 */
+.vos-vault-postmortem-card {
+  background: linear-gradient(145deg, rgba(254, 243, 199, 0.4) 0%, rgba(248, 250, 252, 0.88) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.05);
+}
+
+.vos-vault-postmortem-card.purple {
+  background: linear-gradient(145deg, rgba(243, 232, 255, 0.4) 0%, rgba(248, 250, 252, 0.88) 100%);
+  border-color: rgba(147, 51, 234, 0.35);
+  box-shadow: 0 3px 12px rgba(147, 51, 234, 0.05);
+}
+
+.vos-vault-postmortem-card.slate {
+  background: linear-gradient(145deg, rgba(241, 245, 249, 0.6) 0%, rgba(248, 250, 252, 0.88) 100%);
+  border-color: rgba(100, 116, 139, 0.35);
+  box-shadow: 0 3px 12px rgba(100, 116, 139, 0.05);
+}
+
+.vos-vault-postmortem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #B45309;
+  letter-spacing: 0.05em;
+}
+
+.vos-vault-postmortem-badge.purple {
+  color: #7E22CE;
+}
+
+.vos-vault-postmortem-badge.slate {
+  color: #475569;
+}
+
+.vos-vault-quote {
+  font-size: 12px;
+  color: #1E293B;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.vos-vault-target-meta {
+  padding-top: 6px;
+  border-top: 1px dashed rgba(203, 213, 225, 0.8);
+  font-size: 10.5px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vos-vault-target-meta strong {
+  color: #334155;
+}
+
+/* ========================================================
+   5. BOTTOM ACTIONS ROW & LAUNCH/MINIMIZE CONTROLS
+   ======================================================== */
+.vos-unified-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(15, 23, 42, 0.07);
+}
+
+.vos-unified-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  flex: 1;
+}
+
+.vos-unified-tag {
+  font-size: 9.5px;
+  font-weight: 600;
+  font-family: var(--font-mono, monospace);
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: #475569;
+}
+
+.vos-unified-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Launch on Phone Hero CTA (When Minimized) */
+.vos-btn-launch-device {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  border: 1px solid #818CF8;
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-btn-launch-device:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+}
+
+.vos-btn-sparkle-icon {
+  color: #FDE047;
+}
+
+.vos-badge-live {
+  font-size: 9px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.06em;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 2px;
+}
+
+/* Primary Launch Button (When Docked) */
+.vos-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.vos-btn-primary:hover {
+  background: #1E293B;
+  transform: translateY(-1px);
+}
+
+/* Ghost / Minimize Button */
+.vos-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.09);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-unified-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #1E293B;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.vos-unified-btn-secondary:hover {
+  background: #FFFFFF;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-unified-btn-playstore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.vos-unified-btn-playstore:hover {
+  background: #1E293B;
+  transform: translateY(-1px);
+}
+
+.vos-unified-btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  border: 1px solid #818CF8;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.vos-unified-btn-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.45);
+}
+
+/* ========================================================
+   6. RIGHT PANEL: LARGE FLOATING SMARTPHONE MOCKUP (~320px x 624px)
+   ======================================================== */
+.vos-floating-phone-dock {
+  position: absolute;
+  left: calc(50% + 193px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.vos-large-phone-frame {
+  position: relative;
+  width: 320px;
+  height: 624px;
+  background: #090D16;
+  border-radius: 46px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 
+    0 0 0 1.5px rgba(255, 255, 255, 0.25) inset,
+    0 0 0 2.5px #1E293B,
+    0 24px 60px -12px rgba(15, 23, 42, 0.36),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-large-phone-frame:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 
+    0 0 0 1.5px rgba(255, 255, 255, 0.35) inset,
+    0 0 0 2.5px #334155,
+    0 32px 72px -12px rgba(15, 23, 42, 0.44),
+    0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* Hardware side buttons */
+.vos-large-phone-frame::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 96px;
+  width: 4px;
+  height: 52px;
+  background: #334155;
+  border-radius: 3px 0 0 3px;
+}
+
+.vos-large-phone-frame::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 120px;
+  width: 4px;
+  height: 42px;
+  background: #334155;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Dynamic Island */
+.vos-large-phone-island {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 18px;
+  background: #000000;
+  border-radius: 18px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+}
+
+.vos-large-phone-camera {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0B192C;
+  border: 1px solid #1E293B;
+}
+
+/* Glare Sheen */
+.vos-large-phone-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 46px;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 42%, transparent 60%);
+  pointer-events: none;
+  z-index: 28;
+}
+
+/* Screen Area */
+.vos-large-phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #050811;
+  border-radius: 38px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-large-screen-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #FFFFFF;
+}
+
+/* Android Status Bar */
+.vos-large-status-bar {
+  height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 18px 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E293B;
+  z-index: 20;
+  flex-shrink: 0;
+  background: #F8FAFC;
+}
+
+.vos-large-status-time {
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.02em;
+}
+
+.vos-large-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #334155;
+}
+
+/* Interactive Sandbox Area */
+.vos-large-interactive-area {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.vos-large-home-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+}
+
+/* Bottom Android Navigation Gesture Bar */
+.vos-large-nav-bar {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8FAFC;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+.vos-large-home-pill {
+  width: 64px;
+  height: 4px;
+  background: #64748B;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.vos-large-home-pill:hover {
+  background: #0F172A;
+  transform: scaleY(1.2);
+}
+
+.vos-large-home-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  z-index: 25;
+  pointer-events: none;
+}
+
+/* Prototype Screenshot & AI Keyboard for Act 03 */
+.vos-large-phone-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.vos-large-custom-screen.ai-keyboard {
+  width: 100%;
+  height: 100%;
+  background: #111520;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vos-large-chat-area {
+  padding: 38px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vos-large-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #C084FC;
+  letter-spacing: 0.04em;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vos-large-chat-bubble {
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.vos-large-chat-bubble.prompt {
+  background: rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.vos-large-chat-bubble.response {
+  background: rgba(147, 51, 234, 0.28);
+  border: 1px solid rgba(147, 51, 234, 0.45);
+  color: #F8FAFC;
+  align-self: flex-end;
+  max-width: 95%;
+}
+
+.vos-large-chat-label {
+  font-size: 8px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #A855F7;
+  letter-spacing: 0.05em;
+}
+
+.vos-large-keyboard-dock {
+  width: 100%;
+  background: #17181F;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 12px;
+}
+
+.vos-large-keyboard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.vos-large-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+  color: #64748B;
+  font-size: 12px;
+}
+
+/* Floating ground shadow & caption */
+.vos-large-ground-shadow {
+  width: 180px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(15, 23, 42, 0.24) 0%, transparent 72%);
+  margin-top: 8px;
+  filter: blur(2px);
+  flex-shrink: 0;
+}
+
+.vos-large-device-caption {
+  font-size: 9px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  color: #64748B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.vos-large-device-caption .live-tag {
+  color: #4F46E5;
+}
+
+/* ========================================================
+   RESPONSIVE QUERIES
+   ======================================================== */
+@media (max-width: 1400px) {
+  .vos-floating-phone-dock {
+    left: calc(50% + 165px);
+  }
+
+  .vos-large-phone-frame {
+    width: 295px;
+    height: 585px;
+  }
+}

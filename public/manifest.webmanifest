@@ -1,0 +1,26 @@
+{
+  "name": "BANI // OS — Banishwor Athokpam",
+  "short_name": "BANI // OS",
+  "description": "Spatial personal operating system & digital portfolio of Banishwor Athokpam (Bani).",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#070B14",
+  "theme_color": "#070B14",
+  "categories": ["portfolio", "utilities", "developer"],
+  "icons": [
+    {
+      "src": "./my-photo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./my-photo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

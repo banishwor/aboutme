@@ -109,8 +109,8 @@ export const degrees: DegreeItem[] = [
 export const researchAndCertifications: ResearchItem[] = [
   {
     id: 'mca-thesis',
-    title: 'Empirical study on clustering-based missing data imputation techniques',
-    subtitle: 'MCA Master’s Research Dissertation',
+    title: 'An Empirical Study of Clustering-Based Missing Data Imputation Techniques to Enhance Data Consistency in Data Mining',
+    subtitle: 'MCA Master’s Research Dissertation (2022–2023)',
     organization: 'Department of Computer Science, Manipur University',
     date: '2023',
     category: 'Thesis',

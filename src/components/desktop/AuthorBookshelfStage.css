@@ -1,0 +1,841 @@
+/* ========================================================
+   ACT 11: THE AUTHOR'S SANCTUARY — EXACT MATCH REFERENCE UI
+   Standard Spatial Desk Dimensions: strictly 1220px x 570px
+   Left: "MY BOOKSHELF" (Photorealistic 3D Books with Interactive Hotspots)
+   Right: "THE READING DESK" (Flat Top-Down Open Book on Oak Desk)
+   ======================================================== */
+
+.vos-author-stage-root {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vos-author-desk-container {
+  position: relative;
+  width: 1220px;
+  max-width: min(1220px, calc(100vw - 32px));
+  height: 570px;
+  max-height: calc(100vh - 120px);
+  display: flex;
+  gap: 16px;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1240px) {
+  .vos-author-desk-container {
+    width: 1020px;
+    max-width: calc(100vw - 24px);
+    height: 520px;
+  }
+}
+
+@media (max-height: 720px) {
+  .vos-author-desk-container {
+    height: 480px;
+  }
+}
+
+/* =========================================================
+   LEFT CARD: "MY BOOKSHELF" (320px)
+   ========================================================= */
+
+.vos-bookshelf-card {
+  width: 320px;
+  height: 570px;
+  border-radius: 16px;
+  background: rgba(10, 17, 30, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(212, 175, 55, 0.05);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Header */
+.vos-shelf-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-bottom: 8px;
+}
+
+.vos-shelf-icon-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shelf-badge-svg {
+  color: #D4AF37;
+}
+
+.vos-shelf-header-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #F8FAFC;
+  letter-spacing: 0.08em;
+  font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.vos-shelf-header-sub {
+  font-size: 10px;
+  color: #94A3B8;
+  margin: 0;
+  font-family: var(--font-mono, monospace);
+  font-weight: 500;
+}
+
+/* Wooden Bookshelf Alcove with Photorealistic Books */
+.vos-shelf-alcove-frame {
+  position: relative;
+  height: 410px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid rgba(74, 46, 27, 0.7);
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+  margin: 6px 0;
+}
+
+.vos-shelf-alcove-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+}
+
+/* Overhead Spotlight Beam Accent */
+.vos-overhead-spotlight-beam {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 0%, rgba(254, 240, 138, 0.18) 0%, rgba(245, 158, 11, 0.06) 50%, transparent 85%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 4 Interactive Hotspot Zones Mapped over the 4 Physical Books */
+.vos-shelf-interactive-zones-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+
+.vos-book-hotspot {
+  position: absolute;
+  top: 36%;
+  height: 41%;
+  cursor: pointer;
+  border-radius: 4px;
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Precise Horizontal Mapping over the 4 Books in the Render */
+.book-slot-echoes {
+  left: 25.5%;
+  width: 9.8%;
+}
+
+.book-slot-pushback {
+  left: 35.3%;
+  width: 9.8%;
+}
+
+.book-slot-inwriting {
+  left: 45.2%;
+  width: 8.8%;
+}
+
+.book-slot-planned {
+  left: 54.0%;
+  width: 9.2%;
+}
+
+/* Bottom Author Profile Bar */
+.vos-shelf-author-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
+.shelf-profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.shelf-profile-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.shelf-profile-name {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #F8FAFC;
+  font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  line-height: 1.2;
+}
+
+.shelf-profile-role {
+  font-size: 9.5px;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+  margin-top: 1px;
+}
+
+/* =========================================================
+   RIGHT CARD: "THE READING DESK" (884px)
+   ========================================================= */
+
+.vos-reading-desk-card {
+  flex: 1;
+  height: 570px;
+  border-radius: 16px;
+  background: rgba(10, 17, 30, 0.88);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 35px rgba(212, 175, 55, 0.05);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Desk Card Header */
+.vos-desk-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding-bottom: 8px;
+}
+
+.desk-header-title-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.desk-main-title {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #F8FAFC;
+  margin: 0;
+  font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  line-height: 1.2;
+}
+
+.desk-gold-accent-line {
+  width: 42px;
+  height: 2px;
+  background: #D4AF37;
+  border-radius: 1px;
+  margin: 4px 0 6px 0;
+}
+
+.desk-main-sub {
+  font-size: 11px;
+  color: #94A3B8;
+  margin: 0;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+.desk-header-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.desk-no-book-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94A3B8;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono, monospace);
+}
+
+.desk-selected-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.desk-active-book-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #FDE68A;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.desk-close-book-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #CBD5E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.desk-close-book-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #EF4444;
+}
+
+/* Desk Surface Viewport (Background: author-reading-desk.jpg) */
+.vos-desk-surface-viewport {
+  position: relative;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  box-shadow: 
+    inset 0 0 40px rgba(0, 0, 0, 0.65),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   FLAT OPEN BOOK PAGES SURFACE AREA
+   Precisely aligned over the open book in the top-down image
+   ========================================================= */
+
+.vos-flat-open-book-pages-surface {
+  position: absolute;
+  top: 17%;
+  left: 21.5%;
+  width: 56.5%;
+  height: 64%;
+  z-index: 10;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* STATE A: WATERMARK OVERLAY */
+.vos-empty-book-watermark-overlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watermark-ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0.38;
+}
+
+.watermark-ornament-line .rule-l,
+.watermark-ornament-line .rule-r {
+  width: 40px;
+  height: 1px;
+  background: #854D0E;
+}
+
+.watermark-book-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watermark-svg {
+  color: #854D0E;
+}
+
+/* STATE B: PRINTED TEXT SPREAD (Directly on parchment pages) */
+.vos-printed-text-spread {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  animation: textInkFade 0.3s ease-out;
+}
+
+@keyframes textInkFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.page-column {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+
+.page-verso-column {
+  padding-right: 18px;
+}
+
+.page-recto-column {
+  padding-left: 18px;
+}
+
+.printed-center-seam {
+  width: 14px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Running Header (Safe bounds with ellipsis to prevent colliding) */
+.printed-running-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(133, 77, 14, 0.22);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #5C2D0C;
+  font-family: var(--font-mono, monospace);
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.running-book-title,
+.running-author {
+  color: #381A08;
+  flex-shrink: 0;
+}
+
+.running-chapter,
+.running-subtitle {
+  color: #78350F;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 52%;
+}
+
+/* Page Body Content */
+.printed-page-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+/* Chapter Announcement */
+.chapter-announcement {
+  margin-bottom: 2px;
+}
+
+.chapter-label {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #92400E;
+  font-family: var(--font-mono, monospace);
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+
+.chapter-heading {
+  font-size: 10px;
+  font-weight: 800;
+  color: #1C1917;
+  margin: 0;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pull-Quote Card */
+.printed-pullquote-card {
+  position: relative;
+  background: rgba(254, 243, 199, 0.45);
+  border-left: 2.5px solid #D97706;
+  border-radius: 0 4px 4px 0;
+  padding: 4px 8px 4px 18px;
+  margin: 3px 0;
+  box-sizing: border-box;
+}
+
+.pullquote-icon-svg {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  color: #D97706;
+  opacity: 0.85;
+}
+
+.pullquote-serif-text {
+  font-size: 8.5px;
+  font-style: italic;
+  font-weight: 600;
+  color: #682908;
+  line-height: 1.38;
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.printed-fleuron {
+  text-align: center;
+  font-size: 8px;
+  color: #D97706;
+  letter-spacing: 3px;
+  opacity: 0.7;
+  margin: 2px 0 0 0;
+}
+
+/* Right Page Paragraphs (Strict line clamping so excess text is cleanly hidden) */
+.printed-paragraphs {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.printed-para {
+  font-size: 8.5px;
+  color: #1C1917;
+  line-height: 1.45;
+  margin: 0;
+  text-align: justify;
+  font-family: Georgia, 'Times New Roman', serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.para-dropcap::first-letter {
+  font-size: 20px;
+  line-height: 0.85;
+  float: left;
+  padding-right: 4px;
+  font-weight: 800;
+  color: #78350F;
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Action Bar */
+.printed-action-bar {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.printed-asin-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 6.8px;
+  color: #78350F;
+  font-family: var(--font-mono, monospace);
+  padding-top: 2px;
+  border-top: 1px dashed rgba(133, 77, 14, 0.22);
+  white-space: nowrap;
+}
+
+.printed-kindle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: #1E293B;
+  color: #FDE68A;
+  font-size: 7.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  height: 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.15s ease;
+  mix-blend-mode: normal;
+  align-self: center;
+}
+
+.printed-kindle-btn:hover {
+  background: #B45309;
+  color: #FFFFFF;
+}
+
+/* Running Footer */
+.printed-running-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 3px;
+  border-top: 1px solid rgba(133, 77, 14, 0.22);
+  font-size: 7px;
+  color: #78350F;
+  font-family: var(--font-mono, monospace);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.printed-running-foot .page-num {
+  font-weight: 700;
+  color: #381A08;
+}
+
+.printed-running-foot .page-signature {
+  font-style: italic;
+  font-family: 'Brush Script MT', 'Dancing Script', Georgia, cursive;
+  font-size: 8.5px;
+  color: #5C2D0C;
+}
+
+/* Floating Spread Turn Controls */
+.vos-desk-floating-pagination {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 9px;
+  border-radius: 999px;
+  z-index: 30;
+}
+
+.desk-page-turn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #E2E8F0;
+  font-size: 8.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.desk-page-turn-btn:hover:not(:disabled) {
+  background: #D4AF37;
+  color: #0F172A;
+}
+
+.desk-page-turn-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.desk-spread-counter {
+  font-size: 8px;
+  font-weight: 800;
+  color: #94A3B8;
+  font-family: var(--font-mono, monospace);
+}
+
+/* Ambient Toast Notice */
+.vos-sanctuary-toast {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  color: #FFFFFF;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+}
+
+.toast-title {
+  font-size: 9px;
+  font-weight: 800;
+  color: #F59E0B;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono, monospace);
+}
+
+.toast-message {
+  font-size: 10px;
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+/* =========================================================
+   LIGHT MODE STYLING FOR ACT 11 CARDS & INFO TABS
+   Matches persistent daylight study room stage (Acts 02–06)
+   ========================================================= */
+
+.vos-author-stage-root.light-mode .vos-bookshelf-card,
+.vos-author-stage-root.light-mode .vos-reading-desk-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(32px) saturate(1.25);
+  -webkit-backdrop-filter: blur(32px) saturate(1.25);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 24px 54px rgba(15, 23, 42, 0.08),
+    0 0 35px rgba(212, 175, 55, 0.06);
+  color: #0F172A;
+}
+
+.vos-author-stage-root.light-mode .vos-shelf-header-title,
+.vos-author-stage-root.light-mode .desk-main-title {
+  color: #0F172A;
+}
+
+.vos-author-stage-root.light-mode .vos-shelf-header-sub,
+.vos-author-stage-root.light-mode .desk-main-sub {
+  color: #64748B;
+}
+
+.vos-author-stage-root.light-mode .vos-shelf-icon-badge {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.vos-author-stage-root.light-mode .vos-shelf-author-profile {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.vos-author-stage-root.light-mode .shelf-profile-name {
+  color: #0F172A;
+}
+
+.vos-author-stage-root.light-mode .shelf-profile-role {
+  color: #64748B;
+}
+
+.vos-author-stage-root.light-mode .desk-no-book-pill {
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #475569;
+}
+
+.vos-author-stage-root.light-mode .desk-active-book-pill {
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #854D0E;
+}
+
+.vos-author-stage-root.light-mode .desk-close-book-btn {
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  color: #475569;
+}
+
+.vos-author-stage-root.light-mode .desk-close-book-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #DC2626;
+}
+
+.vos-author-stage-root.light-mode .vos-desk-floating-pagination {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+}
+
+.vos-author-stage-root.light-mode .desk-page-turn-btn {
+  background: rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  color: #1E293B;
+}
+
+.vos-author-stage-root.light-mode .desk-page-turn-btn:hover:not(:disabled) {
+  background: #D4AF37;
+  color: #0F172A;
+}
+
+.vos-author-stage-root.light-mode .desk-spread-counter {
+  color: #64748B;
+}

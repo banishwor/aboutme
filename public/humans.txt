@@ -1,0 +1,27 @@
+/* TEAM */
+  Developer & Creator: Banishwor Athokpam (Bani)
+  Role: Software Engineer, CS Instructor & Published Author
+  Location: Thoubal, Manipur, India (ꯀꯪꯂꯩꯄꯥꯛ)
+  Contact: banishwor@outlook.com
+  Website: https://banishwor.github.io/
+  Portfolio OS: https://banishwor.github.io/aboutme/
+  GitHub: https://github.com/banishwor
+  LinkedIn: https://www.linkedin.com/in/banishwor/
+  Twitter / X: https://x.com/banishwor
+  Blog: https://baniat.blogspot.com/
+
+/* THANKS */
+  Mentors & Faculty: Manipur University (MCA Department)
+  Community: The people of Thoubal and the Kangleipak cultural preservationists
+  Open Source: The React, TypeScript, GSAP, and Vite communities
+  Students: 100+ graduates of NTS Institute of Technology & Hi-Tech Computer Education
+
+/* SITE */
+  Last update: October 2026
+  Standards: HTML5, CSS3, ECMAScript 2023, Unicode 5.2 (Meitei Mayek)
+  Frameworks: React 18, TypeScript, GSAP 3.12 (ScrollTrigger), Vanilla CSS
+  Graphics: HTML5 2D Canvas API (Mechanical Meitei Mayek Clock)
+  Audio: Native Web Audio API (Zero-asset procedural sound synthesis)
+  Fonts: Albert Sans, Plus Jakarta Sans, Space Grotesk, Apple SF Pro
+  Software Built: VS Code, Git, Node.js
+  Hosting: GitHub Pages

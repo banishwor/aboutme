@@ -64,7 +64,7 @@ export const skills: SkillItem[] = [
     name: "Modern CSS & Design Systems",
     category: "Web",
     description: "Responsive layouts, CSS custom properties, and micro-animations.",
-    projects: ["BANI OS", "Legacy Portfolio Showcase"]
+    projects: ["BANI OS", "BANI OS Spatial Exhibition"]
   },
   {
     id: "canvas-webapi",

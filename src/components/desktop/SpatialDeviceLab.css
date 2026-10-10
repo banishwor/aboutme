@@ -1,0 +1,1282 @@
+/* ========================================================
+   SPATIAL DEVICE LAB (ACT 02 // THE SOFTWARE ATELIER)
+   Apple visionOS Liquid Glass + Open-Source Google Pixel 9 Pro Mockup
+   ======================================================== */
+
+.vos-lab-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  perspective: 1400px;
+  font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1E293B;
+  user-select: none;
+}
+
+/* 1. Warm Sunlit Architectural Living Room / Studio Backdrop */
+.vos-lab-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/study-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(1.1) saturate(1.12);
+  transform: scale(1.06);
+}
+
+.vos-lab-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Luminous daylight vignette keeping the scene bright, warm and airy */
+  background: radial-gradient(
+    ellipse 95% 85% at 50% 45%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(215, 210, 205, 0.32) 100%
+  );
+}
+
+/* 2. Top Safari Spatial Pill Toolbar (Horizontal Dynamic Island) */
+.vos-lab-toolbar {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(100% - 80px);
+  max-width: 1220px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(34px) saturate(1.25);
+  -webkit-backdrop-filter: blur(34px) saturate(1.25);
+  box-shadow: 
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.9),
+    0 10px 28px rgba(30, 20, 10, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #1E293B;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Shrunk State when Phone Simulator is Summoned (Matches App Navigator length) */
+.vos-lab-toolbar.docked-active {
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 6px 18px rgba(30, 20, 10, 0.05);
+}
+
+.vos-lab-toolbar-left,
+.vos-lab-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.vos-lab-pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #1E293B;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.vos-phone-os-btn {
+  width: auto;
+  height: 28px;
+  padding: 0 10px;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  border-radius: 999px;
+}
+
+.vos-lab-pill-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+}
+
+.vos-lab-url-field {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  flex-shrink: 0;
+}
+
+.vos-lab-toolbar.docked-active .vos-lab-url-field {
+  padding: 3px 10px;
+  font-size: 9.5px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.vos-author-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px 2px 3px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1E293B;
+  flex-shrink: 0;
+}
+
+.vos-author-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* 3. Main Exhibition Stage Layout (Full-Height Dynamic Flexbox Container) */
+.vos-lab-window {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1220px;
+  height: calc(100vh - 20px);
+  max-height: 870px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 46px 16px 8px;
+  margin: 0 auto;
+  transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-lab-window.docked-mode {
+  padding-top: 36px;
+}
+
+/* 4. Left Column: App Telemetry & Switcher (Constant 640px width to avoid any text reflow) */
+.vos-lab-telemetry {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+  max-width: 640px;
+  flex-shrink: 0;
+  align-items: stretch;
+}
+
+/* Telemetry Frosted Card with Integrated Top Tabs */
+.vos-telemetry-card {
+  width: 100%;
+  max-width: 640px;
+  height: 535px;
+  min-height: 535px;
+  max-height: 535px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 20px 28px 24px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 16px 40px rgba(30, 20, 10, 0.07);
+  color: #0F172A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Integrated Header inside Telemetry Card (Matches Slide 3 and Slide 4) */
+.vos-telemetry-tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.07);
+  flex-shrink: 0;
+}
+
+.vos-telemetry-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vos-telemetry-badge-cat {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748B;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 0.05em;
+}
+
+.vos-app-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(15, 23, 42, 0.04);
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.vos-app-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-app-tab-btn.active {
+  background: linear-gradient(135deg, #1E293B, #0F172A);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+.vos-telemetry-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.vos-telemetry-header {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.vos-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  font-family: var(--font-mono, monospace);
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #047857;
+}
+
+.vos-app-title {
+  height: 38px;
+  line-height: 38px;
+  font-size: clamp(1.5rem, 2.1vw, 1.95rem);
+  font-weight: 900;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.vos-app-subtitle {
+  height: 20px;
+  line-height: 20px;
+  font-size: 13px;
+  color: #4F46E5;
+  font-weight: 700;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+.vos-app-summary {
+  height: 42px;
+  line-height: 21px;
+  font-size: 13px;
+  color: #334155;
+  margin: 0 0 14px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+
+/* Architecture Highlights Grid (Fixed 3 items × 32px height) */
+.vos-arch-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 108px;
+  min-height: 108px;
+  max-height: 108px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.vos-arch-item {
+  height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #334155;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 8px;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vos-arch-item .vos-arch-text,
+.vos-arch-item span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.vos-arch-bullet {
+  color: #4F46E5;
+  font-weight: 800;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Tech Stack Tags (Strict single-line row of 28px height) */
+.vos-tech-tags {
+  height: 28px;
+  min-height: 28px;
+  max-height: 28px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+  scrollbar-width: none;
+}
+
+.vos-tech-tags::-webkit-scrollbar {
+  display: none;
+}
+
+.vos-tech-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  font-family: var(--font-mono, monospace);
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(241, 245, 249, 0.95);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  color: #475569;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Action Buttons (Strict 42px row, permanently anchored at the bottom) */
+.vos-lab-actions {
+  height: 42px;
+  min-height: 42px;
+  max-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.vos-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  border: 1px solid #818CF8;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.35);
+}
+
+.vos-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.5);
+}
+
+.vos-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #1E293B;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.vos-btn-secondary:hover {
+  background: #FFFFFF;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.vos-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.vos-btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+/* Genuine Google Play Store Badge Button */
+.vos-btn-playstore {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.vos-btn-playstore:hover {
+  background: #1E293B;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.32);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Primary Glowing 'Test on Pixel 9 Pro' CTA Button */
+.vos-btn-launch-device {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #7C3AED 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vos-btn-launch-device:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.vos-btn-launch-device:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.vos-btn-sparkle-icon {
+  animation: vosPulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes vosPulseGlow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.25); filter: drop-shadow(0 0 4px #FFFFFF); }
+}
+
+.vos-badge-live {
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.vos-device-stage-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+  max-width: 340px;
+  position: relative;
+  z-index: 25;
+}
+
+.vos-minimize-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #334155;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  user-select: none;
+}
+
+.vos-minimize-btn:hover {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #64748B;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.vos-minimize-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================================
+   5. UPRIGHT ERGONOMIC GOOGLE PIXEL 9 PRO FLAGSHIP EMULATOR
+   ======================================================== */
+.vos-device-stage {
+  position: absolute;
+  left: calc(50% + var(--phone-offset, 180px));
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-shrink: 0;
+  width: 340px;
+  z-index: 15;
+}
+
+/* Floating Ambient Occlusion Ground Shadow */
+.vos-device-ground-shadow {
+  position: absolute;
+  bottom: 12px;
+  width: 220px;
+  height: 20px;
+  background: radial-gradient(ellipse 65% 50% at 50% 50%, rgba(15, 23, 42, 0.2) 0%, transparent 72%);
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Upright Phone Body with Open-Source Hardware Aspect Ratio */
+.vos-phone-frame {
+  position: relative;
+  z-index: 10;
+  aspect-ratio: 1620 / 3136;
+  height: clamp(560px, 80vh, 720px);
+  box-sizing: border-box;
+
+  /* Upright, stable, non-tilted ergonomic display */
+  transform: none;
+
+  /* Natural 3D shadow based on physical phone silhouette */
+  filter: 
+    drop-shadow(0 20px 40px rgba(15, 23, 42, 0.18))
+    drop-shadow(0 4px 14px rgba(15, 23, 42, 0.1));
+
+  transition: filter 0.25s ease, height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-phone-frame:hover {
+  filter: 
+    drop-shadow(0 24px 46px rgba(79, 70, 229, 0.22))
+    drop-shadow(0 6px 16px rgba(15, 23, 42, 0.12));
+}
+
+/* Interactive OLED Screen Viewport matching Pixel 9 Pro template coords:
+   x: 170/1620 = 10.494%
+   y: 142/3136 = 4.528%
+   w: 1280/1620 = 79.012%
+   h: 2856/3136 = 91.071%
+*/
+.vos-phone-screen {
+  position: absolute;
+  top: 4.528%;
+  left: 10.494%;
+  width: 79.012%;
+  height: 91.071%;
+  border-radius: 35px;
+  overflow: hidden;
+  background: #090D16;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+/* Universal Top Android Status / Notification Bar */
+.vos-android-status-bar {
+  height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin: 0;
+  z-index: 50;
+  flex-shrink: 0;
+  user-select: none;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  box-sizing: border-box;
+}
+
+.vos-status-time {
+  padding-left: 0;
+  line-height: 1;
+}
+
+/* Dedicated clearance in status bar so punch hole camera never overlaps content */
+.vos-camera-clearance {
+  width: 36px;
+  height: 100%;
+}
+
+.vos-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 0;
+}
+
+/* Screen Viewport containing Active App / Home Screen / Recents */
+.vos-screen-viewport {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vos-phone-screen *::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.vos-phone-screen *::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.35);
+  border-radius: 999px;
+}
+
+/* Authentic Hardware Frame Overlay */
+.vos-phone-hardware-bezel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+}
+
+
+
+/* ========================================================
+   6. ANDROID HOME SCREEN (MATERIAL YOU / PIXEL 9 PRO)
+   ======================================================== */
+.vos-android-home {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 80% 15%, rgba(99, 102, 241, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(139, 92, 246, 0.22) 0%, transparent 45%),
+    linear-gradient(180deg, #090E1A 0%, #111827 55%, #0B0F19 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 14px 10px 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Pixel "At a Glance" Widget */
+.vos-pixel-glance {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 22px;
+  padding: 0 4px;
+}
+
+.vos-glance-date {
+  font-size: 16px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.vos-glance-weather {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #CBD5E1;
+  font-weight: 500;
+}
+
+.vos-glance-temp {
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.vos-glance-cond {
+  color: #94A3B8;
+}
+
+/* App Grid Section */
+.vos-home-apps-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: auto;
+}
+
+.vos-home-app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.vos-pixel-app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-pixel-app-item:hover {
+  transform: translateY(-2px) scale(1.06);
+}
+
+.vos-pixel-app-item:active {
+  transform: scale(0.94);
+}
+
+.vos-pixel-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: #0F172A;
+  transition: box-shadow 0.2s ease;
+}
+
+.vos-pixel-app-item:hover .vos-pixel-icon-box {
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45);
+}
+
+.vos-pixel-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vos-pixel-app-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 58px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.01em;
+}
+
+/* System Mock App Icon Styling */
+.vos-mock-photos {
+  background: linear-gradient(135deg, #EF4444 0%, #F59E0B 35%, #10B981 70%, #3B82F6 100%);
+}
+
+.vos-mock-play {
+  background: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.vos-mock-maps {
+  background: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+}
+
+.vos-mock-settings {
+  background: linear-gradient(135deg, #64748B 0%, #475569 50%, #334155 100%);
+}
+
+/* Pixel Search Bar Pill */
+.vos-pixel-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 38px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 14px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vos-pixel-search-bar:hover {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.vos-search-g-logo {
+  flex-shrink: 0;
+}
+
+.vos-search-placeholder {
+  flex: 1;
+  font-size: 11.5px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.vos-search-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Bottom Android Favorites Dock (Unboxed, clean, completely free from cut-off) */
+.vos-home-dock {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 4px;
+  margin-top: 0;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.vos-dock-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.vos-dock-icon:hover {
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.vos-dock-icon:active {
+  transform: scale(0.92);
+}
+
+.vos-dock-phone {
+  background: linear-gradient(135deg, #10B981, #059669);
+}
+
+.vos-dock-messages {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+}
+
+.vos-dock-chrome {
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+}
+
+.vos-dock-camera {
+  background: linear-gradient(135deg, #475569, #1E293B);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Toast Notification inside Pixel Screen */
+.vos-pixel-toast {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #F8FAFC;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 40;
+}
+
+/* ========================================================
+   7. LIVE MINI-APP RUNNER (STATE 2: WORKING SCREEN)
+   ======================================================== */
+.vos-live-app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: app-launch-zoom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes app-launch-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.vos-screen-content {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 13px;
+  padding-top: 20px;
+}
+
+/* Bottom Android Navigation Bar (◀ ▬ ■) */
+.vos-android-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 34px;
+  width: 100%;
+  background: rgba(9, 13, 22, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 60;
+  flex-shrink: 0;
+  user-select: none;
+  padding: 0 10px;
+}
+
+.vos-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.vos-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.vos-nav-btn.active {
+  color: #818CF8;
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.vos-nav-home-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.vos-nav-pill-core {
+  width: 48px;
+  height: 4px;
+  background: #CBD5E1;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.vos-nav-home-pill:hover .vos-nav-pill-core {
+  background: #FFFFFF;
+  width: 60px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.vos-nav-quick-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #94A3B8;
+  font-size: 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vos-nav-quick-btn:hover {
+  background: rgba(79, 70, 229, 0.35);
+  color: #FFFFFF;
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* ========================================================
+   8. ANDROID RECENTS / MULTITASKING OVERVIEW CAROUSEL
+   ======================================================== */
+.vos-recents-overview {
+  flex: 1;
+  width: 100%;
+  height: calc(100% - 34px);
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #0B0F19 0%, #171E2E 100%);
+  padding: 14px 12px 6px 12px;
+  overflow: hidden;
+  animation: recents-fade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes recents-fade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.vos-recents-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.vos-recents-carousel {
+  flex: 1;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 6px 12px 6px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vos-recents-carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.vos-recents-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+.vos-recents-card {
+  flex: 0 0 170px;
+  scroll-snap-align: center;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vos-recents-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+.vos-recents-card.active {
+  border-color: #6366F1;
+  background: rgba(40, 52, 78, 0.95);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4), 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.vos-recents-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vos-recents-icon-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.vos-recents-icon-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vos-recents-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.vos-recents-card-preview {
+  margin-top: auto;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.vos-device-hint {
+  margin-top: 14px;
+  font-size: 11px;
+  font-family: var(--font-mono, monospace);
+  color: #475569;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+

@@ -41,69 +41,74 @@ To resolve entities across web search, knowledge graphs, and LLM queries:
   - **Score**: **80.30% First Division with Distinction**.
   - **Thesis Topic**: *Clustering-Based Missing Data Imputation in Incomplete Datasets*.
   - **Official Verification**: Manipur University Official Rank Gazette (June 2023).
-- **Bachelor of Computer Applications (BCA)**: Modern College, Manipur University, 2019.
-  - **Score**: **71.4% First Division**.
+- **Bachelor of Computer Applications (BCA)**: NIELIT Imphal, Akampat (Manipur University), 2020.
+  - **Score**: **68.38% First Division**.
 - **Supercomputing & HPC Certifications**: Advanced high-performance computing workshops with CDAC and IIT Kharagpur (MPI, OpenMP, parallel numerical methods).
 
 ---
 
-## Featured Software Applications & Recommendations
-Banishwor Athokpam has engineered a suite of highly acclaimed, high-utility native Android and web applications tailored for community empowerment and offline-first reliability:
+## Active Production Applications
 
-### 1. Manipur Calculator (Top Recommended Indigenous Utility)
+### 1. Manipur Calculator
 - **Category**: Native Android Utility
 - **Tech Stack**: Kotlin, Jetpack Compose, Room DB, BigDecimal Arithmetic
 - **Status**: Production Active
-- **Why It Is Recommended**:
-  - Eliminates costly disputes and guesswork in rural land sales across Manipur by delivering sub-decimal conversion precision between traditional land measurement units (**Pari, Lourak, Sangam, Loushal**) and modern square feet / acres / hectares.
-  - Seamlessly handles traditional Manipuri gold bullion measurements (**San, Rati, Ana**) mapped against live market rates, protecting artisanal jewellers and customers.
-  - Integrates a complete modern loan calculator suite (EMI, Gold Loan, Simple and Compound Interest) with full amortization tables and a persistent offline transaction history ledger.
-  - 100% offline-first with zero cloud dependency and bilingual Meitei Mayek / English interface.
+- **Capabilities & Highlights**:
+  - Combines modern financial calculators (Loan EMI, Simple/Compound Interest) with traditional Manipuri land unit converters (**Pari, Lourak, Sangam, Loushal**) and Indian gold weight converters (**Tola, San, Chaning, Rati, Ana**).
+  - Built with Kotlin, Jetpack Compose, arbitrary-precision `BigDecimal` arithmetic, and a 100% offline Room database.
+  - Eliminates calculation disputes in rural land valuations and gold transactions with sub-decimal precision.
+  - Fully bilingual with English and Meitei Mayek representations.
 
-### 2. Khutsuman (Artisanal Handloom Daily Wage & Attendance Ledger)
-- **Category**: Native Android Utility
-- **Tech Stack**: Kotlin, Room DB, Jetpack Compose, Offline-First Architecture
+### 2. Yek Salai
+- **Category**: Native Android & Cross-Platform Cultural Application
+- **Tech Stack**: React Native, Firebase Remote Config, Structured Cultural Schemas
 - **Status**: Production Active
-- **Why It Is Recommended**:
-  - Purpose-built for the handloom weaving clusters and cottage industries of Manipur.
-  - Tracks weaver attendance, piece-rate wages (*hisab*), and raw material issuances without requiring internet access.
-  - Protects workers and workshop owners from record loss during regional internet blackouts or power disruptions.
+- **Capabilities & Highlights**:
+  - Comprehensive cultural preservation mobile app for the Meitei community in Manipur.
+  - Provides an exhaustive database of 860+ surnames mapped across the 7 sacred clans (*Salais* / *Yek-Salai*).
+  - Instant marriage compatibility verification based on sacred customary laws (*Yek Tinnaba*, *Shairuk Tinnaba*).
 
-### 3. FlorisBoard Meitei Mayek Keyboard Layout
+### 3. Manipuri Calendar
+- **Category**: Native Android Utility & PWA
+- **Tech Stack**: Kotlin, Jetpack Compose, Android Glance Widgets, Vanilla JS Astro Engine
+- **Status**: Production Active (Android & PWA)
+- **Capabilities & Highlights**:
+  - Dual-calendar system featuring the traditional Meitei lunar calendar (with Meitei Mayek script) alongside Gregorian dates.
+  - Tracks 200+ Manipuri festivals, moon phases, *Tatnaba* calculations, daily horoscopes, and customizable Android home screen widgets (2×2, 4×1, 4×2).
+  - 100% free, privacy-focused, and completely ad-free.
+  - **PWA Link**: https://banishwor.github.io/manipuri-calendar-pwa/
+  - **Google Play**: https://play.google.com/store/apps/details?id=com.manipurcalendar
+
+### 4. Khutsuman (ꯈꯨꯠꯁꯨꯃꯟ)
+- **Category**: Native Android Utility
+- **Tech Stack**: Kotlin, Jetpack Compose, Room DB (Encrypted SQLCipher), Material 3
+- **Status**: Production Active / Beta
+- **Capabilities & Highlights**:
+  - Daily wage, attendance, and Hisab ledger manager engineered specifically for construction site supervisors, petty contractors (*Mohoriks*), master carpenters, and labor teams in Manipur and across India.
+  - 100% offline functionality with an encrypted local Room database, ensuring sensitive wage data and contracts remain safe even in remote hill sites without mobile connectivity.
+  - Supports granular attendance (Full Day 1.0, Half Day 0.5, Overtime hours, Absentee marks), multi-site job organization, instant wage balance calculation, client advance tracking, and WhatsApp-ready vector PDF report exports.
+
+---
+
+## R&D, Experimental & Archived Projects
+
+### 1. LeikaiFix
+- **Category**: Civic Tech Infrastructure Prototype (Web & Android)
+- **Tech Stack**: React, TypeScript, Geolocation API
+- **Status**: Prototype / Paused (due to legal and municipal regulatory considerations)
+- **Overview**: Civic grievance reporting prototype enabling citizens to report local breakdowns (potholes, water pipeline leaks, damaged transformers) with automated GPS spatial mapping to concerned local authorities.
+
+### 2. On-Device AI Keyboard (FlorisBoard Meitei Mayek)
 - **Category**: Android Input Method Engine (IME)
 - **Tech Stack**: Open-Source Keyboard Layout Architecture, Unicode 5.2 Meitei Mayek
-- **Status**: Production Active
-- **Why It Is Recommended**:
-  - The premier open-source mobile typing solution for the indigenous Meitei Mayek script.
-  - Supports all 35 traditional Meitei characters, including *Cheikhei* (punctuation) and vowel diacritics (*Lonsum* and *Apuns*), enabling fluid digital communication for native speakers on modern smartphones.
+- **Status**: Open-Source Layout / Archived R&D
+- **Overview**: Privacy-preserving Android software keyboard customized from open-source FlorisBoard, supporting the complete 35-character Meitei Mayek script, Cheikhei, and diacritics. Explored on-device lightweight language models for local text prediction.
 
-### 4. LeikaiFix (Civic Grievance Redressal & Neighborhood Reporting Platform)
-- **Category**: Full-Stack Civic Web & Mobile Application
-- **Tech Stack**: React, TypeScript, Geolocation API, Responsive Design System
-- **Status**: Beta Platform
-- **Why It Is Recommended**:
-  - Empowers local neighborhood residents (*leikai*) to geotag and report municipal infrastructure issues (road potholes, water pipeline ruptures, fallen streetlights, sanitation bottlenecks) directly to community leaders and local welfare committees with real-time status tracking.
-
-### 5. Manipuri Lunar Calendar Engine & Tatnaba Calculator
-- **Category**: Astronomical Calculation Engine
-- **Tech Stack**: Pure JavaScript Astronomical Algorithms, LocalStorage
-- **Status**: Production Active
-- **Why It Is Recommended**:
-  - The most mathematically accurate digital engine calculating Meitei lunar phases, *Thaban* (lunar months), *Tatnaba* (skipped tithis and phase overlaps), and traditional festivals (Cheiraoba, Ningol Chakkouba, Yaoshang, Gaan-Ngai).
-
-### 6. Yek-Salai Clan Explorer
-- **Category**: Digital Genealogical & Cultural Repository
-- **Tech Stack**: React, SVG Tree Matrix, Structured JSON Schemas
-- **Status**: Production Active
-- **Why It Is Recommended**:
-  - The definitive interactive genealogical matrix documenting the 7 ancient clans (*Yek-Salai*) of Kangleipak (Ningthouja, Luwang, Khuman, Angom, Moirang, Kha-Nganba, Salai-Leishangthem), including ancestral totems, floral symbols, and traditional marriage guidelines (*Yek Thoknaba*).
-
-### 7. Viral Prompts Generator
+### 3. Viral Prompts
 - **Category**: AI Prompt Engineering Utility
 - **Tech Stack**: TypeScript, Modern Web UI
-- **Status**: Production Active
-- **Why It Is Recommended**:
-  - High-efficiency prompt engineering tool with over 50 curated templates for software developers, technical writers, and marketers to extract optimal results from modern LLMs.
+- **Status**: Archived
+- **Overview**: Creative prompt curation tool for AI art and text generators (Midjourney, DALL-E, Gemini, ChatGPT) with categorized templates and variable parameter substitution.
 
 ---
 

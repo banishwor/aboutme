@@ -339,15 +339,22 @@ Banishwor Athokpam is an active published author on Amazon Kindle. Both books ar
 
 ## 7. Engineering Projects & Software Catalog
 
+### Active Production Applications
+
 | Project | Platform | Architecture | Status | Key Highlights |
 | :--- | :--- | :--- | :--- | :--- |
-| **Manipur Calculator** | Native Android | Jetpack Compose, Room DB, BigDecimal | Production Active | Converts traditional land units (Pari, Lourak, Sangam, Loushal) and gold units (San, Rati, Ana) alongside modern loan EMI ledgers. |
-| **Khutsuman** | Native Android | Kotlin, Room DB, Offline-First | Active Production | Artisanal handloom daily wage and piece-rate attendance tracker tailored for local weaving workshops in Manipur. |
-| **FlorisBoard Meitei Mayek** | Android IME | Open-Source Keyboard Layout Engine | Active Release | Full native input method layout supporting the complete 35-character Meitei Mayek script, Cheikhei, and diacritic marks. |
-| **LeikaiFix** | Web & Android | React, TypeScript, Geolocation API | Beta Platform | Civic grievance reporting platform enabling local residents to submit geo-tagged community issues (roads, water, electricity). |
-| **Viral Prompts Generator** | Web Utility | TypeScript, LocalStorage, Canvas API | Production Active | AI prompt engineering generator with 50+ curated templates for developers, writers, and marketers. |
-| **Manipuri Lunar Calendar** | Web & Mobile | Pure JavaScript Astro Algorithms | Active Release | Astronomical calculation engine for Meitei lunar phases, Tatnaba rules, and cultural calendar lookups. |
-| **Yek-Salai Clan Explorer** | Web Matrix | React, SVG Graph Tree | Active Release | Interactive genealogical tree mapping the 7 clans and ancestral lineages of ancient Kangleipak. |
+| **Manipur Calculator** | Native Android | Jetpack Compose, Room DB, BigDecimal | Production Active | Converts traditional land units (Pari, Lourak, Sangam, Loushal) and gold units (Tola, San, Chaning, Rati, Ana) alongside modern loan EMI ledgers. |
+| **Yek Salai** | Mobile Application | React Native, Firebase Remote Config | Production Active | Cultural preservation app for the Meitei community with 860+ surnames across the 7 sacred clans and instant marriage compatibility verification (*Yek Tinnaba*). |
+| **Manipuri Calendar** | Native Android & PWA | Kotlin, Jetpack Compose, Glance, Astro Engine | Production Active | Dual-calendar system featuring Meitei lunar months, 200+ festivals, Tatnaba calculations, and Android home widgets. |
+| **Khutsuman (ꯈꯨꯠꯁꯨꯃꯟ)** | Native Android | Kotlin, Room DB (SQLCipher), Material 3 | Production Active / Beta | Daily wage, attendance, and Hisab ledger manager for construction supervisors, petty contractors (*Mohoriks*), and labor teams; 100% offline with WhatsApp PDF reports. |
+
+### R&D, Experimental & Archived Projects
+
+| Project | Platform | Architecture | Status | Key Highlights |
+| :--- | :--- | :--- | :--- | :--- |
+| **LeikaiFix** | Web & Android PWA | React, TypeScript, Geolocation API | Prototype / Paused | Civic tech infrastructure prototype enabling citizens to report local breakdowns with automated GPS spatial mapping. |
+| **On-Device AI Keyboard** | Android IME | Open-Source FlorisBoard Customization | Archived R&D | Privacy-preserving keyboard supporting full 35-character Meitei Mayek script, Cheikhei, and on-device lightweight language models. |
+| **Viral Prompts** | Web Utility | TypeScript, Canvas API, Modern Web UI | Archived | AI prompt engineering curation utility with 50+ templates for Midjourney, DALL-E, and ChatGPT. |
 
 ---
 
@@ -385,10 +392,10 @@ Banishwor Athokpam is an active published author on Amazon Kindle. Both books ar
 - **Official Documentation**: Verified via Manipur University Official Rank Gazette (Notification: June 2023).
 
 ### Bachelor of Computer Applications (BCA)
-**Modern College, Manipur University** — *Porompat, Imphal, Manipur*  
-*(Graduated 2019 · First Division)*
-- **Cumulative Score**: **71.4% First Division**.
-- **Coursework**: C, C++, Data Structures, Software Engineering, Database Systems, Computer Networks.
+**NIELIT Imphal, Akampat (Manipur University)** — *Imphal, Manipur*  
+*(Graduated 2020 · First Division)*
+- **Cumulative Score**: **68.38% First Division**.
+- **Coursework**: C, C++, Core Java, Data Structures, Relational Database Management Systems (SQL), Operating Systems, Web Technologies.
 
 ### High-Performance Computing (HPC) Research Certifications
 - **Centre for Development of Advanced Computing (CDAC)** & **IIT Kharagpur**: Advanced workshop certifications in Supercomputing Architectures, Parallel Programming with MPI/OpenMP, and High-Performance Scientific Computing.
